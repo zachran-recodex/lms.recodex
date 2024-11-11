@@ -24,7 +24,7 @@
 
             <div class="w-full flex-col justify-center items-start space-y-3">
                 <div class="flex justify-between items-center">
-                    <h2 class="text-2xl font-semibold">Selamat Datang, Aulia Hanifa Fianta</h2>
+                    <h2 class="text-2xl font-semibold">Selamat Datang, Admin</h2>
                 </div>
                 <div class="w-full grid grid-cols-4 gap-4">
 

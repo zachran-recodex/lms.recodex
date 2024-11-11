@@ -49,17 +49,25 @@
                 class="flex w-[24px] h-[24px] items-center justify-center shrink-0">
             <p class="text-base text-white">Settings</p>
         </a>
-        <a href="" class="flex w-full h-[45px] py-[0px] px-[12px] items-center gap-[16px]">
+        <!-- Authentication -->
+        <form method="POST" action="{{ route('logout') }}"
+            class="flex w-full h-[45px] py-[0px] px-[12px] items-center gap-[16px]">
+            @csrf
+
             <img src="{{ asset('images/logout.svg') }}" alt="dashboard"
                 class="flex w-[24px] h-[24px] items-center justify-center shrink-0">
-            <p class="text-base text-white">Logout</p>
-        </a>
+            <x-dropdown-link :href="route('logout')"
+                onclick="event.preventDefault();
+                                this.closest('form').submit();">
+                {{ __('Log Out') }}
+            </x-dropdown-link>
+        </form>
     </div>
 </div>
 <div class="flex w-[250px] h-[81px] justify-center items-center gap-[12px] shrink-0">
     <div class="w-[44px] h-[44px] shrink-0 bg-[#D9D9D9] rounded-full"></div>
     <div class="flex flex-col items-start text-white">
-        <h3>Aulia Hanifa Fianta</h3>
-        <p>aulia@lms.recodex.id</p>
+        <h3>Admin</h3>
+        <p>admin@lms.recodex.id</p>
     </div>
 </div>
