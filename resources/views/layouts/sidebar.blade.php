@@ -6,7 +6,10 @@
                     <img src="{{ asset('images/logo.svg') }}" alt="logo"
                         class="flex w-24px h-24px justify-center items-center">
                 </div>
-                <h1 class="text-2xl font-bold text-white">TractoLearn</h1>
+                <div class="flex flex-col items-center">
+                    <h1 class="text-2xl font-bold text-white">TractoLearn</h1>
+                    <p class="text-sm text-white">by <span class="text-[#86C332]">Recodex</span></p>
+                </div>
             </div>
             <div class="flex w-[189px] flex-col justify-center items-start gap-[25px]">
                 <a href="" class="flex w-full h-[45px] py-[0px] px-[12px] items-center gap-[16px]">

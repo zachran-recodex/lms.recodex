@@ -28,6 +28,11 @@
         <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
             {{ $slot }}
         </div>
+
+        <footer class="w-full text-black text-center py-4 mt-6">
+            <p>&#169; {{ date('Y') }} TractoLearn. All rights reserved. Created by <a href="https://recodex.id"
+                    class="text-[#86C332]">Recodex</a>.</p>
+        </footer>
     </div>
 </body>
 
