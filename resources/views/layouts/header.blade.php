@@ -26,7 +26,7 @@
             </button>
         </div>
         <div class="hidden h-[48px] w-[1px] bg-bgray-300 xl:block"></div>
-        <!--                author-->
+        <!--Profile-->
         <div onclick="profileAction()" class="flex cursor-pointer space-x-0 lg:space-x-3">
             <div class="h-[52px] w-[52px] overflow-hidden rounded-xl border border-bgray-300">
                 <img class="object-cover" src="{{ asset('') }}images/avatar/profile-52x52.png" alt="avater" />

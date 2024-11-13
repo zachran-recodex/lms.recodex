@@ -34,34 +34,21 @@
         <div class="flex flex-col lg:flex-row justify-between min-h-screen">
             <!-- Left -->
             {{ $slot }}
+
             <!-- Right -->
-            <div class="lg:w-1/2 lg:block hidden bg-[#F6FAFF] p-20 relative">
-                <ul>
-                    <li class="absolute top-10 left-8">
-                        <img src="{{ asset('') }}images/shapes/square.svg" alt="" />
-                    </li>
-                    <li class="absolute right-12 top-14">
-                        <img src="{{ asset('') }}images/shapes/vline.svg" alt="" />
-                    </li>
-                    <li class="absolute bottom-7 left-8">
-                        <img src="{{ asset('') }}images/shapes/dotted.svg" alt="" />
-                    </li>
-                </ul>
-                <div class="">
-                    <img src="{{ asset('') }}images/illustration/signin.svg" alt="" />
-                </div>
-                <div>
-                    <div class="text-center max-w-lg px-1.5 m-auto">
-                        <h3 class="text-bgray-900 font-semibold font-popins text-2xl mb-4">
-                            Empowering Learning, Elevating Skills.
-                        </h3>
-                        <p class="text-bgray-600 text-sm font-medium">
-                            Prolift Academy adalah platform pembelajaran online yang dirancang untuk memberikan
-                            pelatihan berkualitas kepada pelanggan United Tractors. Dengan akses ke video tutorial,
-                            panduan interaktif, dan bimbingan mentor, Prolift Academy membantu Anda menguasai penggunaan
-                            unit secara efektif dan mendalam, di mana saja dan kapan saja.
-                        </p>
-                    </div>
+            <div class="lg:w-1/2 lg:block hidden bg-[#F6FAFF] p-8 sm:p-12 relative bg-cover bg-center"
+                style="background-image: url('{{ asset('images/background/login.jpg') }}');">
+                <!-- Overlay -->
+                <div class="absolute inset-0 bg-black opacity-50"></div>
+
+                <div
+                    class="relative h-full flex flex-col justify-center items-center text-center max-w-lg m-auto p-4 sm:p-8">
+                    <p class="text-white text-base sm:text-lg font-medium">
+                        Prolift Academy adalah platform pembelajaran online yang dirancang untuk memberikan
+                        pelatihan berkualitas kepada pelanggan United Tractors. Dengan akses ke video tutorial,
+                        panduan interaktif, dan bimbingan mentor, Prolift Academy membantu Anda menguasai penggunaan
+                        unit secara efektif dan mendalam, di mana saja dan kapan saja.
+                    </p>
                 </div>
             </div>
         </div>

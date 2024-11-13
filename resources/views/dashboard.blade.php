@@ -54,7 +54,7 @@
     <main class="w-full px-6 pb-6 pt-[100px] sm:pt-[156px] xl:px-12 xl:pb-12">
         <div class="2xl:flex 2xl:space-x-[48px]">
             <p class="text-xl font-medium text-bgray-600 lg:text-sm lg:leading-[25.2px]">
-                Selamat Datang, {{ Auth::user()->name }}
+                Selamat Datang, {{ Auth::user()->first_name }}
             </p>
         </div>
     </main>
