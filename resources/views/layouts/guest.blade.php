@@ -12,28 +12,63 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+    <link rel="stylesheet" href="{{ asset('') }}css/slick.css" />
+    <link rel="stylesheet" href="{{ asset('') }}css/aos.css" />
+    <link rel="stylesheet" href="{{ asset('') }}css/output.css" />
+    <link rel="stylesheet" href="{{ asset('') }}css/style.css" />
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans text-gray-900 antialiased">
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-        <div>
-            <a href="/" class="flex w-full h-[45px] py-[0px] px-[12px] items-center gap-[16px] mb-4">
-                <x-application-logo class="w-20 h-20 p-4 rounded-full bg-[#0010F7]" />
-                <h1 class="text-4xl font-bold text-black">TractoLearn</h1>
-            </a>
-        </div>
-
-        <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+<body>
+    <section class="bg-white dark:bg-darkblack-500">
+        <div class="flex flex-col lg:flex-row justify-between min-h-screen">
+            <!-- Left -->
             {{ $slot }}
+            <!-- Right -->
+            <div class="lg:w-1/2 lg:block hidden bg-[#F6FAFF] dark:bg-darkblack-600 p-20 relative">
+                <ul>
+                    <li class="absolute top-10 left-8">
+                        <img src="{{ asset('') }}images/shapes/square.svg" alt="" />
+                    </li>
+                    <li class="absolute right-12 top-14">
+                        <img src="{{ asset('') }}images/shapes/vline.svg" alt="" />
+                    </li>
+                    <li class="absolute bottom-7 left-8">
+                        <img src="{{ asset('') }}images/shapes/dotted.svg" alt="" />
+                    </li>
+                </ul>
+                <div class="">
+                    <img src="{{ asset('') }}images/illustration/signin.svg" alt="" />
+                </div>
+                <div>
+                    <div class="text-center max-w-lg px-1.5 m-auto">
+                        <h3 class="text-bgray-900 dark:text-white font-semibold font-popins text-4xl mb-4">
+                            Speady, Easy and Fast
+                        </h3>
+                        <p class="text-bgray-600 dark:text-bgray-50 text-sm font-medium">
+                            BankCo. help you set saving goals, earn cash back offers, Go to
+                            disclaimer for more details and get paychecks up to two days
+                            early. Get a
+                            <span class="text-success-300 font-bold">$20</span> bonus when
+                            you receive qualifying direct deposits
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <footer class="w-full text-black text-center py-4 mt-6">
-            <p>&#169; {{ date('Y') }} TractoLearn. All rights reserved. Created by <a href="https://recodex.id"
-                    class="text-[#86C332]">Recodex</a>.</p>
-        </footer>
-    </div>
+    <!--scripts -->
+    <script src="{{ asset('') }}js/jquery-3.6.0.min.js"></script>
+    <script src="{{ asset('') }}js/aos.js"></script>
+    <script src="{{ asset('') }}js/slick.min.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="{{ asset('') }}js/chart.js"></script>
+    <script src="{{ asset('') }}js/main.js"></script>
 </body>
 
 </html>

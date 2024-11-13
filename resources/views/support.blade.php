@@ -17,11 +17,8 @@
                 <!--              page-title-->
                 <div>
                     <h3 class="text-xl font-bold text-bgray-900 dark:text-bgray-50 lg:text-3xl lg:leading-[36.4px]">
-                        Dashboard
+                        Support
                     </h3>
-                    <p class="text-xs font-medium text-bgray-600 dark:text-bgray-50 lg:text-sm lg:leading-[25.2px]">
-                        Selamat Datang, {{ auth()->user()->name }}
-                    </p>
                 </div>
                 <!--              search-bar-->
                 <div class="searchbar-wrapper">
@@ -59,6 +56,29 @@
                 <div class="quick-access-wrapper relative">
                     <div class="flex items-center space-x-[43px]">
                         <div class="hidden items-center space-x-5 xl:flex">
+                            <button type="button" id="theme-toggle"
+                                class="relative flex h-[52px] w-[52px] items-center justify-center rounded-[12px] border border-success-300 dark:border-darkblack-400">
+                                <span class="block dark:hidden">
+                                    <svg class="stroke-bgray-900" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M18.3284 14.8687C13.249 14.8687 9.13135 10.751 9.13135 5.67163C9.13135 4.74246 9.26914 3.84548 9.5254 3C5.74897 4.14461 3 7.65276 3 11.803C3 16.8824 7.11765 21 12.197 21C16.3472 21 19.8554 18.251 21 14.4746C20.1545 14.7309 19.2575 14.8687 18.3284 14.8687Z"
+                                            stroke-width="1.5" stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                                <span class="hidden dark:block">
+                                    <svg class="stroke-bgray-900 dark:stroke-bgray-50" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="12" cy="12" r="5" stroke-width="1.5" />
+                                        <path d="M12 2V4" stroke-width="1.5" stroke-linecap="round" />
+                                        <path d="M12 20V22" stroke-width="1.5" stroke-linecap="round" />
+                                        <path d="M20.6602 7L18.9281 8" stroke-width="1.5" stroke-linecap="round" />
+                                        <path d="M5.07178 16L3.33973 17" stroke-width="1.5" stroke-linecap="round" />
+                                        <path d="M3.33984 7L5.07189 8" stroke-width="1.5" stroke-linecap="round" />
+                                        <path d="M18.9282 16L20.6603 17" stroke-width="1.5" stroke-linecap="round" />
+                                    </svg>
+                                </span>
+                            </button>
                             <button onclick="notificationAction()" id="notification-btn" type="button"
                                 class="relative flex h-[52px] w-[52px] items-center justify-center rounded-[12px] border border-success-300 dark:border-darkblack-400">
                                 <span
@@ -78,6 +98,17 @@
                                     viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M2 12V7C2 4.79086 3.79086 3 6 3H18C20.2091 3 22 4.79086 22 7V17C22 19.2091 20.2091 21 18 21H8M6 8L9.7812 10.5208C11.1248 11.4165 12.8752 11.4165 14.2188 10.5208L18 8M2 15H8M2 18H8"
+                                        stroke-width="1.5" stroke-linecap="round" />
+                                </svg>
+                            </button>
+                            <button onclick="storeAction()" type="button" id="store-btn"
+                                class="relative flex h-[52px] w-[52px] items-center justify-center rounded-[12px] border border-success-300 dark:border-darkblack-400">
+                                <span
+                                    class="absolute -right-[5px] -top-[2px] h-3.5 w-3.5 rounded-full border-2 border-white bg-bgray-300 dark:border-none dark:bg-bgray-600"></span>
+                                <svg class="stroke-bgray-900 dark:stroke-white" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M4 11H20M4 11C2.89543 11 2 10.1046 2 9V8C2 6.89543 2.89543 6 4 6H20C21.1046 6 22 6.89543 22 8V9C22 10.1046 21.1046 11 20 11M4 11L4 20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V11M12 6H16C17.1046 6 18 5.10457 18 4C18 2.89543 17.1046 2 16 2C13.7909 2 12 3.79086 12 6ZM12 6H8C6.89543 6 6 5.10457 6 4C6 2.89543 6.89543 2 8 2C10.2091 2 12 3.79086 12 6ZM12 6V22"
                                         stroke-width="1.5" stroke-linecap="round" />
                                 </svg>
                             </button>

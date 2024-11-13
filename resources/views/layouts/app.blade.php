@@ -12,44 +12,640 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+    <link rel="stylesheet" href="{{ asset('') }}css/slick.css" />
+    <link rel="stylesheet" href="{{ asset('') }}css/aos.css" />
+    <link rel="stylesheet" href="{{ asset('') }}css/output.css" />
+    <link rel="stylesheet" href="{{ asset('') }}css/style.css" />
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100 flex">
-        <aside id="default-sidebar"
-            class="fixed top-0 left-0 z-40 flex flex-col w-72 h-screen px-4 py-6 justify-between items-center bg-[#0D1114] transition-transform -translate-x-full sm:translate-x-0"
-            aria-label="Sidebar">
-            @include('layouts.sidebar')
-        </aside>
+<body>
 
-        <!-- Page Content -->
-        <main class="sm:ml-72 w-full">
-            <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-white h-[95px] shadow">
-                    <div class="mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-                        <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar"
-                            aria-controls="default-sidebar" type="button"
-                            class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
-                            <span class="sr-only">Open sidebar</span>
-                            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path clip-rule="evenodd" fill-rule="evenodd"
-                                    d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
-                                </path>
-                            </svg>
-                        </button>
-                        {{ $header }}
-                    </div>
-                </header>
-            @endisset
-            <div class="p-8">
+    <div class="layout-wrapper active w-full">
+        <div class="relative flex w-full">
+            @include('layouts.sidebar')
+            <div class="body-wrapper flex-1 overflow-x-hidden dark:bg-darkblack-500">
+                <!-- Page Heading -->
+                @isset($header)
+                    {{ $header }}
+                @endisset
                 {{ $slot }}
             </div>
-        </main>
+        </div>
     </div>
+
+    <!--scripts -->
+    <script src="{{ asset('') }}js/jquery-3.6.0.min.js"></script>
+    <script src="{{ asset('') }}js/aos.js"></script>
+    <script src="{{ asset('') }}js/slick.min.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="{{ asset('') }}js/quill.min.js"></script>
+    <script src="{{ asset('') }}js/main.js"></script>
+    <script src="{{ asset('') }}js/chart.js"></script>
+    <script>
+        $(".card-slider").slick({
+            dots: true,
+            infinite: true,
+            autoplay: true,
+            speed: 500,
+            fade: true,
+            cssEase: "linear",
+            arrows: false,
+        });
+
+        function totalEarn() {
+            const ctx_bids = document.getElementById("totalEarn").getContext("2d");
+            const bitsMonth = [
+                "Jan",
+                "Feb",
+                "Mar",
+                "Afril",
+                "May",
+                "Jan",
+                "Feb",
+                "Mar",
+                "Afril",
+                "May",
+                "Feb",
+                "Mar",
+                "Afril",
+                "May",
+            ];
+            const bitsData = [
+                0, 10, 0, 65, 0, 25, 0, 35, 20, 100, 40, 75, 50, 85, 60,
+            ];
+            const totalEarn = new Chart(ctx_bids, {
+                type: "line",
+                data: {
+                    labels: bitsMonth,
+                    datasets: [{
+                        label: "Visitor",
+                        data: bitsData,
+                        backgroundColor: () => {
+                            const chart = document
+                                .getElementById("totalEarn")
+                                .getContext("2d");
+                            const gradient = chart.createLinearGradient(0, 0, 0, 450);
+                            gradient.addColorStop(0, "rgba(34, 197, 94,0.41)");
+                            gradient.addColorStop(0.2, "rgba(255, 255, 255, 0)");
+
+                            return gradient;
+                        },
+                        borderColor: "#22C55E",
+                        pointRadius: 0,
+                        pointBackgroundColor: "#fff",
+                        pointBorderColor: "#22C55E",
+                        borderWidth: 1,
+                        fill: true,
+                        fillColor: "#fff",
+                        tension: 0.4,
+                    }, ],
+                },
+                options: {
+                    layout: {
+                        padding: {
+                            bottom: -20,
+                        },
+                    },
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false,
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                display: false,
+                            },
+                        },
+                        y: {
+                            grid: {
+                                display: false,
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                display: false,
+                            },
+                        },
+                    },
+
+                    plugins: {
+                        legend: {
+                            position: "top",
+                            display: false,
+                        },
+                        title: {
+                            display: false,
+                            text: "Visitor: 2k",
+                        },
+                        tooltip: {
+                            enabled: false,
+                        },
+                    },
+                },
+            });
+        }
+        totalEarn();
+
+        function totalSpendingChart() {
+            let ctx_bids = document
+                .getElementById("totalSpending")
+                .getContext("2d");
+            let bitsMonth = [
+                "Jan",
+                "Feb",
+                "Mar",
+                "Afril",
+                "May",
+                "Jan",
+                "Feb",
+                "Mar",
+                "Afril",
+                "May",
+                "Feb",
+                "Mar",
+                "Afril",
+                "May",
+            ];
+            let bitsData = [
+                0, 10, 0, 65, 0, 25, 0, 35, 20, 100, 40, 75, 50, 85, 60,
+            ];
+            let totalEarn = new Chart(ctx_bids, {
+                type: "line",
+                data: {
+                    labels: bitsMonth,
+                    datasets: [{
+                        label: "Visitor",
+                        data: bitsData,
+                        backgroundColor: () => {
+                            const chart = document
+                                .getElementById("totalEarn")
+                                .getContext("2d");
+                            const gradient = chart.createLinearGradient(0, 0, 0, 450);
+                            gradient.addColorStop(0, "rgba(34, 197, 94,0.41)");
+                            gradient.addColorStop(0.2, "rgba(255, 255, 255, 0)");
+
+                            return gradient;
+                        },
+                        borderColor: "#22C55E",
+                        pointRadius: 0,
+                        pointBackgroundColor: "#fff",
+                        pointBorderColor: "#22C55E",
+                        borderWidth: 1,
+                        fill: true,
+                        fillColor: "#fff",
+                        tension: 0.4,
+                    }, ],
+                },
+                options: {
+                    layout: {
+                        padding: {
+                            bottom: -20,
+                        },
+                    },
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false,
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                display: false,
+                            },
+                        },
+                        y: {
+                            grid: {
+                                display: false,
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                display: false,
+                            },
+                        },
+                    },
+
+                    plugins: {
+                        legend: {
+                            position: "top",
+                            display: false,
+                        },
+                        title: {
+                            display: false,
+                            text: "Visitor: 2k",
+                        },
+                        tooltip: {
+                            enabled: false,
+                        },
+                    },
+                },
+            });
+        }
+        totalSpendingChart();
+
+        function totalGoal() {
+            let ctx_bids = document.getElementById("totalGoal").getContext("2d");
+            let bitsMonth = [
+                "Jan",
+                "Feb",
+                "Mar",
+                "Afril",
+                "May",
+                "Jan",
+                "Feb",
+                "Mar",
+                "Afril",
+                "May",
+                "Feb",
+                "Mar",
+                "Afril",
+                "May",
+            ];
+            let bitsData = [
+                0, 10, 0, 65, 0, 25, 0, 35, 20, 100, 40, 75, 50, 85, 60,
+            ];
+            let totalEarn = new Chart(ctx_bids, {
+                type: "line",
+                data: {
+                    labels: bitsMonth,
+                    datasets: [{
+                        label: "Visitor",
+                        data: bitsData,
+                        backgroundColor: () => {
+                            const chart = document
+                                .getElementById("totalGoal")
+                                .getContext("2d");
+                            const gradient = chart.createLinearGradient(0, 0, 0, 450);
+                            gradient.addColorStop(0, "rgba(34, 197, 94,0.41)");
+                            gradient.addColorStop(0.2, "rgba(255, 255, 255, 0)");
+                            console.log({
+                                gradient
+                            });
+                            return gradient;
+                        },
+                        borderColor: "#22C55E",
+                        pointRadius: 0,
+                        pointBackgroundColor: "#fff",
+                        pointBorderColor: "#22C55E",
+                        borderWidth: 1,
+                        fill: true,
+                        fillColor: "#fff",
+                        tension: 0.4,
+                    }, ],
+                },
+                options: {
+                    layout: {
+                        padding: {
+                            bottom: -20,
+                        },
+                    },
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false,
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                display: false,
+                            },
+                        },
+                        y: {
+                            grid: {
+                                display: false,
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                display: false,
+                            },
+                        },
+                    },
+
+                    plugins: {
+                        legend: {
+                            position: "top",
+                            display: false,
+                        },
+                        title: {
+                            display: false,
+                            text: "Visitor: 2k",
+                        },
+                        tooltip: {
+                            enabled: false,
+                        },
+                    },
+                },
+            });
+        }
+        totalGoal();
+
+        let revenueFlowElement = document
+            .getElementById("revenueFlow")
+            .getContext("2d");
+        let month = [
+            "Jan",
+            "Feb",
+            "Mar",
+            "April",
+            "May",
+            "Jun",
+            "July",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+        ];
+        let dataSetsLight = [{
+                label: "My First Dataset",
+                data: [1, 5, 2, 2, 6, 7, 8, 7, 3, 4, 1, 3],
+                backgroundColor: [
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(250, 204, 21, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                ],
+                borderWidth: 0,
+                borderRadius: 5,
+            },
+            {
+                label: "My First Dataset 2",
+                data: [5, 2, 4, 2, 5, 8, 3, 7, 3, 4, 1, 3],
+                backgroundColor: [
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(255, 120, 75, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                ],
+                borderWidth: 0,
+                borderRadius: 5,
+            },
+            {
+                label: "My First Dataset 3",
+                data: [2, 5, 3, 2, 5, 6, 9, 7, 3, 4, 1, 3],
+                backgroundColor: [
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(74, 222, 128, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                    "rgba(237, 242, 247, 1)",
+                ],
+                borderWidth: 0,
+                borderRadius: 5,
+            },
+        ];
+        let dataSetsDark = [{
+                label: "My First Dataset",
+                data: [1, 5, 2, 2, 6, 7, 8, 7, 3, 4, 1, 3],
+                backgroundColor: [
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(250, 204, 21, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                ],
+                borderWidth: 0,
+                borderRadius: 5,
+            },
+            {
+                label: "My First Dataset 2",
+                data: [5, 2, 4, 2, 5, 8, 3, 7, 3, 4, 1, 3],
+                backgroundColor: [
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(255, 120, 75, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                ],
+                borderWidth: 0,
+                borderRadius: 5,
+            },
+            {
+                label: "My First Dataset 3",
+                data: [2, 5, 3, 2, 5, 6, 9, 7, 3, 4, 1, 3],
+                backgroundColor: [
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(74, 222, 128, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                    "rgba(42, 49, 60, 1)",
+                ],
+                borderWidth: 0,
+                borderRadius: 5,
+            },
+        ];
+        let revenueFlow = new Chart(revenueFlowElement, {
+            type: "bar",
+            data: {
+                labels: month,
+                datasets: dataSetsLight,
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: "rgb(243 ,246, 255 ,1)",
+                        },
+                        gridLines: {
+                            zeroLineColor: "transparent",
+                        },
+                        ticks: {
+                            callback(value) {
+                                return `${value}% `;
+                            },
+                        },
+                    },
+                    x: {
+                        grid: {
+                            color: "rgb(243 ,246, 255 ,1)",
+                        },
+                        gridLines: {
+                            zeroLineColor: "transparent",
+                        },
+                    },
+                },
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                },
+                x: {
+                    stacked: true,
+                },
+                y: {
+                    stacked: true,
+                },
+            },
+        });
+        //pie chart
+        let pieChart = document.getElementById("pie_chart").getContext("2d");
+
+        const data = {
+            labels: [10, 20, 30],
+            datasets: [{
+                label: "My First Dataset",
+                data: [15, 20, 35, 40],
+                backgroundColor: ["#1A202C", "#61C660", "#F8CC4B", "#EDF2F7"],
+                borderColor: ["#ffffff", "#ffffff", "#ffffff", "#1A202C"],
+                hoverOffset: 18,
+                borderWidth: 0,
+            }, ],
+        };
+        const customDatalabels = {
+            id: "customDatalabels",
+            afterDatasetsDraw(chart, args, pluginOptions) {
+                const {
+                    ctx,
+                    data,
+                    chartArea: {
+                        top,
+                        bottom,
+                        left,
+                        right,
+                        width,
+                        height
+                    },
+                } = chart;
+                ctx.save();
+                data.datasets[0].data.forEach((datapoint, index) => {
+                    const {
+                        x,
+                        y
+                    } = chart
+                        .getDatasetMeta(0)
+                        .data[index].tooltipPosition();
+                    ctx.font = "bold 12px sans-serif";
+                    ctx.fillStyle = data.datasets[0].borderColor[index];
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "middle";
+                    ctx.fillText(`${datapoint}%`, x, y);
+                });
+            },
+        };
+        const config = {
+            type: "doughnut",
+            data,
+            options: {
+                maintainAspectRatio: false,
+                layout: {
+                    padding: {
+                        left: 10,
+                        right: 10,
+                        top: 10,
+                        bottom: 10,
+                    },
+                },
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                },
+            },
+            plugins: [customDatalabels],
+        };
+
+        let pieChartConfiig = new Chart(pieChart, config);
+
+        //chart dark mode
+        let themeToggleSwitch = document.getElementById("theme-toggle");
+
+        //onclick
+
+        if (themeToggleSwitch) {
+            themeToggleSwitch.addEventListener("click", function() {
+                if (
+                    document.documentElement.classList[0] === "dark" ||
+                    localStorage.theme === "dark"
+                ) {
+                    revenueFlow.data.datasets = dataSetsDark;
+                    revenueFlow.options.scales.y.ticks.color = "white";
+                    revenueFlow.options.scales.x.ticks.color = "white";
+                    revenueFlow.options.scales.x.grid.color = "#222429";
+                    revenueFlow.options.scales.y.grid.color = "#222429";
+                    revenueFlow.update();
+                } else {
+                    revenueFlow.data.datasets = dataSetsLight;
+                    revenueFlow.options.scales.y.ticks.color = "black";
+                    revenueFlow.options.scales.x.ticks.color = "black";
+                    revenueFlow.options.scales.x.grid.color = "rgb(243 ,246, 255 ,1)";
+                    revenueFlow.options.scales.y.grid.color = "rgb(243 ,246, 255 ,1)";
+                    revenueFlow.update();
+                }
+            });
+        }
+
+        //initial load
+        if (
+            localStorage.theme === "dark" ||
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+            revenueFlow.data.datasets = dataSetsDark;
+            revenueFlow.options.scales.y.ticks.color = "white";
+            revenueFlow.options.scales.x.ticks.color = "white";
+            revenueFlow.options.scales.x.grid.color = "#222429";
+            revenueFlow.options.scales.y.grid.color = "#222429";
+        } else {
+            revenueFlow.data.datasets = dataSetsLight;
+            revenueFlow.options.scales.y.ticks.color = "black";
+            revenueFlow.options.scales.x.ticks.color = "black";
+            revenueFlow.options.scales.x.grid.color = "rgb(243 ,246, 255 ,1)";
+            revenueFlow.options.scales.y.grid.color = "rgb(243 ,246, 255 ,1)";
+        }
+        revenueFlow.update();
+    </script>
 </body>
 
 </html>
