@@ -38,11 +38,7 @@
                     </button>
                     <div>
                         <a href="/">
-                            <div class="flex items-center gap-4">
-                                <img src="{{ asset('') }}images/logo/logo-ut.png" class="block w-[50px] h-[50px]"
-                                    alt="logo" />
-                                <h1 class="text-xl font-bold">Modul Pelatihan</h1>
-                            </div>
+                            <h1 class="text-xl font-bold">Modul Pelatihan</h1>
                         </a>
                     </div>
                 </div>
@@ -52,16 +48,17 @@
     </x-slot>
 
     <main class="w-full px-6 pb-6 pt-[100px] sm:pt-[156px] xl:px-12 xl:pb-12">
-        <div class="2xl:flex 2xl:space-x-[48px]">
+        <div class="2xl:flex 2xl:space-x-[48px] flex flex-col">
+            <!-- Search and Filter Section -->
             <section class="mb-6 2xl:mb-0 2xl:flex-1">
-                <div class="flex items-center w-full">
+                <div class="flex items-center w-full flex-col sm:flex-row">
                     <!-- Search Bar -->
-                    <div class="searchbar-wrapper flex items-center">
+                    <div class="searchbar-wrapper flex items-center w-full mb-4 sm:mb-0 sm:w-auto">
                         <div
-                            class="flex h-[56px] w-[300px] lg:w-[400px] items-center justify-between rounded-lg border border-bgray-900 bg-bgray-50 px-4 ">
+                            class="flex h-[56px] w-full sm:w-[300px] lg:w-[400px] items-center justify-between rounded-lg border border-bgray-900 bg-bgray-50 px-4">
                             <div class="flex w-full items-center space-x-3.5">
                                 <span>
-                                    <svg class="stroke-bgray-900 " width="20" height="20" viewBox="0 0 20 20"
+                                    <svg class="stroke-bgray-900" width="20" height="20" viewBox="0 0 20 20"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="9.78639" cy="9.78602" r="8.23951" stroke-width="1.5"
                                             stroke-linecap="round" stroke-linejoin="round" />
@@ -71,24 +68,25 @@
                                 </span>
                                 <label for="search" class="w-full">
                                     <input type="text" id="search" placeholder="Search..."
-                                        class="search-input w-full border-none bg-bgray-50 px-0 text-sm tracking-wide text-bgray-600 placeholder:text-sm placeholder:font-semibold focus:outline-none focus:ring-0  " />
+                                        class="search-input w-full border-none bg-bgray-50 px-0 text-sm tracking-wide text-bgray-600 placeholder:text-sm placeholder:font-semibold focus:outline-none focus:ring-0" />
                                 </label>
                             </div>
                         </div>
                     </div>
+                    <!-- Buttons -->
                     <div class="flex gap-2 ml-4">
                         <button
-                            class="rounded-lg h-[56px] w-[100px] bg-blue-600 py-2 px-4 font-bold text-white transition-all hover:bg-blue-700">
+                            class="rounded-lg h-[56px] w-full sm:w-[100px] bg-blue-600 py-2 px-4 font-bold text-white transition-all hover:bg-blue-700">
                             Search
                         </button>
                         <button
-                            class="rounded-lg h-[56px] w-[100px] bg-red-600 py-2 px-4 font-bold text-white transition-all hover:bg-red-700">
+                            class="rounded-lg h-[56px] w-full sm:w-[100px] bg-red-600 py-2 px-4 font-bold text-white transition-all hover:bg-red-700">
                             Reset
                         </button>
                     </div>
                 </div>
-                <!-- Kategori -->
-                <div class="flex items-center justify-start mt-4 space-x-4 w-full">
+                <!-- Kategori Section -->
+                <div class="flex items-center justify-start mt-4 space-x-4 w-full overflow-x-auto">
                     <a href="#"
                         class="flex items-center justify-center rounded-lg h-[56px] w-[120px] py-2 px-4 font-bold text-bgray-900 border border-bgray-900 transition-all hover:bg-bgray-900 hover:text-white">
                         All Courses
@@ -108,16 +106,14 @@
                 </div>
             </section>
 
+            <!-- Course Modules Section -->
             <section class="mb-6 2xl:mb-0 2xl:flex-1">
-                <!-- total widget-->
                 <div class="mb-[24px] w-full">
-                    <div class="grid grid-cols-1 gap-[24px] lg:grid-cols-3">
+                    <div class="grid grid-cols-1 gap-[24px] lg:grid-cols-3 sm:grid-cols-2">
                         <div class="rounded-lg bg-white border border-bgray-900 p-5">
                             <img src="{{ asset('images/responsive/bg1.png') }}"
                                 class="w-full object-cover h-[150px] rounded-lg" alt="Module">
-                            <h2 class="text-lg font-semibold text-bgray-900 mt-3">
-                                Judul Modul
-                            </h2>
+                            <h2 class="text-lg font-semibold text-bgray-900 mt-3">Judul Modul</h2>
                             <!-- Indikator Progres -->
                             <div class="flex items-center">
                                 <div class="w-full bg-gray-200 rounded-full h-2.5">
