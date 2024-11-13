@@ -22,7 +22,7 @@
                     Sign in to Prolift Academy
                 </h2>
                 <p class="font-urbanis text-base font-medium text-bgray-600 dark:text-bgray-50">
-                    (Insert Tagline Here)
+                    Empowering Learning, Elevating Skills.
                 </p>
             </header>
             <div class="flex flex-col md:flex-row gap-4">
@@ -88,30 +88,39 @@
                 <div class="flex justify-between mb-7">
                     <div class="flex items-center space-x-3">
                         <input type="checkbox"
-                            class="w-5 h-5 dark:bg-darkblack-500 focus:ring-transparent rounded-full border border-bgray-300 focus:accent-success-300 text-success-300"
+                            class="w-5 h-5 dark:bg-darkblack-500 focus:ring-transparent rounded-full border border-bgray-300 focus:accent-ut-300 text-ut-300"
                             name="remember" id="remember" />
                         <label for="remember" class="text-bgray-900 dark:text-white text-base font-semibold">Remember
                             me</label>
                     </div>
                     <div>
-                        <a href="#" data-target="#multi-step-modal"
-                            class="modal-open text-success-300 font-semibold text-base underline">Forgot Password?</a>
+                        @if (Route::has('password.request'))
+                            <a href="{{ route('password.request') }}" data-target="#multi-step-modal"
+                                class="modal-open text-ut-300 font-semibold text-base underline">
+                                {{ __('Forgot your password?') }}
+                            </a>
+                        @endif
                     </div>
                 </div>
 
-                <div class="flex items-center justify-end mt-4">
-                    @if (Route::has('password.request'))
-                        <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                            href="{{ route('password.request') }}">
-                            {{ __('Forgot your password?') }}
-                        </a>
-                    @endif
-
-                    <x-primary-button class="ms-3">
-                        {{ __('Log in') }}
-                    </x-primary-button>
-                </div>
+                <a href="{{ route('register') }}"
+                    class="py-3.5 flex items-center justify-center text-white font-bold bg-ut-300 hover:bg-ut-400 transition-all rounded-lg w-full">
+                    {{ __('Sign in') }}
+                </a>
             </form>
+            <p class="text-center text-bgray-900 dark:text-bgray-50 text-base font-medium pt-7">
+                Don’t have an account?
+                <a href="signup.html" class="font-semibold underline">Sign Up</a>
+            </p>
+            <nav class="flex items-center justify-center flex-wrap gap-x-11 pt-24">
+                <a href="#" class="text-sm text-bgray-700 dark:text-white">Terms & Condition</a>
+                <a href="#" class="text-sm text-bgray-700 dark:text-white">Privacy Policy</a>
+                <a href="#" class="text-sm text-bgray-700 dark:text-white">Help</a>
+                <a href="#" class="text-sm text-bgray-700 dark:text-white">English</a>
+            </nav>
+            <p class="text-bgray-600 dark:text-white text-center text-sm mt-6">
+                @ 2024 Prolift Academy. All Right Reserved.
+            </p>
         </div>
     </div>
 </x-guest-layout>

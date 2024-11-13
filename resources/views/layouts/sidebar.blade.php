@@ -14,7 +14,7 @@
             <span>
                 <svg width="16" height="40" viewBox="0 0 16 40" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 10C0 4.47715 4.47715 0 10 0H16V40H10C4.47715 40 0 35.5228 0 30V10Z" fill="#22C55E" />
+                    <path d="M0 10C0 4.47715 4.47715 0 10 0H16V40H10C4.47715 40 0 35.5228 0 30V10Z" fill="#FED035" />
                     <path d="M10 15L6 20.0049L10 25.0098" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round"
                         stroke-linejoin="round" />
                 </svg>
@@ -42,44 +42,13 @@
                                                 fill="#1A202C" />
                                             <path class="path-2"
                                                 d="M5 17C5 14.7909 6.79086 13 9 13C11.2091 13 13 14.7909 13 17V21H5V17Z"
-                                                fill="#22C55E" />
+                                                fill="#FED035" />
                                         </svg>
                                     </span>
-                                    <span class="item-text text-lg font-medium leading-none">Dashboards</span>
+                                    <span class="item-text text-lg font-medium leading-none">Dashboard</span>
                                 </div>
-                                <span>
-                                    <svg width="6" height="12" viewBox="0 0 6 12" fill="none"
-                                        class="fill-current" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"
-                                            d="M0.531506 0.414376C0.20806 0.673133 0.155619 1.1451 0.414376 1.46855L4.03956 6.00003L0.414376 10.5315C0.155618 10.855 0.208059 11.3269 0.531506 11.5857C0.854952 11.8444 1.32692 11.792 1.58568 11.4685L5.58568 6.46855C5.80481 6.19464 5.80481 5.80542 5.58568 5.53151L1.58568 0.531506C1.32692 0.20806 0.854953 0.155619 0.531506 0.414376Z" />
-                                    </svg>
-                                </span>
                             </div>
                         </a>
-                        <ul class="sub-menu ml-2.5 mt-[22px] border-l border-success-100 pl-5">
-                            <li>
-                                <a href="index.html"
-                                    class="text-md inline-block py-1.5 font-medium text-bgray-600 transition-all hover:text-bgray-800 dark:text-bgray-50 hover:dark:text-success-300">Dashboard
-                                    Default</a>
-                            </li>
-                            <li>
-                                <a href="index-2.html"
-                                    class="text-md inline-block py-1.5 font-medium text-bgray-600 transition-all hover:text-bgray-800 dark:text-bgray-50 hover:dark:text-success-300">Dashboard
-                                    Two</a>
-                            </li>
-                            <li>
-                                <a href="statistics.html"
-                                    class="text-md inline-block py-1.5 font-medium text-bgray-600 transition-all hover:text-bgray-800 dark:text-bgray-50 hover:dark:text-success-300">Statistics</a>
-                            </li>
-                            <li>
-                                <a href="analytics.html"
-                                    class="text-md inline-block py-1.5 font-medium text-bgray-600 transition-all hover:text-bgray-800 dark:text-bgray-50 hover:dark:text-success-300">Analytics</a>
-                            </li>
-                            <li>
-                                <a href="home.html"
-                                    class="text-md inline-block py-1.5 font-medium text-bgray-600 transition-all hover:text-bgray-800 dark:text-bgray-50 hover:dark:text-success-300">Home</a>
-                            </li>
-                        </ul>
                     </li>
                     <li class="item py-[11px] text-bgray-900 dark:text-white">
                         <a href="{{ route('module') }}">
@@ -93,16 +62,16 @@
                                                 fill="#1A202C" class="path-1" />
                                             <path fill-rule="evenodd" clip-rule="evenodd"
                                                 d="M4.25 8C4.25 7.58579 4.58579 7.25 5 7.25H13C13.4142 7.25 13.75 7.58579 13.75 8C13.75 8.41421 13.4142 8.75 13 8.75H5C4.58579 8.75 4.25 8.41421 4.25 8Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                             <path fill-rule="evenodd" clip-rule="evenodd"
                                                 d="M4.25 12C4.25 11.5858 4.58579 11.25 5 11.25H13C13.4142 11.25 13.75 11.5858 13.75 12C13.75 12.4142 13.4142 12.75 13 12.75H5C4.58579 12.75 4.25 12.4142 4.25 12Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                             <path fill-rule="evenodd" clip-rule="evenodd"
                                                 d="M4.25 16C4.25 15.5858 4.58579 15.25 5 15.25H9C9.41421 15.25 9.75 15.5858 9.75 16C9.75 16.4142 9.41421 16.75 9 16.75H5C4.58579 16.75 4.25 16.4142 4.25 16Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                             <path
                                                 d="M11 0H7C5.89543 0 5 0.895431 5 2C5 3.10457 5.89543 4 7 4H11C12.1046 4 13 3.10457 13 2C13 0.895431 12.1046 0 11 0Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                         </svg>
                                     </span>
                                     <span class="item-text text-lg font-medium leading-none">Modul Pelatihan</span>
@@ -122,7 +91,7 @@
                                                 fill="#1A202C" class="path-1" />
                                             <path
                                                 d="M19.8025 8.01277C19.0104 4.08419 15.9158 0.989557 11.9872 0.197453C10.9045 -0.0208635 10 0.89543 10 2V8C10 9.10457 10.8954 10 12 10H18C19.1046 10 20.0209 9.09555 19.8025 8.01277Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                         </svg>
                                     </span>
                                     <span class="item-text text-lg font-medium leading-none">Progres Belajar</span>
@@ -142,10 +111,10 @@
                                                 fill="#1A202C" class="path-1" />
                                             <path
                                                 d="M14 9C12.8954 9 12 9.89543 12 11L12 13C12 14.1046 12.8954 15 14 15C15.1046 15 16 14.1046 16 13V11C16 9.89543 15.1046 9 14 9Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                             <path
                                                 d="M6 5C4.89543 5 4 5.89543 4 7L4 13C4 14.1046 4.89543 15 6 15C7.10457 15 8 14.1046 8 13L8 7C8 5.89543 7.10457 5 6 5Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                         </svg>
                                     </span>
                                     <span class="item-text text-lg font-medium leading-none">Notifikasi</span>
@@ -164,7 +133,7 @@
                                                 d="M20 4C20 1.79086 18.2091 0 16 0H4C1.79086 0 0 1.79086 0 4V14C0 16.2091 1.79086 18 4 18H16C18.2091 18 20 16.2091 20 14V4Z"
                                                 fill="#1A202C" class="path-1" />
                                             <path d="M6 9C6 7.34315 4.65685 6 3 6H0V12H3C4.65685 12 6 10.6569 6 9Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                         </svg>
                                     </span>
                                     <span class="item-text text-lg font-medium leading-none">Profil Pengguna</span>
@@ -192,16 +161,16 @@
                                                 fill="#1A202C" class="path-1" />
                                             <path
                                                 d="M0 15C0 13.8954 0.895431 13 2 13H2.17157C2.70201 13 3.21071 13.2107 3.58579 13.5858C4.36683 14.3668 5.63317 14.3668 6.41421 13.5858C6.78929 13.2107 7.29799 13 7.82843 13H8C9.10457 13 10 13.8954 10 15V16C10 17.1046 9.10457 18 8 18H2C0.89543 18 0 17.1046 0 16V15Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                             <path
                                                 d="M7.5 9.5C7.5 10.8807 6.38071 12 5 12C3.61929 12 2.5 10.8807 2.5 9.5C2.5 8.11929 3.61929 7 5 7C6.38071 7 7.5 8.11929 7.5 9.5Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                             <path fill-rule="evenodd" clip-rule="evenodd"
                                                 d="M8.25 4.5C8.25 4.08579 8.58579 3.75 9 3.75L16 3.75C16.4142 3.75 16.75 4.08579 16.75 4.5C16.75 4.91421 16.4142 5.25 16 5.25L9 5.25C8.58579 5.25 8.25 4.91421 8.25 4.5Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                             <path fill-rule="evenodd" clip-rule="evenodd"
                                                 d="M11.25 8.5C11.25 8.08579 11.5858 7.75 12 7.75L16 7.75C16.4142 7.75 16.75 8.08579 16.75 8.5C16.75 8.91421 16.4142 9.25 16 9.25L12 9.25C11.5858 9.25 11.25 8.91421 11.25 8.5Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                         </svg>
                                     </span>
                                     <span class="item-text text-lg font-medium leading-none">Support</span>
@@ -221,7 +190,7 @@
                                                 fill="#1A202C" class="path-1" />
                                             <path
                                                 d="M15.75 12C15.75 14.0711 14.0711 15.75 12 15.75C9.92893 15.75 8.25 14.0711 8.25 12C8.25 9.92893 9.92893 8.25 12 8.25C14.0711 8.25 15.75 9.92893 15.75 12Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                         </svg>
                                     </span>
                                     <span class="item-text text-lg font-medium leading-none">Setting</span>
@@ -238,7 +207,7 @@
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd" clip-rule="evenodd"
                                                 d="M17.1464 10.4394C16.8536 10.7323 16.8536 11.2072 17.1464 11.5001C17.4393 11.7929 17.9142 11.7929 18.2071 11.5001L19.5 10.2072C20.1834 9.52375 20.1834 8.41571 19.5 7.73229L18.2071 6.4394C17.9142 6.1465 17.4393 6.1465 17.1464 6.4394C16.8536 6.73229 16.8536 7.20716 17.1464 7.50006L17.8661 8.21973H11.75C11.3358 8.21973 11 8.55551 11 8.96973C11 9.38394 11.3358 9.71973 11.75 9.71973H17.8661L17.1464 10.4394Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                             <path fill-rule="evenodd" clip-rule="evenodd"
                                                 d="M4.75 17.75H12C14.6234 17.75 16.75 15.6234 16.75 13C16.75 12.5858 16.4142 12.25 16 12.25C15.5858 12.25 15.25 12.5858 15.25 13C15.25 14.7949 13.7949 16.25 12 16.25H8.21412C7.34758 17.1733 6.11614 17.75 4.75 17.75ZM8.21412 1.75H12C13.7949 1.75 15.25 3.20507 15.25 5C15.25 5.41421 15.5858 5.75 16 5.75C16.4142 5.75 16.75 5.41421 16.75 5C16.75 2.37665 14.6234 0.25 12 0.25H4.75C6.11614 0.25 7.34758 0.82673 8.21412 1.75Z"
                                                 fill="#1A202C" class="path-1" />
@@ -293,7 +262,7 @@
                                                 fill="#1A202C" />
                                             <path class="path-2"
                                                 d="M5 17C5 14.7909 6.79086 13 9 13C11.2091 13 13 14.7909 13 17V21H5V17Z"
-                                                fill="#22C55E" />
+                                                fill="#FED035" />
                                         </svg>
                                     </span>
                                 </a>
@@ -328,16 +297,16 @@
                                                 fill="#1A202C" class="path-1" />
                                             <path fill-rule="evenodd" clip-rule="evenodd"
                                                 d="M4.25 8C4.25 7.58579 4.58579 7.25 5 7.25H13C13.4142 7.25 13.75 7.58579 13.75 8C13.75 8.41421 13.4142 8.75 13 8.75H5C4.58579 8.75 4.25 8.41421 4.25 8Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                             <path fill-rule="evenodd" clip-rule="evenodd"
                                                 d="M4.25 12C4.25 11.5858 4.58579 11.25 5 11.25H13C13.4142 11.25 13.75 11.5858 13.75 12C13.75 12.4142 13.4142 12.75 13 12.75H5C4.58579 12.75 4.25 12.4142 4.25 12Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                             <path fill-rule="evenodd" clip-rule="evenodd"
                                                 d="M4.25 16C4.25 15.5858 4.58579 15.25 5 15.25H9C9.41421 15.25 9.75 15.5858 9.75 16C9.75 16.4142 9.41421 16.75 9 16.75H5C4.58579 16.75 4.25 16.4142 4.25 16Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                             <path
                                                 d="M11 0H7C5.89543 0 5 0.895431 5 2C5 3.10457 5.89543 4 7 4H11C12.1046 4 13 3.10457 13 2C13 0.895431 12.1046 0 11 0Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                         </svg>
                                     </span>
                                 </a>
@@ -352,7 +321,7 @@
                                                 fill="#1A202C" class="path-1" />
                                             <path
                                                 d="M19.8025 8.01277C19.0104 4.08419 15.9158 0.989557 11.9872 0.197453C10.9045 -0.0208635 10 0.89543 10 2V8C10 9.10457 10.8954 10 12 10H18C19.1046 10 20.0209 9.09555 19.8025 8.01277Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                         </svg>
                                     </span>
                                 </a>
@@ -382,10 +351,10 @@
                                                 fill="#1A202C" class="path-1" />
                                             <path
                                                 d="M14 9C12.8954 9 12 9.89543 12 11L12 13C12 14.1046 12.8954 15 14 15C15.1046 15 16 14.1046 16 13V11C16 9.89543 15.1046 9 14 9Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                             <path
                                                 d="M6 5C4.89543 5 4 5.89543 4 7L4 13C4 14.1046 4.89543 15 6 15C7.10457 15 8 14.1046 8 13L8 7C8 5.89543 7.10457 5 6 5Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                         </svg>
                                     </span>
                                 </a>
@@ -399,7 +368,7 @@
                                                 d="M20 4C20 1.79086 18.2091 0 16 0H4C1.79086 0 0 1.79086 0 4V14C0 16.2091 1.79086 18 4 18H16C18.2091 18 20 16.2091 20 14V4Z"
                                                 fill="#1A202C" class="path-1" />
                                             <path d="M6 9C6 7.34315 4.65685 6 3 6H0V12H3C4.65685 12 6 10.6569 6 9Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                         </svg>
                                     </span>
                                 </a>
@@ -411,11 +380,11 @@
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M8 18C9.38503 18 10.5633 17.1652 11 16H5C5.43668 17.1652 6.61497 18 8 18Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                             <path fill-rule="evenodd" clip-rule="evenodd"
                                                 d="M9.6896 0.754028C9.27403 0.291157 8.67102 0 8 0C6.74634 0 5.73005 1.01629 5.73005 2.26995V2.37366C3.58766 3.10719 2.0016 4.85063 1.76046 6.97519L1.31328 10.9153C1.23274 11.6249 0.933441 12.3016 0.447786 12.8721C-0.649243 14.1609 0.394434 16 2.22281 16H13.7772C15.6056 16 16.6492 14.1609 15.5522 12.8721C15.0666 12.3016 14.7673 11.6249 14.6867 10.9153L14.2395 6.97519C14.2333 6.92024 14.2262 6.86556 14.2181 6.81113C13.8341 6.93379 13.4248 7 13 7C10.7909 7 9 5.20914 9 3C9 2.16744 9.25436 1.3943 9.6896 0.754028Z"
                                                 fill="#1A202C" class="path-1" />
-                                            <circle cx="13" cy="3" r="3" fill="#22C55E"
+                                            <circle cx="13" cy="3" r="3" fill="#FED035"
                                                 class="path-2" />
                                         </svg>
                                     </span>
@@ -436,7 +405,7 @@
                                                 class="path-1" />
                                             <path fill-rule="evenodd" clip-rule="evenodd"
                                                 d="M18 2C18.4142 2 18.75 2.33579 18.75 2.75V5.25H21.25C21.6642 5.25 22 5.58579 22 6C22 6.41421 21.6642 6.75 21.25 6.75H18.75V9.25C18.75 9.66421 18.4142 10 18 10C17.5858 10 17.25 9.66421 17.25 9.25V6.75H14.75C14.3358 6.75 14 6.41421 14 6C14 5.58579 14.3358 5.25 14.75 5.25H17.25V2.75C17.25 2.33579 17.5858 2 18 2Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                         </svg>
                                     </span>
                                 </a>
@@ -448,7 +417,7 @@
                                             xmlns="http://www.w3.org/2000/svg">
                                             <ellipse cx="7" cy="14" rx="7" ry="4"
                                                 class="path-1" fill="#1A202C" />
-                                            <circle cx="7" cy="4" r="4" fill="#22C55E"
+                                            <circle cx="7" cy="4" r="4" fill="#FED035"
                                                 class="path-2" />
                                         </svg>
                                     </span>
@@ -464,13 +433,13 @@
                                                 fill="#1A202C" class="path-1" />
                                             <path fill-rule="evenodd" clip-rule="evenodd"
                                                 d="M8.99995 1.75C8.02962 1.75 7.09197 1.88462 6.20407 2.13575C5.80549 2.24849 5.39099 2.01676 5.27826 1.61818C5.16553 1.21961 5.39725 0.805108 5.79583 0.692376C6.81525 0.404046 7.89023 0.25 8.99995 0.25C10.1097 0.25 11.1846 0.404046 12.2041 0.692376C12.6026 0.805108 12.8344 1.21961 12.7216 1.61818C12.6089 2.01676 12.1944 2.24849 11.7958 2.13575C10.9079 1.88462 9.97028 1.75 8.99995 1.75Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                             <path
                                                 d="M11 13C11 14.1046 10.1046 15 9 15C7.89543 15 7 14.1046 7 13C7 11.8954 7.89543 11 9 11C10.1046 11 11 11.8954 11 13Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                             <path fill-rule="evenodd" clip-rule="evenodd"
                                                 d="M9 7.25C9.41421 7.25 9.75 7.58579 9.75 8V12C9.75 12.4142 9.41421 12.75 9 12.75C8.58579 12.75 8.25 12.4142 8.25 12V8C8.25 7.58579 8.58579 7.25 9 7.25Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                         </svg>
                                     </span>
                                 </a>
@@ -489,16 +458,16 @@
                                                 fill="#1A202C" class="path-1" />
                                             <path
                                                 d="M0 15C0 13.8954 0.895431 13 2 13H2.17157C2.70201 13 3.21071 13.2107 3.58579 13.5858C4.36683 14.3668 5.63317 14.3668 6.41421 13.5858C6.78929 13.2107 7.29799 13 7.82843 13H8C9.10457 13 10 13.8954 10 15V16C10 17.1046 9.10457 18 8 18H2C0.89543 18 0 17.1046 0 16V15Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                             <path
                                                 d="M7.5 9.5C7.5 10.8807 6.38071 12 5 12C3.61929 12 2.5 10.8807 2.5 9.5C2.5 8.11929 3.61929 7 5 7C6.38071 7 7.5 8.11929 7.5 9.5Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                             <path fill-rule="evenodd" clip-rule="evenodd"
                                                 d="M8.25 4.5C8.25 4.08579 8.58579 3.75 9 3.75L16 3.75C16.4142 3.75 16.75 4.08579 16.75 4.5C16.75 4.91421 16.4142 5.25 16 5.25L9 5.25C8.58579 5.25 8.25 4.91421 8.25 4.5Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                             <path fill-rule="evenodd" clip-rule="evenodd"
                                                 d="M11.25 8.5C11.25 8.08579 11.5858 7.75 12 7.75L16 7.75C16.4142 7.75 16.75 8.08579 16.75 8.5C16.75 8.91421 16.4142 9.25 16 9.25L12 9.25C11.5858 9.25 11.25 8.91421 11.25 8.5Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                         </svg>
                                     </span>
                                 </a>
@@ -528,7 +497,7 @@
                                                 fill="#1A202C" class="path-1" />
                                             <path
                                                 d="M11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                         </svg>
                                     </span>
                                 </a>
@@ -540,7 +509,7 @@
                                             xmlns="http://www.w3.org/2000/svg">
                                             <ellipse cx="7" cy="14" rx="7" ry="4"
                                                 class="path-1" fill="#1A202C" />
-                                            <circle cx="7" cy="4" r="4" fill="#22C55E"
+                                            <circle cx="7" cy="4" r="4" fill="#FED035"
                                                 class="path-2" />
                                         </svg>
                                     </span>
@@ -553,7 +522,7 @@
                                             xmlns="http://www.w3.org/2000/svg">
                                             <ellipse cx="7" cy="14" rx="7" ry="4"
                                                 class="path-1" fill="#1A202C" />
-                                            <circle cx="7" cy="4" r="4" fill="#22C55E"
+                                            <circle cx="7" cy="4" r="4" fill="#FED035"
                                                 class="path-2" />
                                         </svg>
                                     </span>
@@ -566,7 +535,7 @@
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd" clip-rule="evenodd"
                                                 d="M17.1464 10.4394C16.8536 10.7323 16.8536 11.2072 17.1464 11.5001C17.4393 11.7929 17.9142 11.7929 18.2071 11.5001L19.5 10.2072C20.1834 9.52375 20.1834 8.41571 19.5 7.73229L18.2071 6.4394C17.9142 6.1465 17.4393 6.1465 17.1464 6.4394C16.8536 6.73229 16.8536 7.20716 17.1464 7.50006L17.8661 8.21973H11.75C11.3358 8.21973 11 8.55551 11 8.96973C11 9.38394 11.3358 9.71973 11.75 9.71973H17.8661L17.1464 10.4394Z"
-                                                fill="#22C55E" class="path-2" />
+                                                fill="#FED035" class="path-2" />
                                             <path fill-rule="evenodd" clip-rule="evenodd"
                                                 d="M4.75 17.75H12C14.6234 17.75 16.75 15.6234 16.75 13C16.75 12.5858 16.4142 12.25 16 12.25C15.5858 12.25 15.25 12.5858 15.25 13C15.25 14.7949 13.7949 16.25 12 16.25H8.21412C7.34758 17.1733 6.11614 17.75 4.75 17.75ZM8.21412 1.75H12C13.7949 1.75 15.25 3.20507 15.25 5C15.25 5.41421 15.5858 5.75 16 5.75C16.4142 5.75 16.75 5.41421 16.75 5C16.75 2.37665 14.6234 0.25 12 0.25H4.75C6.11614 0.25 7.34758 0.82673 8.21412 1.75Z"
                                                 fill="#1A202C" class="path-1" />

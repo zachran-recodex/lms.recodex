@@ -44,15 +44,14 @@
                 </div>
                 <div>
                     <div class="text-center max-w-lg px-1.5 m-auto">
-                        <h3 class="text-bgray-900 dark:text-white font-semibold font-popins text-4xl mb-4">
-                            Speady, Easy and Fast
+                        <h3 class="text-bgray-900 dark:text-white font-semibold font-popins text-2xl mb-4">
+                            Empowering Learning, Elevating Skills.
                         </h3>
                         <p class="text-bgray-600 dark:text-bgray-50 text-sm font-medium">
-                            BankCo. help you set saving goals, earn cash back offers, Go to
-                            disclaimer for more details and get paychecks up to two days
-                            early. Get a
-                            <span class="text-success-300 font-bold">$20</span> bonus when
-                            you receive qualifying direct deposits
+                            Prolift Academy adalah platform pembelajaran online yang dirancang untuk memberikan
+                            pelatihan berkualitas kepada pelanggan United Tractors. Dengan akses ke video tutorial,
+                            panduan interaktif, dan bimbingan mentor, Prolift Academy membantu Anda menguasai penggunaan
+                            unit secara efektif dan mendalam, di mana saja dan kapan saja.
                         </p>
                     </div>
                 </div>

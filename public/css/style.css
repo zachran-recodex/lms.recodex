@@ -179,7 +179,7 @@ body {
   .dayContainer
   .flatpickr-day {
   color: #ffffff;
- 
+
 }
 .mini-calender-wrapper
   .flatpickr-calendar
@@ -456,7 +456,7 @@ button.fc-button.fc-button-primary.fc-prev-button {
 }
 
 .fc .fc-daygrid .fc-day-today .fc-daygrid-day-frame {
-  border: 2px solid #b7ffd1 !important;
+  border: 2px solid #fefae8 !important;
   background: none !important;
 }
 .fc .fc-day-today {
@@ -535,8 +535,8 @@ button.fc-button.fc-button-primary.fc-prev-button {
   .item-wrapper
   ul
   li.item:hover {
-  fill: #22c55e;
-  color: #22c55e;
+  fill: #FED035;
+  color: #FED035;
 }
 :is(.sidebar-wrapper, .sidebar-wrapper-collapse)
   .sidebar-body
@@ -546,7 +546,7 @@ button.fc-button.fc-button-primary.fc-prev-button {
   .item-ico
   svg
   .path-2 {
-  fill: #b7ffd1;
+  fill: #fefae8;
 }
 .sidebar-wrapper .sidebar-body .nav-wrapper ul li.item .sub-menu {
   display: none;

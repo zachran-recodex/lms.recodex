@@ -8,13 +8,13 @@
                         <svg width="16" height="40" viewBox="0 0 16 40" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path d="M0 10C0 4.47715 4.47715 0 10 0H16V40H10C4.47715 40 0 35.5228 0 30V10Z"
-                                fill="#22C55E" />
+                                fill="#FED035" />
                             <path d="M10 15L6 20.0049L10 25.0098" stroke="#ffffff" stroke-width="1.2"
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </span>
                 </button>
-                <!--              page-title-->
+                <!--Page Title-->
                 <div>
                     <h3 class="text-xl font-bold text-bgray-900 dark:text-bgray-50 lg:text-3xl lg:leading-[36.4px]">
                         Dashboard
@@ -23,10 +23,10 @@
                         Selamat Datang, {{ auth()->user()->name }}
                     </p>
                 </div>
-                <!--              search-bar-->
+                <!--Search Bar-->
                 <div class="searchbar-wrapper">
                     <div
-                        class="px flex h-[56px] w-[300px] items-center justify-between rounded-lg border border-transparent bg-bgray-50 px-4 focus-within:border-success-300 dark:bg-darkblack-500 lg:w-[400px]">
+                        class="px flex h-[56px] w-[300px] items-center justify-between rounded-lg border border-transparent bg-bgray-50 px-4 focus-within:border-ut-300 dark:bg-darkblack-500 lg:w-[400px]">
                         <div class="flex w-full items-center space-x-3.5">
                             <span>
                                 <svg class="stroke-bgray-900 dark:stroke-bgray-50" width="20" height="20"
@@ -42,17 +42,6 @@
                                     class="search-input w-full border-none bg-bgray-50 bg-none px-0 text-sm tracking-wide text-bgray-600 placeholder:text-sm placeholder:font-semibold focus:outline-none focus:ring-0 dark:bg-darkblack-500 dark:placeholder:text-bgray-500" />
                             </label>
                         </div>
-                        <div class="flex items-center space-x-[6px]">
-                            <span>
-                                <svg class="stroke-bgray-900 dark:stroke-gray-300" width="16" height="16"
-                                    viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M5.975 12.3875C5.975 12.8548 5.83644 13.3115 5.57685 13.7C5.31725 14.0885 4.94828 14.3914 4.51659 14.5702C4.0849 14.749 3.60988 14.7958 3.1516 14.7046C2.69332 14.6134 2.27236 14.3884 1.94196 14.058C1.61156 13.7276 1.38655 13.3067 1.2954 12.8484C1.20424 12.3901 1.25102 11.9151 1.42984 11.4834C1.60865 11.0517 1.91146 10.6827 2.29997 10.4232C2.68848 10.1636 3.14524 10.025 3.6125 10.025H12.3875C12.8548 10.025 13.3115 10.1636 13.7 10.4232C14.0885 10.6827 14.3914 11.0517 14.5702 11.4834C14.749 11.9151 14.7958 12.3901 14.7046 12.8484C14.6134 13.3067 14.3884 13.7276 14.058 14.058C13.7276 14.3884 13.3067 14.6134 12.8484 14.7046C12.3901 14.7958 11.9151 14.749 11.4834 14.5702C11.0517 14.3914 10.6827 14.0885 10.4232 13.7C10.1636 13.3115 10.025 12.8548 10.025 12.3875V3.6125C10.025 3.14524 10.1636 2.68848 10.4232 2.29997C10.6827 1.91146 11.0517 1.60865 11.4834 1.42984C11.9151 1.25102 12.3901 1.20424 12.8484 1.2954C13.3067 1.38655 13.7276 1.61156 14.058 1.94196C14.3884 2.27236 14.6134 2.69332 14.7046 3.1516C14.7958 3.60988 14.749 4.0849 14.5702 4.51659C14.3914 4.94828 14.0885 5.31725 13.7 5.57685C13.3115 5.83644 12.8548 5.975 12.3875 5.975H3.6125C3.14524 5.975 2.68848 5.83644 2.29997 5.57685C1.91146 5.31725 1.60865 4.94828 1.42984 4.51659C1.25102 4.0849 1.20424 3.60988 1.2954 3.1516C1.38655 2.69332 1.61156 2.27236 1.94196 1.94196C2.27236 1.61156 2.69332 1.38655 3.1516 1.2954C3.60988 1.20424 4.0849 1.25102 4.51659 1.42984C4.94828 1.60865 5.31725 1.91146 5.57685 2.29997C5.83644 2.68848 5.975 3.14524 5.975 3.6125V12.3875Z"
-                                        stroke-width="1.5" />
-                                </svg>
-                            </span>
-                            <span class="text-base text-bgray-900 dark:text-bgray-300">K</span>
-                        </div>
                     </div>
                 </div>
                 <!--  quick access-->
@@ -60,7 +49,7 @@
                     <div class="flex items-center space-x-[43px]">
                         <div class="hidden items-center space-x-5 xl:flex">
                             <button onclick="notificationAction()" id="notification-btn" type="button"
-                                class="relative flex h-[52px] w-[52px] items-center justify-center rounded-[12px] border border-success-300 dark:border-darkblack-400">
+                                class="relative flex h-[52px] w-[52px] items-center justify-center rounded-[12px] border border-ut-300 dark:border-darkblack-400">
                                 <span
                                     class="absolute -right-[5px] -top-[2px] h-3.5 w-3.5 rounded-full border-2 border-white bg-bgray-300 dark:border-none dark:bg-bgray-600">
                                 </span>
@@ -71,7 +60,7 @@
                                 </svg>
                             </button>
                             <button onclick="messageAction()" type="button" id="message-btn"
-                                class="relative flex h-[52px] w-[52px] items-center justify-center rounded-[12px] border border-success-300 dark:border-darkblack-400">
+                                class="relative flex h-[52px] w-[52px] items-center justify-center rounded-[12px] border border-ut-300 dark:border-darkblack-400">
                                 <span
                                     class="absolute -right-[5px] -top-[2px] h-3.5 w-3.5 rounded-full border-2 border-white bg-error-300 dark:border-none"></span>
                                 <svg class="stroke-bgray-900 dark:stroke-white" width="24" height="24"
@@ -112,10 +101,7 @@
                     <div class="notification-popup-wrapper">
                         <div onclick="notificationAction()" id="noti-outside"
                             class="fixed -left-[43px] top-0 hidden h-full w-full"></div>
-                        <div id="notification-box"
-                            style="
-                      filter: drop-shadow(12px 12px 40px rgba(0, 0, 0, 0.08));
-                    "
+                        <div id="notification-box" style="filter: drop-shadow(12px 12px 40px rgba(0, 0, 0, 0.08));"
                             class="absolute -left-[347px] top-[81px] hidden w-[400px] rounded-lg bg-white dark:bg-darkblack-600">
                             <div class="relative w-full pb-[75px] pt-[66px]">
                                 <div
@@ -246,10 +232,7 @@
                     <div class="message-popup-wrapper">
                         <div onclick="messageAction()" id="mes-outside"
                             class="fixed -left-[43px] top-0 hidden h-full w-full"></div>
-                        <div id="message-box"
-                            style="
-                      filter: drop-shadow(12px 12px 40px rgba(0, 0, 0, 0.08));
-                    "
+                        <div id="message-box" style="filter: drop-shadow(12px 12px 40px rgba(0, 0, 0, 0.08));"
                             class="absolute -left-[276px] top-[81px] hidden w-[400px] rounded-lg bg-white dark:bg-darkblack-600">
                             <div class="relative w-full pb-[75px] pt-[66px]">
                                 <div
@@ -294,7 +277,7 @@
                                                     </div>
                                                     <div class="flex-1">
                                                         <p
-                                                            class="mb-1 text-base font-bold text-bgray-900 dark:text-white dark:text-white">
+                                                            class="mb-1 text-base font-bold text-bgray-900 dark:text-white">
                                                             James Eusobio
                                                         </p>
                                                         <p
@@ -487,10 +470,7 @@
                     <div class="store-wrapper">
                         <div id="store-outside" onclick="storeAction()"
                             class="fixed -left-[43px] top-0 hidden h-full w-full"></div>
-                        <div id="store-box"
-                            style="
-                      filter: drop-shadow(12px 12px 40px rgba(0, 0, 0, 0.08));
-                    "
+                        <div id="store-box" style="filter: drop-shadow(12px 12px 40px rgba(0, 0, 0, 0.08));"
                             class="absolute -left-[134px] top-[81px] hidden w-[330px] overflow-hidden rounded-lg bg-white dark:bg-darkblack-600">
                             <div class="relative w-full p-6">
                                 <div class="bonus-box-wrapper w-full overflow-hidden pb-[33px]">
@@ -528,10 +508,7 @@
                                             </div>
                                         </div>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="80px" height="80px">
-                                            <circle
-                                                style="
-                                stroke-dashoffset: calc(215 - 215 * (25 / 100));
-                              "
+                                            <circle style="stroke-dashoffset: calc(215 - 215 * (25 / 100));"
                                                 cx="40" cy="40" r="35" stroke-linecap="round" />
                                         </svg>
                                     </div>
@@ -548,9 +525,7 @@
                     <div class="profile-wrapper">
                         <div onclick="profileAction()"
                             class="profile-outside fixed -left-[43px] top-0 hidden h-full w-full"></div>
-                        <div style="
-                      filter: drop-shadow(12px 12px 40px rgba(0, 0, 0, 0.08));
-                    "
+                        <div style="filter: drop-shadow(12px 12px 40px rgba(0, 0, 0, 0.08));"
                             class="profile-box absolute right-0 top-[81px] hidden w-[300px] overflow-hidden rounded-lg bg-white dark:bg-darkblack-600">
                             <div class="relative w-full px-3 py-2">
                                 <div>
@@ -618,7 +593,7 @@
                                                                 fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                 <path
                                                                     d="M15 10L13.7071 11.2929C13.3166 11.6834 13.3166 12.3166 13.7071 12.7071L15 14M14 12L22 12M6 20C3.79086 20 2 18.2091 2 16V8C2 5.79086 3.79086 4 6 4M6 20C8.20914 20 10 18.2091 10 16V8C10 5.79086 8.20914 4 6 4M6 20H14C16.2091 20 18 18.2091 18 16M6 4H14C16.2091 4 18 5.79086 18 8"
-                                                                    stroke="#22C55E" stroke-width="1.5"
+                                                                    stroke="#FED035" stroke-width="1.5"
                                                                     stroke-linecap="round" />
                                                             </svg>
                                                         </span>
@@ -709,9 +684,7 @@
                     <div class="profile-wrapper">
                         <div onclick="profileAction()"
                             class="profile-outside fixed -left-[43px] top-0 hidden h-full w-full"></div>
-                        <div style="
-                      filter: drop-shadow(12px 12px 40px rgba(0, 0, 0, 0.08));
-                    "
+                        <div style="filter: drop-shadow(12px 12px 40px rgba(0, 0, 0, 0.08));"
                             class="profile-box absolute right-0 top-[81px] hidden w-[300px] overflow-hidden rounded-lg bg-white">
                             <div class="relative w-full px-3 py-2">
                                 <div>
@@ -776,7 +749,7 @@
                                                                 fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                 <path
                                                                     d="M15 10L13.7071 11.2929C13.3166 11.6834 13.3166 12.3166 13.7071 12.7071L15 14M14 12L22 12M6 20C3.79086 20 2 18.2091 2 16V8C2 5.79086 3.79086 4 6 4M6 20C8.20914 20 10 18.2091 10 16V8C10 5.79086 8.20914 4 6 4M6 20H14C16.2091 20 18 18.2091 18 16M6 4H14C16.2091 4 18 5.79086 18 8"
-                                                                    stroke="#22C55E" stroke-width="1.5"
+                                                                    stroke="#FED035" stroke-width="1.5"
                                                                     stroke-linecap="round" />
                                                             </svg>
                                                         </span>
