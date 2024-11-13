@@ -1,13 +1,10 @@
-<aside class="sidebar-wrapper fixed top-0 z-30 block h-full w-[308px] bg-white dark:bg-darkblack-600 sm:hidden xl:block">
+<aside class="sidebar-wrapper fixed top-0 z-30 block h-full w-[308px] bg-white sm:hidden xl:block">
     <div
-        class="sidebar-header relative z-30 flex h-[108px] w-full items-center border-b border-r border-b-[#F7F7F7] border-r-[#F7F7F7] pl-[50px] dark:border-darkblack-400">
+        class="sidebar-header relative z-30 flex h-[108px] w-full items-center border-b border-r border-b-[#F7F7F7] border-r-[#F7F7F7] pl-[50px]">
         <a href="index.html">
             <div class="flex items-center gap-4">
-                <img src="{{ asset('') }}images/logo/logo-ut.png" class="block dark:hidden w-[50px] h-[50px]"
-                    alt="logo" />
-                <img src="{{ asset('') }}images/logo/logo-ut.png" class="hidden dark:block w-[50px] h-[50px]"
-                    alt="logo" />
-                <h1 class="text-xl font-bold dark:text-white">Prolift Academy</h1>
+                <img src="{{ asset('') }}images/logo/logo-ut.png" class="block w-[50px] h-[50px]" alt="logo" />
+                <h1 class="text-xl font-bold">Prolift Academy</h1>
             </div>
         </a>
         <button type="button" class="drawer-btn absolute right-0 top-auto" title="Ctrl+b">
@@ -25,12 +22,11 @@
         class="sidebar-body overflow-style-none relative z-30 h-screen w-full overflow-y-scroll pb-[200px] pl-[48px] pt-[14px]">
         <div class="nav-wrapper mb-[36px] pr-[50px]">
             <div class="item-wrapper mb-5">
-                <h4
-                    class="border-b border-bgray-200 text-sm font-medium leading-7 text-bgray-700 dark:border-darkblack-400 dark:text-bgray-50">
+                <h4 class="border-b border-bgray-200 text-sm font-medium leading-7 text-bgray-700">
                     Menu
                 </h4>
                 <ul class="mt-2.5">
-                    <li class="item py-[11px] text-bgray-900 dark:text-white">
+                    <li class="item py-[11px] text-bgray-900">
                         <a href="{{ route('dashboard') }}">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center space-x-2.5">
@@ -50,7 +46,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class="item py-[11px] text-bgray-900 dark:text-white">
+                    <li class="item py-[11px] text-bgray-900">
                         <a href="{{ route('module') }}">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center space-x-2.5">
@@ -79,7 +75,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class="item py-[11px] text-bgray-900 dark:text-white">
+                    <li class="item py-[11px] text-bgray-900">
                         <a href="{{ route('progress') }}">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center space-x-2.5">
@@ -99,7 +95,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class="item py-[11px] text-bgray-900 dark:text-white">
+                    <li class="item py-[11px] text-bgray-900">
                         <a href="{{ route('notification') }}">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center space-x-2.5">
@@ -122,7 +118,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class="item py-[11px] text-bgray-900 dark:text-white">
+                    <li class="item py-[11px] text-bgray-900">
                         <a href="">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center space-x-2.5">
@@ -144,12 +140,11 @@
                 </ul>
             </div>
             <div class="item-wrapper mb-5">
-                <h4
-                    class="border-b border-bgray-200 text-sm font-medium leading-7 text-bgray-700 dark:border-darkblack-400 dark:text-bgray-50">
+                <h4 class="border-b border-bgray-200 text-sm font-medium leading-7 text-bgray-700">
                     Others
                 </h4>
                 <ul class="mt-2.5">
-                    <li class="item py-[11px] text-bgray-900 dark:text-white">
+                    <li class="item py-[11px] text-bgray-900">
                         <a href="{{ route('support') }}">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center space-x-2.5">
@@ -178,7 +173,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class="item py-[11px] text-bgray-900 dark:text-white">
+                    <li class="item py-[11px] text-bgray-900">
                         <a href="{{ route('setting') }}">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center space-x-2.5">
@@ -198,28 +193,36 @@
                             </div>
                         </a>
                     </li>
-                    <li class="item py-[11px] text-bgray-900 dark:text-white">
-                        <a href="#">
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center space-x-2.5">
-                                    <span class="item-ico">
-                                        <svg width="21" height="18" viewBox="0 0 21 18" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M17.1464 10.4394C16.8536 10.7323 16.8536 11.2072 17.1464 11.5001C17.4393 11.7929 17.9142 11.7929 18.2071 11.5001L19.5 10.2072C20.1834 9.52375 20.1834 8.41571 19.5 7.73229L18.2071 6.4394C17.9142 6.1465 17.4393 6.1465 17.1464 6.4394C16.8536 6.73229 16.8536 7.20716 17.1464 7.50006L17.8661 8.21973H11.75C11.3358 8.21973 11 8.55551 11 8.96973C11 9.38394 11.3358 9.71973 11.75 9.71973H17.8661L17.1464 10.4394Z"
-                                                fill="#FED035" class="path-2" />
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M4.75 17.75H12C14.6234 17.75 16.75 15.6234 16.75 13C16.75 12.5858 16.4142 12.25 16 12.25C15.5858 12.25 15.25 12.5858 15.25 13C15.25 14.7949 13.7949 16.25 12 16.25H8.21412C7.34758 17.1733 6.11614 17.75 4.75 17.75ZM8.21412 1.75H12C13.7949 1.75 15.25 3.20507 15.25 5C15.25 5.41421 15.5858 5.75 16 5.75C16.4142 5.75 16.75 5.41421 16.75 5C16.75 2.37665 14.6234 0.25 12 0.25H4.75C6.11614 0.25 7.34758 0.82673 8.21412 1.75Z"
-                                                fill="#1A202C" class="path-1" />
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M0 5C0 2.37665 2.12665 0.25 4.75 0.25C7.37335 0.25 9.5 2.37665 9.5 5V13C9.5 15.6234 7.37335 17.75 4.75 17.75C2.12665 17.75 0 15.6234 0 13V5Z"
-                                                fill="#1A202C" class="path-1" />
-                                        </svg>
-                                    </span>
-                                    <span class="item-text text-lg font-medium leading-none">Logout</span>
+                    <li class="item py-[11px] text-bgray-900">
+                        <!-- Authentication -->
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <x-dropdown-link :href="route('logout')"
+                                onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-2.5">
+                                        <span class="item-ico">
+                                            <svg width="21" height="18" viewBox="0 0 21 18" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M17.1464 10.4394C16.8536 10.7323 16.8536 11.2072 17.1464 11.5001C17.4393 11.7929 17.9142 11.7929 18.2071 11.5001L19.5 10.2072C20.1834 9.52375 20.1834 8.41571 19.5 7.73229L18.2071 6.4394C17.9142 6.1465 17.4393 6.1465 17.1464 6.4394C16.8536 6.73229 16.8536 7.20716 17.1464 7.50006L17.8661 8.21973H11.75C11.3358 8.21973 11 8.55551 11 8.96973C11 9.38394 11.3358 9.71973 11.75 9.71973H17.8661L17.1464 10.4394Z"
+                                                    fill="#FED035" class="path-2" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M4.75 17.75H12C14.6234 17.75 16.75 15.6234 16.75 13C16.75 12.5858 16.4142 12.25 16 12.25C15.5858 12.25 15.25 12.5858 15.25 13C15.25 14.7949 13.7949 16.25 12 16.25H8.21412C7.34758 17.1733 6.11614 17.75 4.75 17.75ZM8.21412 1.75H12C13.7949 1.75 15.25 3.20507 15.25 5C15.25 5.41421 15.5858 5.75 16 5.75C16.4142 5.75 16.75 5.41421 16.75 5C16.75 2.37665 14.6234 0.25 12 0.25H4.75C6.11614 0.25 7.34758 0.82673 8.21412 1.75Z"
+                                                    fill="#1A202C" class="path-1" />
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M0 5C0 2.37665 2.12665 0.25 4.75 0.25C7.37335 0.25 9.5 2.37665 9.5 5V13C9.5 15.6234 7.37335 17.75 4.75 17.75C2.12665 17.75 0 15.6234 0 13V5Z"
+                                                    fill="#1A202C" class="path-1" />
+                                            </svg>
+                                        </span>
+                                        <span
+                                            class="item-text text-lg font-medium leading-none">{{ __('Log Out') }}</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </x-dropdown-link>
+                        </form>
                     </li>
                 </ul>
             </div>
@@ -234,16 +237,12 @@
         </div>
     </div>
 </aside>
-<div style="z-index: 25"
-    class="aside-overlay fixed left-0 top-0 block h-full w-full bg-black bg-opacity-30 sm:hidden"></div>
-<aside class="relative hidden w-[96px] bg-white dark:bg-black sm:block">
+<aside class="relative hidden w-[96px] bg-white sm:block">
     <div class="sidebar-wrapper-collapse relative top-0 z-30 w-full">
         <div
-            class="sidebar-header sticky top-0 z-20 flex h-[108px] w-full items-center justify-center border-b border-r border-b-[#F7F7F7] border-r-[#F7F7F7] bg-white dark:border-darkblack-500 dark:bg-darkblack-600">
+            class="sidebar-header sticky top-0 z-20 flex h-[108px] w-full items-center justify-center border-b border-r border-b-[#F7F7F7] border-r-[#F7F7F7] bg-white">
             <a href="index.html">
-                <img src="{{ asset('') }}images/logo/logo-ut.png" class="block dark:hidden w-[50px] h-[50px]"
-                    alt="logo" />
-                <img src="{{ asset('') }}images/logo/logo-ut.png" class="hidden dark:block w-[50px] h-[50px]"
+                <img src="{{ asset('') }}images/logo/logo-ut.png" class="block w-[50px] h-[50px]"
                     alt="logo" />
             </a>
         </div>

@@ -6,7 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Prolift Academy by United Tractors | Empowering Learning, Elevating Skills.</title>
+
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon/favicon-16x16.png') }}">
+    <link rel="icon" type="image/png" sizes="512x512" href="{{ asset('favicon/android-chrome-512x512.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('favicon/android-chrome-192x192.png') }}">
+    <link rel="manifest" href="{{ asset('favicon/site.webmanifest') }}">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -22,12 +30,12 @@
 </head>
 
 <body>
-    <section class="bg-white dark:bg-darkblack-500">
+    <section class="bg-white">
         <div class="flex flex-col lg:flex-row justify-between min-h-screen">
             <!-- Left -->
             {{ $slot }}
             <!-- Right -->
-            <div class="lg:w-1/2 lg:block hidden bg-[#F6FAFF] dark:bg-darkblack-600 p-20 relative">
+            <div class="lg:w-1/2 lg:block hidden bg-[#F6FAFF] p-20 relative">
                 <ul>
                     <li class="absolute top-10 left-8">
                         <img src="{{ asset('') }}images/shapes/square.svg" alt="" />
@@ -44,10 +52,10 @@
                 </div>
                 <div>
                     <div class="text-center max-w-lg px-1.5 m-auto">
-                        <h3 class="text-bgray-900 dark:text-white font-semibold font-popins text-2xl mb-4">
+                        <h3 class="text-bgray-900 font-semibold font-popins text-2xl mb-4">
                             Empowering Learning, Elevating Skills.
                         </h3>
-                        <p class="text-bgray-600 dark:text-bgray-50 text-sm font-medium">
+                        <p class="text-bgray-600 text-sm font-medium">
                             Prolift Academy adalah platform pembelajaran online yang dirancang untuk memberikan
                             pelatihan berkualitas kepada pelanggan United Tractors. Dengan akses ke video tutorial,
                             panduan interaktif, dan bimbingan mentor, Prolift Academy membantu Anda menguasai penggunaan

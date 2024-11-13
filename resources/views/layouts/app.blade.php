@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Prolift Academy by United Tractors | Empowering Learning, Elevating Skills.</title>
 
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicon/apple-touch-icon.png') }}">
@@ -34,7 +34,7 @@
     <div class="layout-wrapper active w-full">
         <div class="relative flex w-full">
             @include('layouts.sidebar')
-            <div class="body-wrapper flex-1 overflow-x-hidden dark:bg-darkblack-500">
+            <div class="body-wrapper flex-1 overflow-x-hidden">
                 <!-- Page Heading -->
                 @isset($header)
                     {{ $header }}
