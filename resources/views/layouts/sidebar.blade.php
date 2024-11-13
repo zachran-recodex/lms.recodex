@@ -26,7 +26,7 @@
                     Menu
                 </h4>
                 <ul class="mt-2.5">
-                    <li class="item py-[11px] text-bgray-900">
+                    <li class="item py-[11px] text-bgray-900 hover:text-ut-300">
                         <a href="{{ route('dashboard') }}">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center space-x-2.5">
@@ -46,7 +46,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class="item py-[11px] text-bgray-900">
+                    <li class="item py-[11px] text-bgray-900 hover:text-ut-300">
                         <a href="{{ route('module') }}">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center space-x-2.5">
@@ -75,7 +75,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class="item py-[11px] text-bgray-900">
+                    <li class="item py-[11px] text-bgray-900 hover:text-ut-300">
                         <a href="{{ route('progress') }}">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center space-x-2.5">
@@ -95,7 +95,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class="item py-[11px] text-bgray-900">
+                    <li class="item py-[11px] text-bgray-900 hover:text-ut-300">
                         <a href="{{ route('notification') }}">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center space-x-2.5">
@@ -117,7 +117,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class="item py-[11px] text-bgray-900">
+                    <li class="item py-[11px] text-bgray-900 hover:text-ut-300">
                         <x-dropdown-link :href="route('profile.edit')">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center space-x-2.5">
@@ -142,7 +142,7 @@
                     Others
                 </h4>
                 <ul class="mt-2.5">
-                    <li class="item py-[11px] text-bgray-900">
+                    <li class="item py-[11px] text-bgray-900 hover:text-ut-300">
                         <a href="{{ route('support') }}">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center space-x-2.5">
@@ -171,7 +171,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class="item py-[11px] text-bgray-900">
+                    <li class="item py-[11px] text-bgray-900 hover:text-ut-300">
                         <a href="{{ route('setting') }}">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center space-x-2.5">
@@ -191,7 +191,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class="item py-[11px] text-bgray-900">
+                    <li class="item py-[11px] text-bgray-900 hover:text-ut-300">
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
