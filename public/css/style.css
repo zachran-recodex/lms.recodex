@@ -98,7 +98,7 @@ body {
 }
 .progess-bar .bonus-per svg circle {
   fill: none;
-  stroke: #22c55e;
+  stroke: #FED035;
   stroke-width: 9px;
   stroke-dasharray: 215;
 }
@@ -227,7 +227,7 @@ body {
   .flatpickr-days
   .dayContainer
   .flatpickr-day.today.selected {
-  background: #22c55e;
+  background: #FED035;
   color: #ffffff;
   border: none;
   border-radius: 8px;
@@ -240,7 +240,7 @@ body {
   .dayContainer
   .flatpickr-day.selected {
   background: none;
-  border: 1px solid #22c55e;
+  border: 1px solid #FED035;
   border-radius: 8px;
 }
 .dark .fc-daygrid-dot-event .fc-event-title{
@@ -284,7 +284,7 @@ body.modal-open {
   color: white;
 }
 .tab.active .tab-icon {
-  background-color: #22c55e;
+  background-color: #FED035;
   color: white;
 }
 .tab-pane {
@@ -361,7 +361,7 @@ body.modal-open {
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
-  color: #22c55e;
+  color: #FED035;
 }
 
 .fc-day-sun .fc-col-header-cell-cushion,
@@ -695,7 +695,7 @@ svg
 }
 .trust-pagination.swiper-pagination.swiper-pagination-bullets
   .swiper-pagination-bullet {
-  background-color: #22c55e;
+  background-color: #FED035;
   opacity: 0.2;
   width: 12px;
   height: 12px;
@@ -704,7 +704,7 @@ svg
 
 .trust-pagination.swiper-pagination.swiper-pagination-bullets
   .swiper-pagination-bullet-active {
-  background-color: #22c55e;
+  background-color: #FED035;
   opacity: 1;
   width: 14px;
   height: 14px;
@@ -715,7 +715,7 @@ svg
   border-radius: 12px;
   border: 1px solid var(--stock-color, #cbcbcb);
   background: var(--white-v-1, #fff);
-  border-bottom: 7px solid #22c55e;
+  border-bottom: 7px solid #FED035;
 }
 
 .swiper-slide-next > div {
