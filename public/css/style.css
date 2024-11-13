@@ -529,22 +529,6 @@ button.fc-button.fc-button-primary.fc-prev-button {
   li.item:hover
   .item-ico
   svg
-  .path-1,
-:is(.sidebar-wrapper, .sidebar-wrapper-collapse)
-  .sidebar-body
-  .item-wrapper
-  ul
-  li.item:hover {
-  fill: #FED035;
-  color: #FED035;
-}
-:is(.sidebar-wrapper, .sidebar-wrapper-collapse)
-  .sidebar-body
-  .item-wrapper
-  ul
-  li.item:hover
-  .item-ico
-  svg
   .path-2 {
   fill: #fefae8;
 }
