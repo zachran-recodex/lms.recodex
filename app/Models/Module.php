@@ -16,4 +16,9 @@ class Module extends Model
         'image',
         'is_active',
     ];
+
+    public function scopeSearch($query, $value)
+    {
+        $query->where("title", "like", "%{$value}%");
+    }
 }

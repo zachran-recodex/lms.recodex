@@ -65,8 +65,11 @@
                                         </svg>
                                     </span>
                                     <label for="listSearch" class="w-full">
-                                        <input type="text" id="listSearch" placeholder="Cari modul..."
-                                            class="search-input w-full border-none bg-bgray-100 px-0 text-sm tracking-wide text-bgray-600 placeholder:text-sm placeholder:font-medium placeholder:text-bgray-500 focus:outline-none focus:ring-0" />
+                                        <form action="{{ route('admin.modules.index') }}" method="GET">
+                                            <input type="text" id="listSearch" name="search"
+                                                value="{{ request('search') }}" placeholder="Cari modul..."
+                                                class="search-input w-full border-none bg-bgray-100 px-0 text-sm tracking-wide text-bgray-600 placeholder:text-sm placeholder:font-medium placeholder:text-bgray-500 focus:outline-none focus:ring-0" />
+                                        </form>
                                     </label>
                                 </div>
                             </div>
@@ -107,8 +110,7 @@
                                 @forelse($modules as $module)
                                     <tr class="border-b border-bgray-300">
                                         <td class="px-6 py-5 xl:px-0">
-                                            <p class="text-base font-semibold text-bgray-900">{{ $module->title }}
-                                            </p>
+                                            <p class="text-base font-semibold text-bgray-900">{{ $module->title }}</p>
                                         </td>
                                         <td class="px-6 py-5 xl:px-0">
                                             <div class="h-24 w-24 overflow-hidden">
@@ -167,6 +169,7 @@
             </section>
         </div>
     </main>
+
 
     <!-- Struktur Modal -->
     <div id="deleteModal"

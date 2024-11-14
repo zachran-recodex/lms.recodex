@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Module;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreModuleRequest;
 use App\Http\Requests\UpdateModuleRequest;
 
@@ -13,9 +14,17 @@ class ModuleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $modules = Module::orderBy('id')->paginate(10);
+        $modules = Module::orderBy('id');
+
+        // Cek apakah ada query pencarian
+        if ($request->has('search') && $request->search != '') {
+            $modules = $modules->search($request->search);
+        }
+
+        $modules = $modules->paginate(10);
+
         return view('dashboard.modules.index', compact('modules'));
     }
 
