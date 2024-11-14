@@ -16,6 +16,11 @@ class DashboardController extends Controller
         return view ('module');
     }
 
+    public function moduleDetail()
+    {
+        return view ('module-detail');
+    }
+
     public function progress()
     {
         return view ('progress');
