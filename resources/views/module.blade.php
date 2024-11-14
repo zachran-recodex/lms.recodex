@@ -110,18 +110,36 @@
             <section class="mb-6 2xl:mb-0 2xl:flex-1">
                 <div class="mb-[24px] w-full">
                     <div class="grid grid-cols-1 gap-[24px] lg:grid-cols-3 sm:grid-cols-2">
-                        <div class="rounded-lg bg-white border border-bgray-900 p-5">
-                            <img src="{{ asset('images/responsive/bg1.png') }}"
-                                class="w-full object-cover h-[150px] rounded-lg" alt="Module">
-                            <h2 class="text-lg font-semibold text-bgray-900 mt-3">Judul Modul</h2>
-                            <!-- Indikator Progres -->
-                            <div class="flex items-center">
-                                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                                    <div class="bg-ut-300 h-2.5 rounded-full" style="width: 50%;"></div>
+                        @forelse ($modules as $module)
+                            <a href="" class="rounded-lg bg-white border border-bgray-900 p-5">
+                                <img src="{{ Storage::url($module->image) }}"
+                                    class="w-full object-cover h-[150px] rounded-lg" alt="{{ $module->title }}">
+                                <h2 class="text-lg font-semibold text-bgray-900 mt-3">{{ $module->title }}</h2>
+                                <!-- Indikator Progres -->
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-ut-300 h-2.5 rounded-full" style="width: 50%;"></div>
+                                    </div>
+                                    <span class="ml-2 text-sm font-medium text-bgray-900">50%</span>
                                 </div>
-                                <span class="ml-2 text-sm font-medium text-bgray-900">50%</span>
+                            </a>
+                        @empty
+                            <div class="rounded-lg bg-white border border-bgray-900 p-5">
+                                <img src="{{ asset('images/responsive/bg1.png') }}"
+                                    class="w-full object-cover h-[150px] rounded-lg" alt="Module">
+                                <h2 class="text-lg font-semibold text-bgray-900 mt-3">Judul Modul</h2>
+                                <!-- Indikator Progres -->
+                                <div class="flex items-center">
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-ut-300 h-2.5 rounded-full" style="width: 50%;"></div>
+                                    </div>
+                                    <span class="ml-2 text-sm font-medium text-bgray-900">50%</span>
+                                </div>
                             </div>
-                        </div>
+                        @endforelse
+                    </div>
+                    <div class="pagination-content w-full">
+                        {{ $modules->links() }}
                     </div>
                 </div>
             </section>

@@ -30,9 +30,13 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::prefix('admin')->name('admin.')->group(function () {
-        Route::middleware('can:manage modules')->group(function () {
-            Route::resource('modules', ModuleController::class);
-        });
+        // Define standard resource routes except for 'edit'
+        Route::resource('modules', ModuleController::class)->parameters([
+            'modules' => 'slug'
+        ])->except(['edit']);
+
+        // Custom route for editing a module using the desired pattern
+        Route::get('modules/edit/{slug}', [ModuleController::class, 'edit'])->name('modules.edit');
     });
 });
 

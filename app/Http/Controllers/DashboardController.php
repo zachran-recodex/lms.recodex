@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Module;
 
 class DashboardController extends Controller
 {
@@ -13,7 +13,9 @@ class DashboardController extends Controller
 
     public function module()
     {
-        return view ('module');
+        $modules = Module::orderBy('id')->paginate(12);
+
+        return view ('module', compact('modules'));
     }
 
     public function moduleDetail()

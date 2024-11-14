@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title'); // Kolom untuk nama
             $table->string('slug')->unique(); // Kolom untuk slug (unik)
             $table->string('image')->nullable(); // Kolom untuk gambar (opsional)
-            $table->integer('progress')->default(0); // Kolom untuk progres (dengan default 0)
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
