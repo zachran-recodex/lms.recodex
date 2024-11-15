@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Module;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreModuleRequest;
-use App\Http\Requests\UpdateModuleRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ModuleController extends Controller
 {
@@ -18,7 +15,7 @@ class ModuleController extends Controller
     {
         $modules = Module::orderBy('id');
 
-        // Cek apakah ada query pencarian
+        // Check if there is a search query
         if ($request->has('search') && $request->search != '') {
             $modules = $modules->search($request->search);
         }
@@ -39,25 +36,20 @@ class ModuleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreModuleRequest $request)
+    public function store(Request $request)
     {
-        $module = new Module();
-
-        // Update fields with request data
-        $module->title = $request->title;
-        $module->slug = Str::slug($request->title);
-        $module->status = $request->status;
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
+            'is_active' => 'required|boolean',
+        ]);
 
         // Handle image upload
         if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $fileName = time() . '_' . $file->getClientOriginalName(); // Nama unik
-            $destinationPath = public_path('storage/modules'); // Tentukan jalur penyimpanan
-            $file->move($destinationPath, $fileName); // Pindahkan file
-            $module->image = 'modules/' . $fileName; // Simpan jalur relatif dalam database
+            $validated['image'] = $request->file('image')->store('modules', 'public');
         }
 
-        $module->save();
+        Module::create($validated);
 
         return redirect()->route('admin.modules.index')->with('success', 'Module created successfully.');
     }
@@ -75,31 +67,24 @@ class ModuleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateModuleRequest $request, Module $module)
+    public function update(Request $request, Module $module)
     {
-        // Update fields with request data
-        $module->title = $request->title;
-        $module->slug = Str::slug($request->title);
-        $module->author = $request->author;
-        $module->description = $request->description;
-        $module->status = $request->status;
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
+            'is_active' => 'required|boolean',
+        ]);
 
-        // Handle image upload
+        // Handle image upload if present
         if ($request->hasFile('image')) {
-            // Delete old image if it exists
-            if ($module->image && file_exists(public_path('storage/' . $module->image))) {
-                unlink(public_path('storage/' . $module->image));
+            if ($module->image && Storage::exists('public/' . $module->image)) {
+                Storage::delete('public/' . $module->image);
             }
-
-            // Save new image manually
-            $file = $request->file('image');
-            $fileName = time() . '_' . $file->getClientOriginalName(); // Generate unique filename
-            $destinationPath = public_path('storage/modules');
-            $file->move($destinationPath, $fileName); // Move file to the destination
-            $module->image = 'modules/' . $fileName; // Save relative path in database
+            $validated['image'] = $request->file('image')->store('modules', 'public');
         }
 
-        $module->save();
+        // Update module data
+        $module->update($validated);
 
         return redirect()->route('admin.modules.index')->with('success', 'Module updated successfully.');
     }
@@ -107,14 +92,11 @@ class ModuleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($slug)
+    public function destroy(Module $module)
     {
-        // Cari modul berdasarkan slug
-        $module = Module::where('slug', $slug)->firstOrFail();
-
-        // Delete image from storage if it exists
-        if ($module->image && file_exists(public_path('storage/' . $module->image))) {
-            unlink(public_path('storage/' . $module->image));
+        // Delete image if it exists
+        if ($module->image && Storage::exists('public/' . $module->image)) {
+            Storage::delete('public/' . $module->image);
         }
 
         $module->delete();

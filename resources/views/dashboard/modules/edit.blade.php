@@ -13,9 +13,8 @@
                         </svg>
                     </span>
                 </button>
-                <!--Page Title-->
                 <div>
-                    <h3 class="text-xl font-bold text-bgray-900  lg:text-3xl lg:leading-[36.4px]">
+                    <h3 class="text-xl font-bold text-bgray-900 lg:text-3xl lg:leading-[36.4px]">
                         Modul Pelatihan
                     </h3>
                 </div>
