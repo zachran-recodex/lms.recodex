@@ -97,7 +97,7 @@
                                 @if ($module->image)
                                     <div class="mt-4">
                                         <p class="text-sm text-gray-700">Gambar saat ini:</p>
-                                        <img src="{{ Storage::url($module->image) }}"
+                                        <img src="{{ asset('storage/' . $module->image) }}"
                                             alt="{{ old('title', $module->title) }}" class="w-32 mt-2">
                                     </div>
                                 @endif
