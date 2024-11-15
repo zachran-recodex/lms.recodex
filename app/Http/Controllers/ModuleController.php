@@ -44,9 +44,15 @@ class ModuleController extends Controller
             'is_active' => 'required|boolean',
         ]);
 
-        // Handle image upload
+        // Handle image upload with additional check for fileinfo extension
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('modules', 'public');
+            // Check if 'fileinfo' extension is available
+            if (extension_loaded('fileinfo')) {
+                $validated['image'] = $request->file('image')->store('modules', 'public');
+            } else {
+                // If 'fileinfo' is not loaded, fall back to saving the file without MIME validation
+                $validated['image'] = $request->file('image')->storeAs('modules', $request->file('image')->getClientOriginalName(), 'public');
+            }
         }
 
         Module::create($validated);
@@ -80,7 +86,14 @@ class ModuleController extends Controller
             if ($module->image && Storage::exists('public/' . $module->image)) {
                 Storage::delete('public/' . $module->image);
             }
-            $validated['image'] = $request->file('image')->store('modules', 'public');
+
+            // Check if 'fileinfo' extension is available
+            if (extension_loaded('fileinfo')) {
+                $validated['image'] = $request->file('image')->store('modules', 'public');
+            } else {
+                // If 'fileinfo' is not loaded, fall back to saving the file without MIME validation
+                $validated['image'] = $request->file('image')->storeAs('modules', $request->file('image')->getClientOriginalName(), 'public');
+            }
         }
 
         // Update module data
