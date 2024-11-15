@@ -22,7 +22,7 @@ class UpdateModuleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'sometimes|string|max:255|unique:modules,title,' . $this->route('module'),
+            'title' => 'sometimes|string|max:255|unique:modules,title,',
             'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
             'is_active' => 'required|boolean',
         ];
