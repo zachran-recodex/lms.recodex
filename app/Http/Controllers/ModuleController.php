@@ -50,7 +50,11 @@ class ModuleController extends Controller
 
         // Handle image upload
         if ($request->hasFile('image')) {
-            $module->image = $request->file('image')->store('modules', 'public');
+            $file = $request->file('image');
+            $fileName = time() . '_' . $file->getClientOriginalName(); // Nama unik
+            $destinationPath = public_path('storage/modules'); // Tentukan jalur penyimpanan
+            $file->move($destinationPath, $fileName); // Pindahkan file
+            $module->image = 'modules/' . $fileName; // Simpan jalur relatif dalam database
         }
 
         $module->save();
@@ -82,11 +86,17 @@ class ModuleController extends Controller
 
         // Handle image upload
         if ($request->hasFile('image')) {
-            // Delete old image if exists
-            if ($module->image) {
-                Storage::disk('public')->delete($module->image);
+            // Delete old image if it exists
+            if ($module->image && file_exists(public_path('storage/' . $module->image))) {
+                unlink(public_path('storage/' . $module->image));
             }
-            $module->image = $request->file('image')->store('modules', 'public');
+
+            // Save new image manually
+            $file = $request->file('image');
+            $fileName = time() . '_' . $file->getClientOriginalName(); // Generate unique filename
+            $destinationPath = public_path('storage/modules');
+            $file->move($destinationPath, $fileName); // Move file to the destination
+            $module->image = 'modules/' . $fileName; // Save relative path in database
         }
 
         $module->save();
@@ -102,9 +112,9 @@ class ModuleController extends Controller
         // Cari modul berdasarkan slug
         $module = Module::where('slug', $slug)->firstOrFail();
 
-        // Delete images from storage if they exist
-        if ($module->image) {
-            Storage::disk('public')->delete($module->image);
+        // Delete image from storage if it exists
+        if ($module->image && file_exists(public_path('storage/' . $module->image))) {
+            unlink(public_path('storage/' . $module->image));
         }
 
         $module->delete();
