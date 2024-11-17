@@ -41,11 +41,13 @@ class ModuleController extends Controller
 
         // Handle image upload
         if ($request->hasFile('image')) {
-            $module->image = $request->file('image')->store('modules', 'public');
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('storage/modules'), $filename);
+            $module->image = 'modules/' . $filename;
         }
 
         $module->save();
-
         return redirect()->route('dashboard.modules.index')->with('success', 'Module created successfully.');
     }
 
