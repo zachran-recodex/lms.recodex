@@ -118,7 +118,7 @@
                                         <td class="px-6 py-5 xl:px-0">
                                             <div class="h-24 w-24 overflow-hidden">
                                                 <img src="{{ asset('storage/' . $module->image) }}"
-                                                    alt="{{ $module->title }}"> class="h-full w-full object-cover" />
+                                                    alt="{{ $module->title }}" class="h-full w-full object-cover" />
                                             </div>
                                         </td>
                                         <td class="px-6 py-5 xl:px-0">
