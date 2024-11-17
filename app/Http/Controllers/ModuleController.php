@@ -11,9 +11,6 @@ use App\Http\Requests\ModuleUpdateRequest;
 
 class ModuleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index(Request $request)
     {
         $modules = Module::orderBy('id');
@@ -28,17 +25,11 @@ class ModuleController extends Controller
         return view('dashboard.modules.index', compact('modules'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('dashboard.modules.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(ModuleStoreRequest $request)
     {
         $module = new Module();
@@ -58,10 +49,6 @@ class ModuleController extends Controller
         return redirect()->route('dashboard.modules.index')->with('success', 'Module created successfully.');
     }
 
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit($slug)
     {
         $module = Module::where('slug', $slug)->firstOrFail();
@@ -69,9 +56,6 @@ class ModuleController extends Controller
         return view('dashboard.modules.edit', compact('module'));
     }
 
-/**
-     * Update the specified resource in storage.
-     */
     public function update(ModuleUpdateRequest $request, $slug)
     {
         $module = Module::where('slug', $slug)->firstOrFail();
@@ -84,10 +68,15 @@ class ModuleController extends Controller
         // Handle image upload
         if ($request->hasFile('image')) {
             // Delete old image if exists
-            if ($module->image) {
-                Storage::disk('public')->delete($module->image);
+            if ($module->image && file_exists(public_path('storage/' . $module->image))) {
+                unlink(public_path('storage/' . $module->image));
             }
-            $module->image = $request->file('image')->store('modules', 'public');
+
+            // Upload new image
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('storage/modules'), $filename);
+            $module->image = 'modules/' . $filename;
         }
 
         $module->save();
@@ -95,16 +84,13 @@ class ModuleController extends Controller
         return redirect()->route('dashboard.modules.index')->with('success', 'Module updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($slug)
     {
         $module = Module::where('slug', $slug)->firstOrFail();
 
-        // Delete images from storage if they exist
-        if ($module->image) {
-            Storage::disk('public')->delete($module->image);
+        // Delete image from storage if exists
+        if ($module->image && file_exists(public_path('storage/' . $module->image))) {
+            unlink(public_path('storage/' . $module->image));
         }
 
         $module->delete();
