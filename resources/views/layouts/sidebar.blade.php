@@ -49,7 +49,7 @@
                     <li class="item py-[11px] text-bgray-900 hover:text-ut-300">
                         {{-- Untuk Admin --}}
                         @if (auth()->user()->hasRole('admin'))
-                            <a href="{{ route('admin.modules.index') }}">
+                            <a href="{{ route('dashboard.modules.index') }}">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center space-x-2.5">
                                         <span class="px-2">

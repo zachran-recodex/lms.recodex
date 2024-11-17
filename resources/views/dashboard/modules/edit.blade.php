@@ -53,14 +53,14 @@
                             Edit Modul Pelatihan
                         </h3>
                         <div class="relative h-full">
-                            <a href="{{ route('admin.modules.index') }}"
+                            <a href="{{ route('dashboard.modules.index') }}"
                                 class="flex h-full w-full items-center justify-center rounded-lg border bg-ut-300 px-4 py-2 hover:bg-ut-400">
                                 <span class="text-base font-medium text-bgray-900">Kembali</span>
                             </a>
                         </div>
                     </div>
                     <div class="px-[55px] py-6">
-                        <form method="POST" action="{{ route('admin.modules.update', $module->slug) }}"
+                        <form method="POST" action="{{ route('dashboard.modules.update', $module->slug) }}"
                             enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
@@ -96,7 +96,7 @@
                                 @if ($module->image)
                                     <div class="mt-4">
                                         <p class="text-sm text-gray-700">Gambar saat ini:</p>
-                                        <img src="{{ asset('storage/' . $module->image) }}"
+                                        <img src="{{ Storage::url($module->image) }}"
                                             alt="{{ old('title', $module->title) }}" class="w-32 mt-2">
                                     </div>
                                 @endif

@@ -53,7 +53,7 @@
                         <div class="flex h-[56px] w-full space-x-4">
                             <div
                                 class="hidden h-full rounded-lg border border-transparent bg-bgray-100 px-[18px] focus-within:border-ut-300 sm:block sm:w-70 lg:w-88">
-                                <form action="{{ route('admin.modules.index') }}" method="GET"
+                                <form action="{{ route('dashboard.modules.index') }}" method="GET"
                                     class="flex h-full w-full items-center space-x-[15px]">
                                     <span>
                                         <svg class="stroke-bgray-900" width="21" height="22" viewBox="0 0 21 22"
@@ -67,10 +67,18 @@
                                     <input type="text" id="listSearch" name="search" value="{{ request('search') }}"
                                         placeholder="Cari modul..."
                                         class="search-input w-full border-none bg-bgray-100 px-0 text-sm tracking-wide text-bgray-600 placeholder:text-sm placeholder:font-medium placeholder:text-bgray-500 focus:outline-none focus:ring-0" />
+                                    <button type="submit"
+                                        class="ml-2 px-3 py-1 rounded-lg bg-blue-500 text-white hover:bg-blue-600">
+                                        Cari
+                                    </button>
+                                    <a href="{{ route('dashboard.modules.index') }}"
+                                        class="ml-2 px-3 py-1 rounded-lg bg-red-500 text-white hover:bg-red-600">
+                                        Reset
+                                    </a>
                                 </form>
                             </div>
                             <div class="relative h-full flex-1">
-                                <a href="{{ route('admin.modules.create') }}"
+                                <a href="{{ route('dashboard.modules.create') }}"
                                     class="flex h-full w-full items-center justify-center rounded-lg border bg-ut-300">
                                     <span class="text-base font-medium text-bgray-900">Buat</span>
                                 </a>
@@ -109,8 +117,8 @@
                                         </td>
                                         <td class="px-6 py-5 xl:px-0">
                                             <div class="h-24 w-24 overflow-hidden">
-                                                <img src="{{ asset('storage/' . $module->image) }}"
-                                                    alt="{{ $module->title }}" class="h-full w-full object-cover" />
+                                                <img src="{{ Storage::url($module->image) }}" alt="{{ $module->title }}"
+                                                    class="h-full w-full object-cover" />
                                             </div>
                                         </td>
                                         <td class="px-6 py-5 xl:px-0">
@@ -122,7 +130,7 @@
                                         <td class="px-6 py-5 xl:w-[165px] xl:px-0">
                                             <div class="flex w-full items-center space-x-4">
                                                 <!-- Edit Button -->
-                                                <a href="{{ route('admin.modules.edit', $module->slug) }}"
+                                                <a href="{{ route('dashboard.modules.edit', $module->slug) }}"
                                                     class="inline-flex items-center px-4 py-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-lg hover:bg-blue-200 transition duration-200">
                                                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor"
                                                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -134,7 +142,7 @@
 
                                                 <!-- Delete Button -->
                                                 <button type="button"
-                                                    onclick="openDeleteModal('{{ route('admin.modules.destroy', $module->slug) }}')"
+                                                    onclick="openDeleteModal('{{ route('dashboard.modules.destroy', $module->slug) }}')"
                                                     class="inline-flex items-center px-4 py-2 text-sm font-medium text-red-600 bg-red-100 rounded-lg hover:bg-red-200 transition duration-200">
                                                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor"
                                                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

@@ -51,7 +51,8 @@
         <div class="2xl:flex 2xl:space-x-[48px] flex flex-col">
             <!-- Search and Filter Section -->
             <section class="mb-6 2xl:mb-0 2xl:flex-1">
-                <div class="flex items-center w-full flex-col sm:flex-row">
+                <form action="{{ route('module') }}" method="GET"
+                    class="flex items-center w-full flex-col sm:flex-row">
                     <!-- Search Bar -->
                     <div class="searchbar-wrapper flex items-center w-full mb-4 sm:mb-0 sm:w-auto">
                         <div
@@ -67,7 +68,8 @@
                                     </svg>
                                 </span>
                                 <label for="search" class="w-full">
-                                    <input type="text" id="search" placeholder="Search..."
+                                    <input type="text" id=listSearch" name="search" value="{{ request('search') }}"
+                                        placeholder="Cari modul..."
                                         class="search-input w-full border-none bg-bgray-50 px-0 text-sm tracking-wide text-bgray-600 placeholder:text-sm placeholder:font-semibold focus:outline-none focus:ring-0" />
                                 </label>
                             </div>
@@ -75,16 +77,16 @@
                     </div>
                     <!-- Buttons -->
                     <div class="flex gap-2 ml-4">
-                        <button
-                            class="rounded-lg h-[56px] w-full sm:w-[100px] bg-blue-600 py-2 px-4 font-bold text-white transition-all hover:bg-blue-700">
-                            Search
+                        <button type="submit"
+                            class="flex items-center justify-center rounded-lg h-[56px] w-full sm:w-[100px] bg-blue-600 py-2 px-4 font-bold text-white transition duration-200 ease-in-out hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                            Cari
                         </button>
-                        <button
-                            class="rounded-lg h-[56px] w-full sm:w-[100px] bg-red-600 py-2 px-4 font-bold text-white transition-all hover:bg-red-700">
+                        <a href="{{ route('module') }}"
+                            class="flex items-center justify-center rounded-lg h-[56px] w-full sm:w-[100px] bg-red-600 py-2 px-4 font-bold text-white transition duration-200 ease-in-out hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">
                             Reset
-                        </button>
+                        </a>
                     </div>
-                </div>
+                </form>
                 <!-- Kategori Section -->
                 <div class="flex items-center justify-start mt-4 space-x-4 w-full overflow-x-auto">
                     <a href="#"

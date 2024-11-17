@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Module;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\ModuleStoreRequest;
+use App\Http\Requests\ModuleUpdateRequest;
 
 class ModuleController extends Controller
 {
@@ -36,29 +39,25 @@ class ModuleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ModuleStoreRequest $request)
     {
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
-            'is_active' => 'required|boolean',
-        ]);
+        $module = new Module();
 
-        // Handle image upload with additional check for fileinfo extension
+        // Update fields with request data
+        $module->title = $request->title;
+        $module->slug = Str::slug($request->title);
+        $module->is_active = $request->is_active;
+
+        // Handle image upload
         if ($request->hasFile('image')) {
-            // Check if 'fileinfo' extension is available
-            if (extension_loaded('fileinfo')) {
-                $validated['image'] = $request->file('image')->store('modules', 'public');
-            } else {
-                // If 'fileinfo' is not loaded, fall back to saving the file without MIME validation
-                $validated['image'] = $request->file('image')->storeAs('modules', $request->file('image')->getClientOriginalName(), 'public');
-            }
+            $module->image = $request->file('image')->store('modules', 'public');
         }
 
-        Module::create($validated);
+        $module->save();
 
-        return redirect()->route('admin.modules.index')->with('success', 'Module created successfully.');
+        return redirect()->route('dashboard.modules.index')->with('success', 'Module created successfully.');
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -70,50 +69,46 @@ class ModuleController extends Controller
         return view('dashboard.modules.edit', compact('module'));
     }
 
-    /**
+/**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Module $module)
+    public function update(ModuleUpdateRequest $request, $slug)
     {
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
-            'is_active' => 'required|boolean',
-        ]);
+        $module = Module::where('slug', $slug)->firstOrFail();
 
-        // Handle image upload if present
+        // Update fields with request data
+        $module->title = $request->title;
+        $module->slug = Str::slug($request->title);
+        $module->is_active = $request->is_active;
+
+        // Handle image upload
         if ($request->hasFile('image')) {
-            if ($module->image && Storage::exists('public/' . $module->image)) {
-                Storage::delete('public/' . $module->image);
+            // Delete old image if exists
+            if ($module->image) {
+                Storage::disk('public')->delete($module->image);
             }
-
-            // Check if 'fileinfo' extension is available
-            if (extension_loaded('fileinfo')) {
-                $validated['image'] = $request->file('image')->store('modules', 'public');
-            } else {
-                // If 'fileinfo' is not loaded, fall back to saving the file without MIME validation
-                $validated['image'] = $request->file('image')->storeAs('modules', $request->file('image')->getClientOriginalName(), 'public');
-            }
+            $module->image = $request->file('image')->store('modules', 'public');
         }
 
-        // Update module data
-        $module->update($validated);
+        $module->save();
 
-        return redirect()->route('admin.modules.index')->with('success', 'Module updated successfully.');
+        return redirect()->route('dashboard.modules.index')->with('success', 'Module updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Module $module)
+    public function destroy($slug)
     {
-        // Delete image if it exists
-        if ($module->image && Storage::exists('public/' . $module->image)) {
-            Storage::delete('public/' . $module->image);
+        $module = Module::where('slug', $slug)->firstOrFail();
+
+        // Delete images from storage if they exist
+        if ($module->image) {
+            Storage::disk('public')->delete($module->image);
         }
 
         $module->delete();
 
-        return redirect()->route('admin.modules.index')->with('success', 'Module deleted successfully.');
+        return redirect()->route('dashboard.modules.index')->with('success', 'Module deleted successfully.');
     }
 }

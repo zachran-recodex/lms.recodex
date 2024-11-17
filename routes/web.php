@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/modul-pelatihan/{slug}', [DashboardController::class, 'moduleDetail'])->name('module.detail');
     });
 
-    Route::prefix('admin')->name('admin.')->group(function () {
+    Route::prefix('dashboard')->name('dashboard.')->group(function () {
         // Define standard resource routes except for 'edit'
         Route::resource('modules', ModuleController::class)->parameters([
             'modules' => 'slug'

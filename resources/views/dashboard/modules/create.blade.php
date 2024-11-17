@@ -54,14 +54,15 @@
                             Buat Modul Pelatihan
                         </h3>
                         <div class="relative h-full">
-                            <a href="{{ route('admin.modules.index') }}"
+                            <a href="{{ route('dashboard.modules.index') }}"
                                 class="flex h-full w-full items-center justify-center rounded-lg border bg-ut-300 px-4 py-2 hover:bg-ut-400">
                                 <span class="text-base font-medium text-bgray-900">Kembali</span>
                             </a>
                         </div>
                     </div>
                     <div class="px-[55px] py-6">
-                        <form method="POST" action="{{ route('admin.modules.store') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('dashboard.modules.store') }}"
+                            enctype="multipart/form-data">
                             @csrf
                             <div class="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div class="">
