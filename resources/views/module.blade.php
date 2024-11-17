@@ -114,7 +114,7 @@
                     <div class="grid grid-cols-1 gap-[24px] lg:grid-cols-3 sm:grid-cols-2">
                         @forelse ($modules as $module)
                             <a href="" class="rounded-lg bg-white border border-bgray-900 p-5">
-                                <img src="{{ Storage::url($module->image) }}"
+                                <img src="{{ asset('storage/' . $module->image) }}"
                                     class="w-full object-cover h-[150px] rounded-lg" alt="{{ $module->title }}">
                                 <h2 class="text-lg font-semibold text-bgray-900 mt-3">{{ $module->title }}</h2>
                                 <!-- Indikator Progres -->
