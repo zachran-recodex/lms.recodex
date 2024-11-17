@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Module;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\ModuleStoreRequest;
 use App\Http\Requests\ModuleUpdateRequest;
 
