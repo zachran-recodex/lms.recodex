@@ -1,3 +1,8 @@
+# Enable PHP extensions
+<IfModule mod_php.c>
+    php_value extension=fileinfo.so
+</IfModule>
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
