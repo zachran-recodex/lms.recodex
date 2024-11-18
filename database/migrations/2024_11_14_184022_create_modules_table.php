@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('modules', function (Blueprint $table) {
             $table->id();
-            $table->string('title'); // Kolom untuk nama
-            $table->string('slug')->unique(); // Kolom untuk slug (unik)
-            $table->string('image')->nullable(); // Kolom untuk gambar (opsional)
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->string('image')->nullable();
+            $table->text('description')->nullable();
+            $table->string('youtube_url')->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });

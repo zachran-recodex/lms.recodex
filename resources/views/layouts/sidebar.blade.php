@@ -141,26 +141,6 @@
                         @endif
                     </li>
                     <li class="item py-[11px] text-bgray-900 hover:text-ut-300">
-                        <a href="{{ route('progress') }}">
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center space-x-2.5">
-                                    <span class="px-2">
-                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M18 11C18 15.9706 13.9706 20 9 20C4.02944 20 0 15.9706 0 11C0 6.02944 4.02944 2 9 2C13.9706 2 18 6.02944 18 11Z"
-                                                fill="#1A202C" class="path-1" />
-                                            <path
-                                                d="M19.8025 8.01277C19.0104 4.08419 15.9158 0.989557 11.9872 0.197453C10.9045 -0.0208635 10 0.89543 10 2V8C10 9.10457 10.8954 10 12 10H18C19.1046 10 20.0209 9.09555 19.8025 8.01277Z"
-                                                fill="#FED035" class="path-2" />
-                                        </svg>
-                                    </span>
-                                    <span class="item-text text-lg font-medium leading-none">Progres Belajar</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="item py-[11px] text-bgray-900 hover:text-ut-300">
                         <a href="{{ route('notification') }}">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center space-x-2.5">
@@ -348,21 +328,6 @@
                                                 fill="#FED035" class="path-2" />
                                             <path
                                                 d="M11 0H7C5.89543 0 5 0.895431 5 2C5 3.10457 5.89543 4 7 4H11C12.1046 4 13 3.10457 13 2C13 0.895431 12.1046 0 11 0Z"
-                                                fill="#FED035" class="path-2" />
-                                        </svg>
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="item px-[43px] py-[11px]">
-                                <a href="{{ route('progress') }}">
-                                    <span class="item-ico">
-                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M18 11C18 15.9706 13.9706 20 9 20C4.02944 20 0 15.9706 0 11C0 6.02944 4.02944 2 9 2C13.9706 2 18 6.02944 18 11Z"
-                                                fill="#1A202C" class="path-1" />
-                                            <path
-                                                d="M19.8025 8.01277C19.0104 4.08419 15.9158 0.989557 11.9872 0.197453C10.9045 -0.0208635 10 0.89543 10 2V8C10 9.10457 10.8954 10 12 10H18C19.1046 10 20.0209 9.09555 19.8025 8.01277Z"
                                                 fill="#FED035" class="path-2" />
                                         </svg>
                                     </span>

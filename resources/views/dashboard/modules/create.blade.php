@@ -95,6 +95,27 @@
                             </div>
 
                             <div class="mb-4">
+                                <label for="description"
+                                    class="block text-sm font-medium text-bgray-900">Deskripsi</label>
+                                <textarea name="description" id="description" rows="4"
+                                    class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">{{ old('description') }}</textarea>
+                                @error('description')
+                                    <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="youtube_url" class="block text-sm font-medium text-bgray-900">URL
+                                    YouTube</label>
+                                <input type="text" name="youtube_url" id="youtube_url"
+                                    value="{{ old('youtube_url') }}"
+                                    class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                @error('youtube_url')
+                                    <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="mb-4">
                                 <label for="is_active" class="block text-sm font-medium text-bgray-900">Status</label>
                                 <select name="is_active" id="is_active"
                                     class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">

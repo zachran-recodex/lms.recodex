@@ -26,14 +26,13 @@ class DashboardController extends Controller
         return view ('module', compact('modules'));
     }
 
-    public function moduleDetail()
+    public function moduleDetail($slug)
     {
-        return view ('module-detail');
-    }
+        // Cari modul berdasarkan slug
+        $module = Module::where('slug', $slug)->firstOrFail();
 
-    public function progress()
-    {
-        return view ('progress');
+        // Kirim data modul ke view
+        return view('module-detail', compact('module'));
     }
 
     public function notification()

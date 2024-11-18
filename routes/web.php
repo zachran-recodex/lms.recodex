@@ -12,7 +12,6 @@ Route::get('/', [AuthenticatedSessionController::class, 'create'])->name('login'
 // Menggunakan DashboardController untuk dashboard
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/progres-belajar', [DashboardController::class, 'progress'])->name('progress');
     Route::get('/notifikasi', [DashboardController::class, 'notification'])->name('notification');
     Route::get('/support', [DashboardController::class, 'support'])->name('support');
     Route::get('/setting', [DashboardController::class, 'setting'])->name('setting');
