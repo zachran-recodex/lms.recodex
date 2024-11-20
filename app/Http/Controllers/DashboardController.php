@@ -9,7 +9,9 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view ('dashboard');
+        $modules = Module::orderBy('id')->paginate(5);
+
+        return view ('dashboard', compact('modules'));
     }
 
     public function module(Request $request)

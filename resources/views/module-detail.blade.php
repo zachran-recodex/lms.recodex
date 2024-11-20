@@ -68,7 +68,7 @@
 
                     <!-- Description -->
                     <div class="mt-4">
-                        <p class="text-md font-bold text-bgray-800 text-justify">{{ $module->description }}</p>
+                        <p class="text-md font-bold text-bgray-800 text-justify">{!! $module->description !!}</p>
                     </div>
                 </div>
             </section>

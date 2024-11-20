@@ -16,7 +16,7 @@ class Module extends Model
         'slug',
         'image',
         'description',
-        'youtube_url', // Tambahkan kolom youtube_embed_url
+        'youtube_url',
         'is_active',
     ];
 

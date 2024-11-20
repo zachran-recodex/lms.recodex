@@ -24,8 +24,8 @@ class ModuleStoreRequest extends FormRequest
         return [
             'title' => 'required|string|max:255',
             'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
-            'description' => 'nullable|string', // Menambahkan validasi untuk description
-            'youtube_url' => 'nullable|url', // Menambahkan validasi untuk youtube_url
+            'description' => 'required|string',
+            'youtube_url' => 'nullable|url',
             'is_active' => 'required|boolean',
         ];
     }

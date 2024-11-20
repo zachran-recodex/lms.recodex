@@ -33,8 +33,8 @@
             </div>
             <div class="hidden 2xl:block">
                 <div class="flex items-center space-x-2.5">
-                    <h3 class="text-base font-bold leading-[28px] text-bgray-900">
-                        John Doe
+                    <h3 class="text-base font-bold leading-[28px] text-bgray-900 uppercase">
+                        {{ Auth::user()->getRoleNames()->first() }}
                     </h3>
                     <span>
                         <svg class="stroke-bgray-900 " width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -44,8 +44,8 @@
                         </svg>
                     </span>
                 </div>
-                <p class="text-sm font-medium leading-[20px] text-bgray-600 ">
-                    Super Admin
+                <p class="text-sm font-medium leading-[20px] text-bgray-600 uppercase">
+                    {{ Auth::user()->getRoleNames()->first() }}
                 </p>
             </div>
         </div>

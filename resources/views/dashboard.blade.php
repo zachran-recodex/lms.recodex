@@ -52,10 +52,56 @@
     </x-slot>
 
     <main class="w-full px-6 pb-6 pt-[100px] sm:pt-[156px] xl:px-12 xl:pb-12">
-        <div class="2xl:flex 2xl:space-x-[48px]">
-            <p class="text-xl font-medium text-bgray-600 lg:text-sm lg:leading-[25.2px]">
-                Selamat Datang, {{ Auth::user()->first_name }}
-            </p>
+        <div class="flex flex-col space-y-8">
+            <!-- Section 1 -->
+            <div class="flex flex-col sm:flex-row border-2 border-black rounded-lg overflow-hidden bg-white">
+                <!-- Banner -->
+                <div class="min-w-[250px] bg-cover bg-center p-4 flex flex-col justify-between text-white"
+                    style="background-image: url('{{ asset('images/responsive/bg1.png') }}');">
+                    <span class="bg-ut-400 rounded px-2 py-1">Baru!</span>
+                    <div>
+                        <h2 class="font-bold text-2xl my-4">Modul Pelatihan Mengenai Traktor</h2>
+                        <a href="{{ route('module') }}" class="px-4 py-2 bg-white text-ut-400 rounded-lg">
+                            Temukan Modul Lainnya
+                        </a>
+                    </div>
+                </div>
+                <!-- Cards -->
+                <div class="flex gap-4 p-4 overflow-x-auto flex-nowrap">
+                    @forelse ($modules as $module)
+                        <a href="{{ route('module.detail', $module->slug) }}"
+                            class="flex-shrink-0 w-[250px] bg-white border rounded-lg overflow-hidden shadow hover:shadow-lg transition">
+                            <img src="{{ asset('storage/' . $module->image) }}" alt="{{ $module->title }}"
+                                class="w-full h-40 object-cover border">
+                            <div class="p-4">
+                                <h3 class="font-bold text-lg truncate">{{ $module->title }}</h3>
+                                <p class="text-sm text-gray-600">Mekanik</p>
+                                <div class="flex items-center gap-2 mt-4">
+                                    <img src="{{ asset('images/avatar/group-img.png') }}" alt=""
+                                        class="w-8 h-8 rounded-full object-cover">
+                                    <span class="text-sm font-medium text-gray-800">Arif Muhtarom</span>
+                                </div>
+                            </div>
+                        </a>
+                    @empty
+                        <div class="flex-shrink-0 w-[250px] bg-white border rounded-lg overflow-hidden shadow">
+                            <img src="{{ asset('images/responsive/bg1.png') }}" alt=""
+                                class="w-full h-40 object-cover">
+                            <div class="p-4">
+                                <h3 class="font-bold text-lg truncate">Pengenalan Traktor</h3>
+                                <p class="text-sm text-gray-600">Mekanik</p>
+                                <div class="flex items-center gap-2 mt-4">
+                                    <img src="{{ asset('images/avatar/group-img.png') }}" alt=""
+                                        class="w-8 h-8 rounded-full object-cover">
+                                    <span class="text-sm font-medium text-gray-800">Arif Muhtarom</span>
+                                </div>
+                            </div>
+                        </div>
+                    @endforelse
+                </div>
+            </div>
+
         </div>
+
     </main>
 </x-app-layout>

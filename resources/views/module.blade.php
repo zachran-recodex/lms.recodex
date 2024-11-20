@@ -109,9 +109,9 @@
             </section>
 
             <!-- Course Modules Section -->
-            <section class="mb-6 2xl:mb-0 2xl:flex-1">
+            <section class="mb-6 2xl:mb-0 2xl:flex-1 mt-8">
                 <div class="mb-[24px] w-full">
-                    <div class="grid grid-cols-1 gap-[24px] lg:grid-cols-3 sm:grid-cols-2">
+                    <div class="grid grid-cols-1 gap-[24px] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                         @forelse ($modules as $module)
                             <a href="{{ route('module.detail', $module->slug) }}"
                                 class="rounded-lg bg-white border border-bgray-900 p-5">

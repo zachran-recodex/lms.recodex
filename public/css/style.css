@@ -299,57 +299,7 @@ body.modal-open {
   transition: max-height 0.3s ease-out, padding 0.3s ease;
 }
 
-/* Custom Quill Editor */
-
-.custom-quill .ql-toolbar.ql-snow {
-  background-color: #fafafa;
-  border: 1px solid #e2e8f0;
-  color: white;
-  padding: 16px 24px;
-  border-radius: 8px 8px 0 0;
-}
-.dark .custom-quill .ql-toolbar.ql-snow {
-  background-color: #E2E8F0;
-  border: #2A313C;
-}
-
-.custom-quill .ql-toolbar.ql-snow .ql-formats {
-  color: hsl(0, 0%, 100%);
-}
-.ql-container.ql-snow {
-  border: 1px solid #e2e8f0;
-}
-
-/* Quill Two */
-.custom-quill-2 .ql-container.ql-snow {
-  background-color: #ffffff;
-  border-radius: 8px 8px 0 0;
-  border-bottom: 0;
-}
-.dark .custom-quill .ql-container.ql-snow {
-  background-color: #1D1E24;
-  border-color: #2A313C;
-}
-.dark .custom-quill-2 .ql-container.ql-snow {
-  background-color: #1D1E24;
-  border-color: #2A313C;
-}
-
-.custom-quill-2 .ql-toolbar.ql-snow {
-  padding: 16px 20px;
-  background: #fafafa;
-  border-radius: 0 0 8px 8px;
-  border: 1px solid #e2e8f0;
-}
-.dark .custom-quill-2 .ql-toolbar.ql-snow {
-  background: #1D1E24;
-  border-color: #2A313C;
-}
-.dark .ql-editor{
-  color: white;
-}
 /* for calender */
-
 .fc .fc-daygrid .fc-non-business {
   background-color: white ;
 }

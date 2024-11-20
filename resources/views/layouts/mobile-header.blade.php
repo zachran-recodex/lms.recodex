@@ -17,7 +17,7 @@
                 </span>
             </div>
             <p class="text-sm font-medium leading-[20px] text-bgray-600">
-                Super Admin
+                {{ Auth::user()->getRoleNames()->first() }}
             </p>
         </div>
     </div>

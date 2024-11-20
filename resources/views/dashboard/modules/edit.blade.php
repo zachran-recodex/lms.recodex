@@ -105,8 +105,10 @@
                             <div class="mb-4">
                                 <label for="description"
                                     class="block text-sm font-medium text-bgray-900">Deskripsi</label>
-                                <textarea name="description" id="description" rows="4"
-                                    class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">{{ old('description', $module->description) }}</textarea>
+                                <div id="quill-editor" class="mb-3" style="height: 300px;"></div>
+                                <textarea name="description" id="quill-editor-area" rows="4"
+                                    class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                    style="display:none;">{!! old('description', $module->description) !!}</textarea>
                                 @error('description')
                                     <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                                 @enderror
@@ -158,5 +160,28 @@
             const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
             document.getElementById('slug').value = slug;
         }
+    </script>
+
+    <!-- Initialize Quill editor -->
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.getElementById('quill-editor-area')) {
+                var editor = new Quill('#quill-editor', {
+                    theme: 'snow'
+                });
+                var quillEditor = document.getElementById('quill-editor-area');
+
+                // Set the initial content of Quill editor from the textarea
+                editor.root.innerHTML = quillEditor.value;
+
+                editor.on('text-change', function() {
+                    quillEditor.value = editor.root.innerHTML;
+                });
+
+                quillEditor.addEventListener('input', function() {
+                    editor.root.innerHTML = quillEditor.value;
+                });
+            }
+        });
     </script>
 </x-app-layout>

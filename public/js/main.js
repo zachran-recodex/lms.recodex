@@ -42,36 +42,6 @@ $(function () {
   });
 });
 
-///Editor
-function QuillIsExists() {
-  const editorOne = document.querySelector("#editor");
-  const editorTwo = document.querySelector("#editor2");
-  var toolbarOptions = [
-    [{ header: [1, 2, 3, 4, 5, 6, false] }],
-    ["bold", "italic", "underline"], // toggled buttons
-    [{ list: "ordered" }, { list: "bullet" }],
-    ["link", "image"],
-  ];
-  if (editorOne) {
-    var editor = new Quill("#editor", {
-      modules: {
-        toolbar: toolbarOptions,
-      },
-      theme: "snow",
-    });
-  } else if (editorTwo) {
-    let editorTwo = new Quill("#editor2", {
-      modules: {
-        toolbar: "#toolbar2",
-      },
-      theme: "snow",
-    });
-  } else {
-    return false;
-  }
-}
-QuillIsExists();
-
 // Settings Tab
 const tabs = document.querySelectorAll(".tab");
 const tabContent = document.querySelectorAll(".tab-pane");

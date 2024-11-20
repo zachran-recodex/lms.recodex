@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Module;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use App\Http\Requests\ModuleStoreRequest;
 use App\Http\Requests\ModuleUpdateRequest;
 
@@ -47,6 +48,8 @@ class ModuleController extends Controller
             $image->move(public_path('storage/modules'), $filename);
             $module->image = 'modules/' . $filename;
         }
+
+        Log::info($request->all());
 
         $module->save();
         return redirect()->route('dashboard.modules.index')->with('success', 'Module created successfully.');
