@@ -44,8 +44,8 @@ class ClientController extends Controller
         $client = new User(); // use User model
 
         $client->username = $request->username;
-        $client->first_name = $request->first_name;
-        $client->last_name = $request->last_name;
+        $client->first_name = ucwords(strtolower($request->first_name)); // Capitalize first letter
+        $client->last_name = ucwords(strtolower($request->last_name));   // Capitalize first letter
         $client->email = $request->email;
         $client->password = Hash::make($request->password);
         $client->phone_number = $request->phone_number;
@@ -76,8 +76,8 @@ class ClientController extends Controller
         $client = User::where('username', $username)->firstOrFail(); // use User model
 
         $client->username = $request->username;
-        $client->first_name = $request->first_name;
-        $client->last_name = $request->last_name;
+        $client->first_name = ucwords(strtolower($request->first_name)); // Capitalize first letter
+        $client->last_name = ucwords(strtolower($request->last_name));   // Capitalize first letter
         $client->email = $request->email;
 
         if ($request->password) {

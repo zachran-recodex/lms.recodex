@@ -24,7 +24,13 @@ class ClientStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'username' => ['required', 'string', 'max:255'],
+            'username' => [
+                'required',
+                'string',
+                'max:255',
+                'regex:/^[a-z]+$/', // Hanya huruf kecil tanpa spasi, angka, atau karakter khusus
+                Rule::unique(User::class),
+            ],
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'email' => [
@@ -36,6 +42,26 @@ class ClientStoreRequest extends FormRequest
                 Rule::unique(User::class),
             ],
             'phone_number' => ['nullable', 'string', 'max:20'],
+            'password' => [
+                'required',
+                'string',
+                'min:8', // minimal 8 karakter
+                'confirmed', // harus ada konfirmasi password
+                'regex:/[a-z]/', // minimal satu huruf kecil
+                'regex:/[A-Z]/', // minimal satu huruf besar
+                'regex:/[0-9]/', // minimal satu angka
+            ],
+        ];
+    }
+
+    /**
+     * Custom error messages for validation rules.
+     */
+    public function messages(): array
+    {
+        return [
+            'username.regex' => 'Username hanya boleh berisi huruf kecil tanpa spasi, angka, atau karakter khusus.',
+            'password.regex' => 'Password harus mengandung huruf besar, huruf kecil dan angka.',
         ];
     }
 }
