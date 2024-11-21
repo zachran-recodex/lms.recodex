@@ -145,12 +145,6 @@ export default {
             borderRadius: {
                 20: "20px",
             },
-            backgroundImage: {
-                'bgc-dark': "url('/assets/images/background/comming-soon-dark.svg')",
-                'bgc-light': "url('/assets/images/background/coming-soon-bg.svg')",
-                'notfound-dark': "url('/assets/images/background/404-dark.jpg')",
-                'notfound-light': "url('/assets/images/background/404-bg.png')",
-            }
         },
     },
 
