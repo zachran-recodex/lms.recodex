@@ -92,6 +92,9 @@
                         <li class="text-gray-500">No modules available</li>
                     @endforelse
                 </ul>
+                <div class="w-full mt-6">
+                    {{ $modules->links() }}
+                </div>
             </aside>
 
         </div>

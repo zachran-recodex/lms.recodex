@@ -46,17 +46,6 @@
         </div>
     </div>
 
-    <!-- Nanti Hapus -->
-    <footer class="fixed bottom-0 right-0 bg-gray-800 text-white p-3 rounded-tl-lg rounded-tr-lg z-50">
-        <div class="flex justify-center items-center">
-            @auth
-                <p class="text-xl uppercase">
-                    {{ Auth::user()->getRoleNames()->first() }}
-                </p>
-            @endauth
-        </div>
-    </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
 
     <!--scripts -->

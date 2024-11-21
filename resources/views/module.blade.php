@@ -109,29 +109,27 @@
             </section>
 
             <!-- Course Modules Section -->
-            <section class="mb-6 2xl:mb-0 2xl:flex-1 mt-8">
-                <div class="mb-[24px] w-full">
-                    <div class="grid grid-cols-1 gap-[24px] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                        @forelse ($modules as $module)
-                            <a href="{{ route('module.detail', $module->slug) }}"
-                                class="rounded-lg bg-white border border-bgray-900 p-5">
-                                <img src="{{ asset('storage/' . $module->image) }}"
-                                    class="w-full object-cover h-[150px] rounded-lg" alt="{{ $module->title }}">
-                                <h2 class="text-lg font-semibold text-bgray-900 mt-3">{{ $module->title }}</h2>
-                            </a>
-                        @empty
-                            <div class="rounded-lg bg-white border border-bgray-900 p-5">
-                                <img src="{{ asset('images/responsive/bg1.png') }}"
-                                    class="w-full object-cover h-[150px] rounded-lg" alt="Module">
-                                <h2 class="text-lg font-semibold text-bgray-900 mt-3">Judul Modul</h2>
-                            </div>
-                        @endforelse
-                    </div>
-                    <div class="pagination-content w-full">
-                        {{ $modules->links() }}
-                    </div>
+            <div class="my-8">
+                <div class="w-full grid grid-cols-1 gap-[24px] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    @forelse ($modules as $module)
+                        <a href="{{ route('module.detail', $module->slug) }}"
+                            class="rounded-lg bg-white border border-bgray-900 p-5">
+                            <img src="{{ asset('storage/' . $module->image) }}"
+                                class="w-full object-cover h-[150px] rounded-lg" alt="{{ $module->title }}">
+                            <h2 class="text-lg font-semibold text-bgray-900 mt-3">{{ $module->title }}</h2>
+                        </a>
+                    @empty
+                        <div class="rounded-lg bg-white border border-bgray-900 p-5">
+                            <img src="{{ asset('images/responsive/bg1.png') }}"
+                                class="w-full object-cover h-[150px] rounded-lg" alt="Module">
+                            <h2 class="text-lg font-semibold text-bgray-900 mt-3">Judul Modul</h2>
+                        </div>
+                    @endforelse
                 </div>
-            </section>
+                <div class="pagination-content w-full">
+                    {{ $modules->links() }}
+                </div>
+            </div>
         </div>
     </main>
 </x-app-layout>
