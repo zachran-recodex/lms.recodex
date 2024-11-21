@@ -78,13 +78,14 @@
                 <ul class="space-y-3">
                     @forelse ($articles as $article)
                         <li>
-                            <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md">
+                            <a href="{{ route('article.detail', $article->slug) }}"
+                                class="bg-gray-100 rounded-lg overflow-hidden shadow-md">
                                 <img src="{{ asset('storage/' . $article->image) }}" alt="{{ $article->title }}"
                                     class="w-full h-32 object-cover">
                                 <div class="p-4">
                                     <h4 class="text-lg font-semibold text-bgray-900">{{ $article->title }}</h4>
                                 </div>
-                            </div>
+                            </a>
                         </li>
                     @empty
                         <li class="text-gray-500">No articles available</li>

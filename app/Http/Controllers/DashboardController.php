@@ -10,11 +10,11 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $modules = Module::where('is_active', true) // Hanya modul aktif
+        $articles = Article::where('is_active', true) // Hanya modul aktif
         ->orderBy('id', 'desc') // Urutkan berdasarkan ID
         ->paginate(5); // Batasi 5 item per halaman
 
-        return view ('dashboard', compact('modules'));
+        return view ('dashboard', compact('articles'));
     }
 
     public function module(Request $request)

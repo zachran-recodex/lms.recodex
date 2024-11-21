@@ -60,21 +60,21 @@
                     style="background-image: url('{{ asset('images/responsive/bg1.png') }}');">
                     <span class="bg-ut-400 rounded px-2 py-1">Baru!</span>
                     <div>
-                        <h2 class="font-bold text-2xl my-4">Modul Pelatihan Mengenai Traktor</h2>
-                        <a href="{{ route('module') }}" class="px-4 py-2 bg-white text-ut-400 rounded-lg">
-                            Temukan Modul Lainnya
+                        <h2 class="font-bold text-2xl my-4">Artikel</h2>
+                        <a href="" class="px-4 py-2 bg-white text-ut-400 rounded-lg">
+                            Temukan Artikel Lainnya
                         </a>
                     </div>
                 </div>
                 <!-- Cards -->
                 <div class="flex gap-4 p-4 overflow-x-auto flex-nowrap">
-                    @forelse ($modules as $module)
-                        <a href="{{ route('module.detail', $module->slug) }}"
+                    @forelse ($articles as $article)
+                        <a href="{{ route('article.detail', $article->slug) }}"
                             class="flex-shrink-0 w-[250px] bg-white border rounded-lg overflow-hidden shadow hover:shadow-lg transition">
-                            <img src="{{ asset('storage/' . $module->image) }}" alt="{{ $module->title }}"
+                            <img src="{{ asset('storage/' . $article->image) }}" alt="{{ $article->title }}"
                                 class="w-full h-40 object-cover border">
                             <div class="p-4">
-                                <h3 class="font-bold text-lg truncate">{{ $module->title }}</h3>
+                                <h3 class="font-bold text-lg truncate">{{ $article->title }}</h3>
                                 <p class="text-sm text-gray-600">Mekanik</p>
                                 <div class="flex items-center gap-2 mt-4">
                                     <img src="{{ asset('images/avatar/group-img.png') }}" alt=""
