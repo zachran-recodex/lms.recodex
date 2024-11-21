@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 use App\Http\Requests\ClientStoreRequest;
 use App\Http\Requests\ClientUpdateRequest;
 
@@ -12,9 +13,18 @@ class ClientController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $clients = User::role('client')->paginate(10);
+        $clients = User::role('client')->orderBy('id', 'desc');
+
+        // Filter pencarian
+        if ($request->has('search') && $request->search != '') {
+            $clients = $clients->search($request->search);
+        }
+
+        // Pagination
+        $clients = $clients->paginate(10);
+
         return view('dashboard.clients.index', compact('clients'));
     }
 
