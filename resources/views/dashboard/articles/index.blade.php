@@ -15,7 +15,7 @@
                 </button>
                 <!-- Page Title -->
                 <div>
-                    <h3 class="text-xl font-bold text-bgray-900 lg:text-3xl lg:leading-[36.4px]">List Modul Pelatihan
+                    <h3 class="text-xl font-bold text-bgray-900 lg:text-3xl lg:leading-[36.4px]">List Artikel
                     </h3>
                 </div>
                 @include('layouts.header')
@@ -36,7 +36,7 @@
                         </span>
                     </button>
                     <div>
-                        <h1 class="text-xl font-bold">List Modul Pelatihan</h1>
+                        <h1 class="text-xl font-bold">List Artikel</h1>
                     </div>
                 </div>
                 @include('layouts.mobile-header')
@@ -49,7 +49,7 @@
             <div class="flex h-[56px] w-full space-x-4">
                 <div
                     class="hidden h-full rounded-lg border border-transparent bg-bgray-100 px-[18px] focus-within:border-ut-300 sm:block sm:w-70 lg:w-88">
-                    <form action="{{ route('dashboard.modules.index') }}" method="GET"
+                    <form action="{{ route('dashboard.articles.index') }}" method="GET"
                         class="flex h-full w-full items-center space-x-[15px]">
                         <span>
                             <svg class="stroke-bgray-900" width="21" height="22" viewBox="0 0 21 22"
@@ -61,20 +61,20 @@
                             </svg>
                         </span>
                         <input type="text" id="listSearch" name="search" value="{{ request('search') }}"
-                            placeholder="Cari modul..."
+                            placeholder="Cari artikel..."
                             class="search-input w-full border-none bg-bgray-100 px-0 text-sm tracking-wide text-bgray-600 placeholder:text-sm placeholder:font-medium placeholder:text-bgray-500 focus:outline-none focus:ring-0" />
                         <button type="submit"
                             class="ml-2 px-3 py-1 rounded-lg bg-blue-500 text-white hover:bg-blue-600">
                             Cari
                         </button>
-                        <a href="{{ route('dashboard.modules.index') }}"
+                        <a href="{{ route('dashboard.articles.index') }}"
                             class="ml-2 px-3 py-1 rounded-lg bg-red-500 text-white hover:bg-red-600">
                             Reset
                         </a>
                     </form>
                 </div>
                 <div class="relative h-full flex-1">
-                    <a href="{{ route('dashboard.modules.create') }}"
+                    <a href="{{ route('dashboard.articles.create') }}"
                         class="flex h-full w-full items-center justify-center rounded-lg border bg-ut-300">
                         <span class="text-base font-medium text-bgray-900">Buat</span>
                     </a>
@@ -109,27 +109,27 @@
                     </thead>
 
                     <tbody>
-                        @forelse($modules as $module)
+                        @forelse($articles as $article)
                             <tr class="border-b border-bgray-300">
                                 <th scope="row" class="px-6 py-5 xl:px-0">
-                                    <p class="text-base font-semibold text-bgray-900">{{ $module->title }}</p>
+                                    <p class="text-base font-semibold text-bgray-900">{{ $article->title }}</p>
                                 </th>
                                 <td class="px-6 py-5 xl:px-0">
                                     <div class="h-24 w-24 overflow-hidden">
-                                        <img src="{{ asset('storage/' . $module->image) }}" alt="{{ $module->title }}"
+                                        <img src="{{ asset('storage/' . $article->image) }}" alt="{{ $article->title }}"
                                             class="h-full w-full object-cover" />
                                     </div>
                                 </td>
                                 <td class="px-6 py-5 xl:px-0">
                                     <span
-                                        class="inline-block px-4 py-2 text-base font-medium rounded-full {{ $module->is_active ? 'bg-green-500 text-white' : 'bg-red-500 text-white' }}">
-                                        {{ $module->is_active ? 'Aktif' : 'Tidak Aktif' }}
+                                        class="inline-block px-4 py-2 text-base font-medium rounded-full {{ $article->is_active ? 'bg-green-500 text-white' : 'bg-red-500 text-white' }}">
+                                        {{ $article->is_active ? 'Aktif' : 'Tidak Aktif' }}
                                     </span>
                                 </td>
                                 <td class="px-6 py-5 xl:px-0">
                                     <div class="flex items-center space-x-4">
                                         <!-- Edit Button -->
-                                        <a href="{{ route('dashboard.modules.edit', $module->slug) }}"
+                                        <a href="{{ route('dashboard.articles.edit', $article->slug) }}"
                                             class="inline-flex items-center px-4 py-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-lg hover:bg-blue-200 transition duration-200">
                                             <svg class="w-4 h-4 mr-2" aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -143,7 +143,7 @@
 
                                         <!-- Delete Button -->
                                         <button type="button"
-                                            onclick="openDeleteModal('{{ route('dashboard.modules.destroy', $module->slug) }}')"
+                                            onclick="openDeleteModal('{{ route('dashboard.articles.destroy', $article->slug) }}')"
                                             class="inline-flex items-center px-4 py-2 text-sm font-medium text-red-600 bg-red-100 rounded-lg hover:bg-red-200 transition duration-200">
                                             <svg class="w-4 h-4 mr-2" aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -159,7 +159,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="4" class="px-6 py-5 text-center">Tidak ada modul yang
+                                <td colspan="4" class="px-6 py-5 text-center">Tidak ada artikel yang
                                     tersedia.</td>
                             </tr>
                         @endforelse
@@ -168,7 +168,7 @@
 
                 <!-- Pagination -->
                 <div class="w-full mt-6">
-                    {{ $modules->links() }}
+                    {{ $articles->links() }}
                 </div>
             </div>
         </section>
@@ -180,7 +180,7 @@
         <div
             class="border border-gray-800 bg-white rounded-lg p-6 w-[90%] max-w-md mx-auto mt-[10%] shadow-2xl transform scale-95 transition-transform duration-300">
             <h2 class="text-lg font-semibold text-gray-800 mb-4">Konfirmasi Penghapusan</h2>
-            <p class="text-gray-600 mb-6">Apakah Anda yakin ingin menghapus modul ini?</p>
+            <p class="text-gray-600 mb-6">Apakah Anda yakin ingin menghapus artikel ini?</p>
             <div class="flex justify-end space-x-4">
                 <!-- Tombol Batal -->
                 <button type="button" id="cancelButton"

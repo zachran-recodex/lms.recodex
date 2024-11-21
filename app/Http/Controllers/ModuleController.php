@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Module;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use App\Http\Requests\ModuleStoreRequest;
 use App\Http\Requests\ModuleUpdateRequest;
 
@@ -13,7 +12,7 @@ class ModuleController extends Controller
 {
     public function index(Request $request)
     {
-        $modules = Module::orderBy('id');
+        $modules = Module::orderBy('id', 'desc');
 
         // Check if there is a search query
         if ($request->has('search') && $request->search != '') {
@@ -39,7 +38,7 @@ class ModuleController extends Controller
         $module->slug = Str::slug($request->title);
         $module->description = $request->description;
         $module->youtube_url = $this->getYoutubeEmbedUrl($request->youtube_url); // Convert to embed URL
-        $module->is_active = $request->is_active;
+        $module->is_active = filter_var($request->is_active, FILTER_VALIDATE_BOOLEAN);
 
         // Handle image upload
         if ($request->hasFile('image')) {
@@ -48,8 +47,6 @@ class ModuleController extends Controller
             $image->move(public_path('storage/modules'), $filename);
             $module->image = 'modules/' . $filename;
         }
-
-        Log::info($request->all());
 
         $module->save();
         return redirect()->route('dashboard.modules.index')->with('success', 'Module created successfully.');
@@ -71,7 +68,7 @@ class ModuleController extends Controller
         $module->slug = Str::slug($request->title);
         $module->description = $request->description;
         $module->youtube_url = $this->getYoutubeEmbedUrl($request->youtube_url); // Convert to embed URL
-        $module->is_active = $request->is_active;
+        $module->is_active = filter_var($request->is_active, FILTER_VALIDATE_BOOLEAN);
 
         // Handle image upload
         if ($request->hasFile('image')) {

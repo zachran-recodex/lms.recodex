@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
@@ -23,9 +24,13 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::middleware('can:watch modules')->group(function () {
+    Route::middleware('can:see modules')->group(function () {
         Route::get('/modul-pelatihan', [DashboardController::class, 'module'])->name('module');
         Route::get('/modul-pelatihan/{slug}', [DashboardController::class, 'moduleDetail'])->name('module.detail');
+    });
+
+    Route::middleware('can:see articles')->group(function () {
+        Route::get('/artikel/{slug}', [DashboardController::class, 'articleDetail'])->name('article.detail');
     });
 
     Route::prefix('dashboard')->name('dashboard.')->group(function () {
@@ -36,6 +41,13 @@ Route::middleware('auth')->group(function () {
 
         // Custom route for editing a module using the desired pattern
         Route::get('modules/edit/{slug}', [ModuleController::class, 'edit'])->name('modules.edit');
+
+        Route::resource('articles', ArticleController::class)->parameters([
+            'articles' => 'slug'
+        ])->except(['edit']);
+
+        // Custom route for editing a module using the desired pattern
+        Route::get('articles/edit/{slug}', [ArticleController::class, 'edit'])->name('articles.edit');
     });
 });
 

@@ -6,7 +6,6 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class RolePermissionSeeder extends Seeder
 {
@@ -18,7 +17,9 @@ class RolePermissionSeeder extends Seeder
         // Daftar permission yang akan dibuat
         $permissions = [
             'manage modules',
-            'watch modules',
+            'manage articles',
+            'see modules',
+            'see articles',
         ];
 
         // Membuat permission jika belum ada
@@ -45,7 +46,8 @@ class RolePermissionSeeder extends Seeder
 
         // Daftar permission untuk role 'client'
         $clientPermissions = [
-            'watch modules',
+            'see modules',
+            'see articles',
         ];
 
         // Mengatur permission untuk role 'client'

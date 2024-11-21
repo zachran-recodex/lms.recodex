@@ -13,10 +13,9 @@
                         </svg>
                     </span>
                 </button>
-                <!--Page Title-->
                 <div>
                     <h3 class="text-xl font-bold text-bgray-900 lg:text-3xl lg:leading-[36.4px]">
-                        Modul Pelatihan
+                        Artikel
                     </h3>
                 </div>
                 @include('layouts.header')
@@ -37,7 +36,7 @@
                         </span>
                     </button>
                     <div>
-                        <h1 class="text-xl font-bold">Modul Pelatihan</h1>
+                        <h1 class="text-xl font-bold">Artikel</h1>
                     </div>
                 </div>
                 @include('layouts.mobile-header')
@@ -49,21 +48,24 @@
         <section class="section">
             <div class="title-section">
                 <h3 class="title-text">
-                    Buat Modul Pelatihan
+                    Edit Artikel
                 </h3>
                 <div class="relative h-full">
-                    <a href="{{ route('dashboard.modules.index') }}" class="btn bg-ut-300 hover:bg-ut-400">
+                    <a href="{{ route('dashboard.articles.index') }}" class="btn border bg-ut-300 hover:bg-ut-400">
                         <span class="text-base font-medium text-bgray-900">Kembali</span>
                     </a>
                 </div>
             </div>
-            <form method="POST" action="{{ route('dashboard.modules.store') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('dashboard.articles.update', $article->slug) }}"
+                enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
+
                 <div class="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="">
                         <label for="title" class="block text-sm font-medium text-bgray-900">Judul</label>
-                        <input type="text" name="title" id="title" value="{{ old('title') }}" required
-                            oninput="updateSlug()"
+                        <input type="text" name="title" id="title" value="{{ old('title', $article->title) }}"
+                            required oninput="updateSlug()"
                             class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                         @error('title')
                             <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
@@ -71,8 +73,8 @@
                     </div>
                     <div class="">
                         <label for="slug" class="block text-sm font-medium text-bgray-900">Slug</label>
-                        <input type="text" name="slug" id="slug" value="{{ old('slug') }}" required
-                            readonly
+                        <input type="text" name="slug" id="slug" value="{{ old('slug', $article->slug) }}"
+                            required readonly
                             class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                         @error('slug')
                             <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
@@ -87,6 +89,13 @@
                     @error('image')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                     @enderror
+                    @if ($article->image)
+                        <div class="mt-4">
+                            <p class="text-sm text-gray-700">Gambar saat ini:</p>
+                            <img src="{{ asset('storage/' . $article->image) }}"
+                                alt="{{ old('title', $article->title) }}" class="w-32 mt-2">
+                        </div>
+                    @endif
                 </div>
 
                 <div class="mb-4">
@@ -94,18 +103,8 @@
                     <div id="quill-editor" class="mb-3" style="height: 300px;"></div>
                     <textarea name="description" id="quill-editor-area" rows="4"
                         class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                        style="display:none;">{{ old('description') }}</textarea>
+                        style="display:none;">{!! old('description', $article->description) !!}</textarea>
                     @error('description')
-                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
-                    @enderror
-                </div>
-
-                <div class="mb-4">
-                    <label for="youtube_url" class="block text-sm font-medium text-bgray-900">URL
-                        YouTube</label>
-                    <input type="text" name="youtube_url" id="youtube_url" value="{{ old('youtube_url') }}"
-                        class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
-                    @error('youtube_url')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                     @enderror
                 </div>
@@ -114,9 +113,12 @@
                     <label for="is_active" class="block text-sm font-medium text-bgray-900">Status</label>
                     <select name="is_active" id="is_active"
                         class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
-                        <option value="1" {{ old('is_active') == 'true' ? 'selected' : '' }}>Aktif
+                        <option value="1" {{ old('is_active', $article->is_active) == 'true' ? 'selected' : '' }}>
+                            Aktif
                         </option>
-                        <option value="0" {{ old('is_active') == 'false' ? 'selected' : '' }}>Tidak Aktif
+                        <option value="0"
+                            {{ old('is_active', $article->is_active) == 'false' ? 'selected' : '' }}>
+                            Tidak Aktif
                         </option>
                     </select>
                     @error('is_active')
@@ -125,7 +127,7 @@
                 </div>
 
                 <div class="flex justify-end mt-6">
-                    <button type="submit" class="btn bg-blue-600 text-white hover:bg-blue-700focus:ring-blue-500">
+                    <button type="submit" class="btn text-white bg-blue-600 hover:bg-blue-700 focus:ring-blue-500">
                         Simpan
                     </button>
                 </div>

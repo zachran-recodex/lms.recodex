@@ -2,7 +2,7 @@
     <x-slot name="header">
         <header class="header-wrapper fixed z-30 hidden w-full md:block">
             <div class="relative flex h-[108px] w-full items-center justify-between bg-white px-10 2xl:px-[76px]">
-                <button title="Ctrl+b" type="button" class="drawer-btn absolute left-0 top-auto rotate-180 transform">
+                <button type="button" class="drawer-btn absolute left-0 top-auto rotate-180 transform">
                     <span>
                         <svg width="16" height="40" viewBox="0 0 16 40" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -44,114 +44,106 @@
         </header>
     </x-slot>
 
-    <main class="w-full px-6 pb-6 pt-[100px] sm:pt-[156px] xl:px-[48px] xl:pb-[48px]">
-        <div class="2xl:flex 2xl:space-x-[48px]">
-            <section class="mb-6 2xl:mb-0 2xl:flex-1">
-                <div class="mb-12 rounded-lg bg-white">
-                    <div class="flex items-center justify-between border-b border-bgray-300 px-5 py-3">
-                        <h3 class="text-xl font-bold text-bgray-900">
-                            Edit Modul Pelatihan
-                        </h3>
-                        <div class="relative h-full">
-                            <a href="{{ route('dashboard.modules.index') }}"
-                                class="flex h-full w-full items-center justify-center rounded-lg border bg-ut-300 px-4 py-2 hover:bg-ut-400">
-                                <span class="text-base font-medium text-bgray-900">Kembali</span>
-                            </a>
-                        </div>
+    <main class="main">
+        <section class="section">
+            <div class="title-section">
+                <h3 class="title-text">
+                    Edit Modul Pelatihan
+                </h3>
+                <div class="relative h-full">
+                    <a href="{{ route('dashboard.modules.index') }}" class="btn border bg-ut-300 hover:bg-ut-400">
+                        <span class="text-base font-medium text-bgray-900">Kembali</span>
+                    </a>
+                </div>
+            </div>
+            <form method="POST" action="{{ route('dashboard.modules.update', $module->slug) }}"
+                enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+
+                <div class="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="">
+                        <label for="title" class="block text-sm font-medium text-bgray-900">Judul</label>
+                        <input type="text" name="title" id="title" value="{{ old('title', $module->title) }}"
+                            required oninput="updateSlug()"
+                            class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        @error('title')
+                            <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
-                    <div class="px-[55px] py-6">
-                        <form method="POST" action="{{ route('dashboard.modules.update', $module->slug) }}"
-                            enctype="multipart/form-data">
-                            @csrf
-                            @method('PUT')
-
-                            <div class="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div class="">
-                                    <label for="title" class="block text-sm font-medium text-bgray-900">Judul</label>
-                                    <input type="text" name="title" id="title"
-                                        value="{{ old('title', $module->title) }}" required oninput="updateSlug()"
-                                        class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
-                                    @error('title')
-                                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
-                                    @enderror
-                                </div>
-                                <div class="">
-                                    <label for="slug" class="block text-sm font-medium text-bgray-900">Slug</label>
-                                    <input type="text" name="slug" id="slug"
-                                        value="{{ old('slug', $module->slug) }}" required readonly
-                                        class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
-                                    @error('slug')
-                                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="mb-4">
-                                <label for="image" class="block text-sm font-medium text-bgray-900">Gambar</label>
-                                <input type="file" name="image" id="image"
-                                    class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
-                                @error('image')
-                                    <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
-                                @enderror
-                                @if ($module->image)
-                                    <div class="mt-4">
-                                        <p class="text-sm text-gray-700">Gambar saat ini:</p>
-                                        <img src="{{ asset('storage/' . $module->image) }}"
-                                            alt="{{ old('title', $module->title) }}" class="w-32 mt-2">
-                                    </div>
-                                @endif
-                            </div>
-
-                            <div class="mb-4">
-                                <label for="description"
-                                    class="block text-sm font-medium text-bgray-900">Deskripsi</label>
-                                <div id="quill-editor" class="mb-3" style="height: 300px;"></div>
-                                <textarea name="description" id="quill-editor-area" rows="4"
-                                    class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                                    style="display:none;">{!! old('description', $module->description) !!}</textarea>
-                                @error('description')
-                                    <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
-                                @enderror
-                            </div>
-
-                            <div class="mb-4">
-                                <label for="youtube_url" class="block text-sm font-medium text-bgray-900">URL
-                                    YouTube</label>
-                                <input type="url" name="youtube_url" id="youtube_url"
-                                    value="{{ old('youtube_url', $module->youtube_url) }}"
-                                    class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
-                                @error('youtube_url')
-                                    <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
-                                @enderror
-                            </div>
-
-                            <div class="mb-4">
-                                <label for="is_active" class="block text-sm font-medium text-bgray-900">Status</label>
-                                <select name="is_active" id="is_active"
-                                    class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
-                                    <option value="1"
-                                        {{ old('is_active', $module->is_active) == '1' ? 'selected' : '' }}>Aktif
-                                    </option>
-                                    <option value="0"
-                                        {{ old('is_active', $module->is_active) == '0' ? 'selected' : '' }}>Tidak Aktif
-                                    </option>
-                                </select>
-                                @error('is_active')
-                                    <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
-                                @enderror
-                            </div>
-
-                            <div class="flex justify-end mt-6">
-                                <button type="submit"
-                                    class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-2 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                    Simpan
-                                </button>
-                            </div>
-                        </form>
+                    <div class="">
+                        <label for="slug" class="block text-sm font-medium text-bgray-900">Slug</label>
+                        <input type="text" name="slug" id="slug" value="{{ old('slug', $module->slug) }}"
+                            required readonly
+                            class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        @error('slug')
+                            <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
-            </section>
-        </div>
+
+                <div class="mb-4">
+                    <label for="image" class="block text-sm font-medium text-bgray-900">Gambar</label>
+                    <input type="file" name="image" id="image"
+                        class="mt-1 block w-full rounded-lg border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    @error('image')
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                    @enderror
+                    @if ($module->image)
+                        <div class="mt-4">
+                            <p class="text-sm text-gray-700">Gambar saat ini:</p>
+                            <img src="{{ asset('storage/' . $module->image) }}" alt="{{ old('title', $module->title) }}"
+                                class="w-32 mt-2">
+                        </div>
+                    @endif
+                </div>
+
+                <div class="mb-4">
+                    <label for="description" class="block text-sm font-medium text-bgray-900">Deskripsi</label>
+                    <div id="quill-editor" class="mb-3" style="height: 300px;"></div>
+                    <textarea name="description" id="quill-editor-area" rows="4"
+                        class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        style="display:none;">{!! old('description', $module->description) !!}</textarea>
+                    @error('description')
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <div class="mb-4">
+                    <label for="youtube_url" class="block text-sm font-medium text-bgray-900">URL
+                        YouTube</label>
+                    <input type="url" name="youtube_url" id="youtube_url"
+                        value="{{ old('youtube_url', $module->youtube_url) }}"
+                        class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    @error('youtube_url')
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <div class="mb-4">
+                    <label for="is_active" class="block text-sm font-medium text-bgray-900">Status</label>
+                    <select name="is_active" id="is_active"
+                        class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        <option value="1" {{ old('is_active', $module->is_active) == 'true' ? 'selected' : '' }}>
+                            Aktif
+                        </option>
+                        <option value="0"
+                            {{ old('is_active', $module->is_active) == 'false' ? 'selected' : '' }}>
+                            Tidak Aktif
+                        </option>
+                    </select>
+                    @error('is_active')
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <div class="flex justify-end mt-6">
+                    <button type="submit" class="btn text-white bg-blue-600 hover:bg-blue-700 focus:ring-blue-500">
+                        Simpan
+                    </button>
+                </div>
+            </form>
+        </section>
     </main>
 
     <script>

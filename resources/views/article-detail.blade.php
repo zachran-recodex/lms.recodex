@@ -13,7 +13,6 @@
                         </svg>
                     </span>
                 </button>
-                <!-- Page Title -->
                 <div>
                     <h3 class="text-xl font-bold text-bgray-900 lg:text-3xl lg:leading-[36.4px]">
                         Modul Pelatihan
@@ -53,23 +52,22 @@
             <section class="mb-6 2xl:mb-0 flex-1">
                 <div class="rounded-lg bg-white p-5">
                     <div class="flex items-center justify-between h-[50px]">
-                        <h2 class="text-2xl font-semibold text-bgray-900">{{ $module->title }}</h2>
-                        <a href="{{ route('module') }}"
+                        <h2 class="text-2xl font-semibold text-bgray-900">{{ $article->title }}</h2>
+                        <a href="{{ route('dashboard') }}"
                             class="flex h-full w-[100px] items-center justify-center rounded-lg border bg-ut-300">
                             <span class="text-base font-medium text-bgray-900">Kembali</span>
                         </a>
                     </div>
 
-                    <!-- Embed YouTube Video -->
+                    <!-- Gambar -->
                     <div class="mt-4">
-                        <iframe width="100%" height="540" src="{{ $module->youtube_url }}" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen class="rounded-lg"></iframe>
+                        <img src="{{ asset('storage/' . $article->image) }}" alt="{{ $article->title }}"
+                            class="rounded-lg w-full h-auto">
                     </div>
 
                     <!-- Description -->
                     <div class="mt-4">
-                        <p class="text-md font-bold text-bgray-800 text-justify">{!! $module->description !!}</p>
+                        <p class="text-md font-bold text-bgray-800 text-justify">{!! $article->description !!}</p>
                     </div>
                 </div>
             </section>
@@ -78,22 +76,22 @@
             <aside class="xl:w-[300px] bg-white rounded-lg p-5 mt-6 xl:mt-0 flex-shrink-0">
                 <h3 class="text-xl font-semibold text-bgray-900 mb-4">Modul Pelatihan Lainnya</h3>
                 <ul class="space-y-3">
-                    @forelse ($modules as $module)
+                    @forelse ($articles as $article)
                         <li>
                             <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md">
-                                <img src="{{ asset('storage/' . $module->image) }}" alt="{{ $module->title }}"
+                                <img src="{{ asset('storage/' . $article->image) }}" alt="{{ $article->title }}"
                                     class="w-full h-32 object-cover">
                                 <div class="p-4">
-                                    <h4 class="text-lg font-semibold text-bgray-900">{{ $module->title }}</h4>
+                                    <h4 class="text-lg font-semibold text-bgray-900">{{ $article->title }}</h4>
                                 </div>
                             </div>
                         </li>
                     @empty
-                        <li class="text-gray-500">No modules available</li>
+                        <li class="text-gray-500">No articles available</li>
                     @endforelse
                 </ul>
                 <div class="w-full mt-6">
-                    {{ $modules->links() }}
+                    {{ $articles->links() }}
                 </div>
             </aside>
         </div>

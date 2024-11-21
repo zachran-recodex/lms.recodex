@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Module;
+use App\Models\Article;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        $modules = Module::orderBy('id')->paginate(5);
+        $modules = Module::where('is_active', true) // Hanya modul aktif
+        ->orderBy('id', 'desc') // Urutkan berdasarkan ID
+        ->paginate(5); // Batasi 5 item per halaman
 
         return view ('dashboard', compact('modules'));
     }
@@ -35,6 +38,15 @@ class DashboardController extends Controller
 
         // Kirim data modul ke view
         return view('module-detail', compact('module', 'modules'));
+    }
+
+    public function articleDetail($slug)
+    {
+        $article = Article::where('slug', $slug)->firstOrFail();
+        $articles = Article::orderBy('id')->paginate(5);
+
+        // Kirim data modul ke view
+        return view('article-detail', compact('article', 'articles'));
     }
 
     public function notification()

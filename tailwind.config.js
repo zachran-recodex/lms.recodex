@@ -8,7 +8,7 @@ export default {
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
-        './node_modules/flowbite/**/*.js'
+        './node_modules/flowbite/**/*.js',
     ],
 
     darkMode: 'class',
@@ -160,6 +160,37 @@ export default {
         require('flowbite/plugin'),
         plugin(function ({ addVariant }) {
             addVariant("current", "&.active");
+        }),
+        plugin(function ({ addUtilities }) {
+            addUtilities({
+                '.py-main': {
+                    paddingTop: '2rem',
+                    paddingBottom: '2rem',
+                    '@screen sm': {
+                        paddingTop: '3rem',
+                        paddingBottom: '3rem',
+                    },
+                    '@screen lg': {
+                        paddingTop: '4rem',
+                        paddingBottom: '4rem',
+                    },
+                },
+                '.main': {
+                    '@apply w-full px-6 pb-6 pt-[100px] sm:pt-[156px] xl:px-[48px] xl:pb-[48px]': {},
+                },
+                '.section': {
+                    '@apply bg-white shadow-lg rounded-lg px-12 py-6 flex flex-col space-y-5': {},
+                },
+                '.btn': {
+                    '@apply inline-flex items-center justify-center rounded-lg px-5 py-2 focus:outline-none focus:ring-2': {},
+                },
+                '.title-section': {
+                    '@apply flex items-center justify-between border-b border-bgray-300 py-3': {},
+                },
+                '.title-text': {
+                    '@apply text-2xl font-bold text-bgray-900': {},
+                },
+            });
         }),
     ],
 };
