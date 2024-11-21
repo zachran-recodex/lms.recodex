@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
             RolePermissionSeeder::class,
             ModuleSeeder::class,
             ArticleSeeder::class,
+            ClientSeeder::class,
         ]);
     }
 }

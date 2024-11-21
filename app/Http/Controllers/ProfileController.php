@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log; // Add this line
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
@@ -28,9 +27,6 @@ class ProfileController extends Controller
     {
         $user = $request->user();
 
-        // Log the incoming request data
-        Log::info('Profile update request data:', $request->all());
-
         // Explicitly assign values from the request
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
@@ -45,11 +41,37 @@ class ProfileController extends Controller
         $user->organization = $request->input('organization');
 
         // Handle profile picture upload
-        if ($request->hasFile('profile_picture')) {
+        if ($request->has('cropped_image')) {
+
+            // Decode the base64 image
+            $imageData = $request->input('cropped_image');
+            $decodedImage = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imageData));
+
+            // Generate a unique filename
+            $filename = 'users/' . uniqid() . '.png';
+
+            // Save the cropped image to public storage
+            file_put_contents(public_path('storage/' . $filename), $decodedImage);
+
+            // Remove old profile picture if exists
+            if ($user->profile_picture && file_exists(public_path('storage/' . $user->profile_picture))) {
+                unlink(public_path('storage/' . $user->profile_picture));
+            }
+
+            // Update the profile picture path
+            $user->profile_picture = $filename;
+        } elseif ($request->hasFile('profile_picture')) {
+
             $profile_picture = $request->file('profile_picture');
-            $filename = time() . '.' . $profile_picture->getClientOriginalExtension();
+            $filename = 'users/' . time() . '.' . $profile_picture->getClientOriginalExtension();
             $profile_picture->move(public_path('storage/users'), $filename);
-            $user->profile_picture = 'users/' . $filename;
+
+            // Remove old profile picture if exists
+            if ($user->profile_picture && file_exists(public_path('storage/' . $user->profile_picture))) {
+                unlink(public_path('storage/' . $user->profile_picture));
+            }
+
+            $user->profile_picture = $filename;
         }
 
         // Check if email is dirty (updated)
@@ -59,9 +81,6 @@ class ProfileController extends Controller
 
         // Save the user model
         $user->save();
-
-        // Log the saved user data
-        Log::info('User updated:', $user->toArray());
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }

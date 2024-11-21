@@ -44,9 +44,31 @@
                             </div>
                         </a>
                     </li>
-                    <li class="item py-[11px] text-bgray-900 hover:text-ut-300">
-                        {{-- Untuk Admin --}}
-                        @if (auth()->user()->hasRole('admin'))
+                    {{-- Untuk Admin --}}
+                    @if (auth()->user()->hasRole('admin'))
+                        <li class="item py-[11px] text-bgray-900 hover:text-ut-300">
+                            <a href="{{ route('dashboard.clients.index') }}">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-2.5">
+                                        <span class="px-2">
+                                            <svg class="w-6 h-6 text-bgray-800" aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                fill="currentColor" viewBox="0 0 24 24">
+                                                <path fill-rule="evenodd"
+                                                    d="M9 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4H7Zm8-1a1 1 0 0 1 1-1h1v-1a1 1 0 1 1 2 0v1h1a1 1 0 1 1 0 2h-1v1a1 1 0 1 1-2 0v-1h-1a1 1 0 0 1-1-1Z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </span>
+                                        <span class="item-text text-lg font-medium leading-none">Klien</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    @endif
+
+                    {{-- Untuk Admin --}}
+                    @if (auth()->user()->hasRole('admin'))
+                        <li class="item py-[11px] text-bgray-900 hover:text-ut-300">
                             <a href="{{ route('dashboard.modules.index') }}">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center space-x-2.5">
@@ -63,10 +85,12 @@
                                     </div>
                                 </div>
                             </a>
-                        @endif
+                        </li>
+                    @endif
 
-                        {{-- Untuk Mentor --}}
-                        @if (auth()->user()->hasRole('mentor'))
+                    {{-- Untuk Mentor --}}
+                    @if (auth()->user()->hasRole('mentor'))
+                        <li class="item py-[11px] text-bgray-900 hover:text-ut-300">
                             <a href="">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center space-x-2.5">
@@ -78,16 +102,17 @@
                                                     d="M6 2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 1 0 0-2h-2v-2h2a1 1 0 0 0 1-1V4a2 2 0 0 0-2-2h-8v16h5v2H7a1 1 0 1 1 0-2h1V2H6Z"
                                                     clip-rule="evenodd" />
                                             </svg>
-
                                         </span>
                                         <span class="item-text text-lg font-medium leading-none">Modul Pelatihan</span>
                                     </div>
                                 </div>
                             </a>
-                        @endif
+                        </li>
+                    @endif
 
-                        {{-- Untuk Client --}}
-                        @if (auth()->user()->hasRole('client'))
+                    {{-- Untuk Client --}}
+                    @if (auth()->user()->hasRole('client'))
+                        <li class="item py-[11px] text-bgray-900 hover:text-ut-300">
                             <a href="{{ route('module') }}">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center space-x-2.5">
@@ -104,11 +129,12 @@
                                     </div>
                                 </div>
                             </a>
-                        @endif
-                    </li>
-                    <li class="item py-[11px] text-bgray-900 hover:text-ut-300">
-                        {{-- Untuk Admin --}}
-                        @if (auth()->user()->hasRole('admin'))
+                        </li>
+                    @endif
+
+                    {{-- Untuk Admin --}}
+                    @if (auth()->user()->hasRole('admin'))
+                        <li class="item py-[11px] text-bgray-900 hover:text-ut-300">
                             <a href="{{ route('dashboard.articles.index') }}">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center space-x-2.5">
@@ -125,15 +151,17 @@
                                     </div>
                                 </div>
                             </a>
-                        @endif
+                        </li>
+                    @endif
 
-                        {{-- Untuk Mentor --}}
-                        @if (auth()->user()->hasRole('mentor'))
-                            <a href="">
+                    {{-- Untuk Mentor --}}
+                    @if (auth()->user()->hasRole('mentor'))
+                        <li class="item py-[11px] text-bgray-900 hover:text-ut-300">
+                            <a href="{{ route('dashboard.articles.index') }}">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center space-x-2.5">
                                         <span class="px-2">
-                                            <svg class="w-6 h-6 text-bgray-900" aria-hidden="true"
+                                            <svg class="w-6 h-6 text-bgray-800" aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                 fill="currentColor" viewBox="0 0 24 24">
                                                 <path fill-rule="evenodd"
@@ -145,28 +173,9 @@
                                     </div>
                                 </div>
                             </a>
-                        @endif
+                        </li>
+                    @endif
 
-                        {{-- Untuk Client --}}
-                        @if (auth()->user()->hasRole('client'))
-                            <a href="{{ route('article') }}">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center space-x-2.5">
-                                        <span class="px-2">
-                                            <svg class="w-6 h-6 text-bgray-900" aria-hidden="true"
-                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                fill="currentColor" viewBox="0 0 24 24">
-                                                <path fill-rule="evenodd"
-                                                    d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11.5c.07 0 .14-.007.207-.021.095.014.193.021.293.021h2a2 2 0 0 0 2-2V7a1 1 0 0 0-1-1h-1a1 1 0 1 0 0 2v11h-2V5a2 2 0 0 0-2-2H5Zm7 4a1 1 0 0 1 1-1h.5a1 1 0 1 1 0 2H13a1 1 0 0 1-1-1Zm0 3a1 1 0 0 1 1-1h.5a1 1 0 1 1 0 2H13a1 1 0 0 1-1-1Zm-6 4a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H7a1 1 0 0 1-1-1Zm0 3a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H7a1 1 0 0 1-1-1ZM7 6a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H7Zm1 3V8h1v1H8Z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </span>
-                                        <span class="item-text text-lg font-medium leading-none">Artikel</span>
-                                    </div>
-                                </div>
-                            </a>
-                        @endif
-                    </li>
                     <li class="item py-[11px] text-bgray-900 hover:text-ut-300">
                         <a href="{{ route('notification') }}">
                             <div class="flex items-center justify-between">

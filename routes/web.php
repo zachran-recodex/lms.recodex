@@ -4,6 +4,7 @@ use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ModuleController;
 
@@ -34,19 +35,22 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::prefix('dashboard')->name('dashboard.')->group(function () {
-        // Define standard resource routes except for 'edit'
+        Route::resource('clients', ClientController::class)->parameters([
+            'clients' => 'username'
+        ])->except(['edit']);
+
+        Route::get('clients/edit/{username}', [ClientController::class, 'edit'])->name('clients.edit');
+
         Route::resource('modules', ModuleController::class)->parameters([
             'modules' => 'slug'
         ])->except(['edit']);
 
-        // Custom route for editing a module using the desired pattern
         Route::get('modules/edit/{slug}', [ModuleController::class, 'edit'])->name('modules.edit');
 
         Route::resource('articles', ArticleController::class)->parameters([
             'articles' => 'slug'
         ])->except(['edit']);
 
-        // Custom route for editing a module using the desired pattern
         Route::get('articles/edit/{slug}', [ArticleController::class, 'edit'])->name('articles.edit');
     });
 });
