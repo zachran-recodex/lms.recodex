@@ -48,7 +48,8 @@
     </x-slot>
 
     <main class="w-full px-6 pb-6 pt-[100px] sm:pt-[156px] xl:px-12 xl:pb-12">
-        <div class="2xl:flex 2xl:space-x-[48px] flex flex-col">
+        <div class="2xl:flex 2xl:space-x-[48px] flex flex-col xl:flex-row">
+            <!-- Main Content -->
             <section class="mb-6 2xl:mb-0 2xl:flex-1">
                 <div class="rounded-lg bg-white p-5">
                     <div class="flex items-center justify-between h-[50px]">
@@ -72,6 +73,27 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Sidebar (Right) -->
+            <aside class="xl:w-[300px] bg-white rounded-lg p-5 mt-6 xl:mt-0">
+                <h3 class="text-xl font-semibold text-bgray-900 mb-4">Modul Pelatihan Lainnya</h3>
+                <ul class="space-y-3">
+                    @forelse ($modules as $module)
+                        <li>
+                            <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md">
+                                <img src="{{ asset('storage/' . $module->image) }}" alt="{{ $module->title }}"
+                                    class="w-full h-32 object-cover">
+                                <div class="p-4">
+                                    <h4 class="text-lg font-semibold text-bgray-900">{{ $module->title }}</h4>
+                                </div>
+                            </div>
+                        </li>
+                    @empty
+                        <li class="text-gray-500">No modules available</li>
+                    @endforelse
+                </ul>
+            </aside>
+
         </div>
     </main>
 

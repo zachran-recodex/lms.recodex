@@ -30,11 +30,11 @@ class DashboardController extends Controller
 
     public function moduleDetail($slug)
     {
-        // Cari modul berdasarkan slug
         $module = Module::where('slug', $slug)->firstOrFail();
+        $modules = Module::orderBy('id')->paginate(5);
 
         // Kirim data modul ke view
-        return view('module-detail', compact('module'));
+        return view('module-detail', compact('module', 'modules'));
     }
 
     public function notification()
