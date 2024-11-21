@@ -42,15 +42,6 @@ class ClientUpdateRequest extends FormRequest
                 Rule::unique(User::class)->ignore($this->route('user')), // Abaikan validasi unik untuk email saat update
             ],
             'phone_number' => ['nullable', 'string', 'max:20'],
-            'password' => [
-                'nullable', // Password opsional saat update
-                'string',
-                'min:8', // minimal 8 karakter
-                'confirmed', // harus ada konfirmasi password
-                'regex:/[a-z]/', // minimal satu huruf kecil
-                'regex:/[A-Z]/', // minimal satu huruf besar
-                'regex:/[0-9]/', // minimal satu angka
-            ],
         ];
     }
 
@@ -61,7 +52,6 @@ class ClientUpdateRequest extends FormRequest
     {
         return [
             'username.regex' => 'Username hanya boleh berisi huruf kecil tanpa spasi, angka, atau karakter khusus.',
-            'password.regex' => 'Password harus mengandung huruf besar, huruf kecil, dan angka.',
         ];
     }
 }

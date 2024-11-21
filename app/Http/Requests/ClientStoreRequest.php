@@ -42,15 +42,6 @@ class ClientStoreRequest extends FormRequest
                 Rule::unique(User::class),
             ],
             'phone_number' => ['nullable', 'string', 'max:20'],
-            'password' => [
-                'required',
-                'string',
-                'min:8', // minimal 8 karakter
-                'confirmed', // harus ada konfirmasi password
-                'regex:/[a-z]/', // minimal satu huruf kecil
-                'regex:/[A-Z]/', // minimal satu huruf besar
-                'regex:/[0-9]/', // minimal satu angka
-            ],
         ];
     }
 
@@ -61,7 +52,6 @@ class ClientStoreRequest extends FormRequest
     {
         return [
             'username.regex' => 'Username hanya boleh berisi huruf kecil tanpa spasi, angka, atau karakter khusus.',
-            'password.regex' => 'Password harus mengandung huruf besar, huruf kecil dan angka.',
         ];
     }
 }
