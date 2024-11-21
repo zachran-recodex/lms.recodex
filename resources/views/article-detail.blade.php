@@ -15,7 +15,7 @@
                 </button>
                 <div>
                     <h3 class="text-xl font-bold text-bgray-900 lg:text-3xl lg:leading-[36.4px]">
-                        Modul Pelatihan
+                        Artikel
                     </h3>
                 </div>
                 @include('layouts.header')
@@ -37,7 +37,7 @@
                     </button>
                     <div>
                         <a href="/">
-                            <h1 class="text-xl font-bold">Modul Pelatihan</h1>
+                            <h1 class="text-xl font-bold">Artikel</h1>
                         </a>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
 
             <!-- Sidebar (Right) -->
             <aside class="xl:w-[300px] bg-white rounded-lg p-5 mt-6 xl:mt-0 flex-shrink-0">
-                <h3 class="text-xl font-semibold text-bgray-900 mb-4">Modul Pelatihan Lainnya</h3>
+                <h3 class="text-xl font-semibold text-bgray-900 mb-4">Artikel Lainnya</h3>
                 <ul class="space-y-3">
                     @forelse ($articles as $article)
                         <li>

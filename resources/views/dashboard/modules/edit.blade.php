@@ -15,7 +15,7 @@
                 </button>
                 <div>
                     <h3 class="text-xl font-bold text-bgray-900 lg:text-3xl lg:leading-[36.4px]">
-                        Modul Pelatihan
+                        Edit Modul Pelatihan
                     </h3>
                 </div>
                 @include('layouts.header')
@@ -36,7 +36,7 @@
                         </span>
                     </button>
                     <div>
-                        <h1 class="text-xl font-bold">Modul Pelatihan</h1>
+                        <h1 class="text-xl font-bold">Edit Modul Pelatihan</h1>
                     </div>
                 </div>
                 @include('layouts.mobile-header')
@@ -46,16 +46,6 @@
 
     <main class="main">
         <section class="section">
-            <div class="title-section">
-                <h3 class="title-text">
-                    Edit Modul Pelatihan
-                </h3>
-                <div class="relative h-full">
-                    <a href="{{ route('dashboard.modules.index') }}" class="btn border bg-ut-300 hover:bg-ut-400">
-                        <span class="text-base font-medium text-bgray-900">Kembali</span>
-                    </a>
-                </div>
-            </div>
             <form method="POST" action="{{ route('dashboard.modules.update', $module->slug) }}"
                 enctype="multipart/form-data">
                 @csrf
@@ -127,8 +117,7 @@
                         <option value="1" {{ old('is_active', $module->is_active) == 'true' ? 'selected' : '' }}>
                             Aktif
                         </option>
-                        <option value="0"
-                            {{ old('is_active', $module->is_active) == 'false' ? 'selected' : '' }}>
+                        <option value="0" {{ old('is_active', $module->is_active) == 'false' ? 'selected' : '' }}>
                             Tidak Aktif
                         </option>
                     </select>
@@ -137,7 +126,10 @@
                     @enderror
                 </div>
 
-                <div class="flex justify-end mt-6">
+                <div class="flex justify-between mt-6">
+                    <a href="{{ route('dashboard.modules.index') }}" class="btn bg-ut-300 hover:bg-ut-400">
+                        <span class="text-base font-medium text-bgray-900">Kembali</span>
+                    </a>
                     <button type="submit" class="btn text-white bg-blue-600 hover:bg-blue-700 focus:ring-blue-500">
                         Simpan
                     </button>

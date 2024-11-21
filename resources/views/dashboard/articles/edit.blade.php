@@ -15,7 +15,7 @@
                 </button>
                 <div>
                     <h3 class="text-xl font-bold text-bgray-900 lg:text-3xl lg:leading-[36.4px]">
-                        Artikel
+                        Edit Artikel
                     </h3>
                 </div>
                 @include('layouts.header')
@@ -36,7 +36,7 @@
                         </span>
                     </button>
                     <div>
-                        <h1 class="text-xl font-bold">Artikel</h1>
+                        <h1 class="text-xl font-bold">Edit Artikel</h1>
                     </div>
                 </div>
                 @include('layouts.mobile-header')
@@ -46,16 +46,6 @@
 
     <main class="main">
         <section class="section">
-            <div class="title-section">
-                <h3 class="title-text">
-                    Edit Artikel
-                </h3>
-                <div class="relative h-full">
-                    <a href="{{ route('dashboard.articles.index') }}" class="btn border bg-ut-300 hover:bg-ut-400">
-                        <span class="text-base font-medium text-bgray-900">Kembali</span>
-                    </a>
-                </div>
-            </div>
             <form method="POST" action="{{ route('dashboard.articles.update', $article->slug) }}"
                 enctype="multipart/form-data">
                 @csrf
@@ -126,7 +116,10 @@
                     @enderror
                 </div>
 
-                <div class="flex justify-end mt-6">
+                <div class="flex justify-between mt-6">
+                    <a href="{{ route('dashboard.articles.index') }}" class="btn bg-ut-300 hover:bg-ut-400">
+                        <span class="text-base font-medium text-bgray-900">Kembali</span>
+                    </a>
                     <button type="submit" class="btn text-white bg-blue-600 hover:bg-blue-700 focus:ring-blue-500">
                         Simpan
                     </button>

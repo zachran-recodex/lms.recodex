@@ -47,16 +47,6 @@
 
     <main class="main">
         <section class="section">
-            <div class="title-section">
-                <h3 class="title-text">
-                    Buat Modul Pelatihan
-                </h3>
-                <div class="relative h-full">
-                    <a href="{{ route('dashboard.modules.index') }}" class="btn bg-ut-300 hover:bg-ut-400">
-                        <span class="text-base font-medium text-bgray-900">Kembali</span>
-                    </a>
-                </div>
-            </div>
             <form method="POST" action="{{ route('dashboard.modules.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -124,7 +114,10 @@
                     @enderror
                 </div>
 
-                <div class="flex justify-end mt-6">
+                <div class="flex justify-between mt-6">
+                    <a href="{{ route('dashboard.modules.index') }}" class="btn bg-ut-300 hover:bg-ut-400">
+                        <span class="text-base font-medium text-bgray-900">Kembali</span>
+                    </a>
                     <button type="submit" class="btn bg-blue-600 text-white hover:bg-blue-700focus:ring-blue-500">
                         Simpan
                     </button>
