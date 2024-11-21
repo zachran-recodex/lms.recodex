@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log; // Add this line
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
@@ -35,7 +34,6 @@ class ProfileController extends Controller
         // Explicitly assign values from the request
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
-        $user->username = $request->input('username');
         $user->email = $request->input('email');
         $user->phone_number = $request->input('phone_number');
         $user->address = $request->input('address');
@@ -43,12 +41,15 @@ class ProfileController extends Controller
         $user->state = $request->input('state');
         $user->city = $request->input('city');
         $user->zip_code = $request->input('zip_code');
-        $user->office_phone_number = $request->input('office_phone_number');
+        $user->office_phone = $request->input('office_phone');
         $user->organization = $request->input('organization');
 
         // Handle profile picture upload
         if ($request->hasFile('profile_picture')) {
-            $user->profile_picture = $request->file('profile_picture')->store('profile_pictures', 'public');
+            $profile_picture = $request->file('profile_picture');
+            $filename = time() . '.' . $profile_picture->getClientOriginalExtension();
+            $profile_picture->move(public_path('storage/users'), $filename);
+            $user->profile_picture = 'users/' . $filename;
         }
 
         // Check if email is dirty (updated)

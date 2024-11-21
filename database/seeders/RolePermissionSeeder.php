@@ -84,6 +84,29 @@ class RolePermissionSeeder extends Seeder
         // Assign role 'admin' ke Admin
         $admin->assignRole($adminRole);
 
+        // Membuat admin baru dengan nama Aulia
+        $auliaAdmin = User::firstOrCreate(
+            ['username' => 'aulia'],
+            [
+                'first_name' => 'Aulia',
+                'last_name' => 'Hanifa',
+                'email' => 'aulia@example.com',
+                'password' => bcrypt('aulia123'),
+                'phone_number' => '444444444',
+                'address' => 'Aulia Street',
+                'country' => 'Indonesia',
+                'state' => 'Yogyakarta',
+                'city' => 'Yogyakarta',
+                'zip_code' => '55555',
+                'office_phone' => '027444444',
+                'organization' => 'AuliaCorp',
+                'profile_picture' => 'aulia.jpg',
+            ]
+        );
+
+        // Assign role 'admin' ke Aulia
+        $auliaAdmin->assignRole($adminRole);
+
         // Membuat user untuk role 'client' jika belum ada
         $client = User::firstOrCreate(
             ['username' => 'client'],

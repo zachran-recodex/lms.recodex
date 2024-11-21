@@ -25,8 +25,6 @@
     <link rel="stylesheet" href="{{ asset('') }}css/output.css" />
     <link rel="stylesheet" href="{{ asset('') }}css/style.css" />
 
-    <script src="https://kit.fontawesome.com/ddb90eabf1.js" crossorigin="anonymous"></script>
-
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
 
     <!-- Scripts -->

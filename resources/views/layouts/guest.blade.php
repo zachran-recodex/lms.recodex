@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="{{ asset('') }}css/output.css" />
     <link rel="stylesheet" href="{{ asset('') }}css/style.css" />
 
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -53,6 +55,8 @@
             </div>
         </div>
     </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
 
     <!--scripts -->
     <script src="{{ asset('') }}js/jquery-3.6.0.min.js"></script>

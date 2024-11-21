@@ -176,7 +176,7 @@ export default {
                     },
                 },
                 '.main': {
-                    '@apply w-full px-6 pb-6 pt-[100px] sm:pt-[156px] xl:px-[48px] xl:pb-[48px]': {},
+                    '@apply w-full px-6 pb-6 pt-[100px] sm:pt-[156px] xl:px-[48px] xl:pb-[48px] flex flex-col space-y-5': {},
                 },
                 '.section': {
                     '@apply bg-white shadow-lg rounded-lg px-12 py-6 flex flex-col space-y-5': {},

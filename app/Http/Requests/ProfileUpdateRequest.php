@@ -38,7 +38,7 @@ class ProfileUpdateRequest extends FormRequest
             'state' => ['nullable', 'string', 'max:255'],
             'city' => ['nullable', 'string', 'max:255'],
             'zip_code' => ['nullable', 'string', 'max:20'],
-            'office_phone_number' => ['nullable', 'string', 'max:20'],
+            'office_phone' => ['nullable', 'string', 'max:20'],
             'organization' => ['nullable', 'string', 'max:255'],
         ];
     }

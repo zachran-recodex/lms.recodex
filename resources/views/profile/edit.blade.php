@@ -41,7 +41,7 @@
                             <div class="flex items-center gap-4">
                                 <img src="{{ asset('') }}images/logo/logo-ut.png" class="block w-[50px] h-[50px]"
                                     alt="logo" />
-                                <h1 class="text-xl font-bold">Dashboard</h1>
+                                <h1 class="text-xl font-bold">Profil Pengguna</h1>
                             </div>
                         </a>
                     </div>
@@ -51,19 +51,14 @@
         </header>
     </x-slot>
 
-    <main class="w-full px-6 pb-6 pt-[100px] sm:pt-[156px] xl:px-12 xl:pb-12">
-        <div class="2xl:flex 2xl:space-x-[48px] space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
-            </div>
+    <main class="main">
+        <section class="section">
+            @include('profile.partials.update-profile-information-form')
+        </section>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
-            </div>
-        </div>
+        <section class="section">
+            @include('profile.partials.update-password-form')
+        </section>
+
     </main>
 </x-app-layout>

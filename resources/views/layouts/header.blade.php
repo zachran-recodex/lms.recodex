@@ -29,12 +29,14 @@
         <!--Profile-->
         <div onclick="profileAction()" class="flex cursor-pointer space-x-0 lg:space-x-3">
             <div class="h-[52px] w-[52px] overflow-hidden rounded-xl border border-bgray-300">
-                <img class="object-cover" src="{{ asset('') }}images/avatar/profile-52x52.png" alt="avater" />
+                <img class="object-cover"
+                    src="{{ Auth::user()->profile_picture ? asset('storage/' . Auth::user()->profile_picture) : asset('images/avatar/profile-52x52.png') }}"
+                    alt="profile picture" />
             </div>
             <div class="hidden 2xl:block">
                 <div class="flex items-center space-x-2.5">
                     <h3 class="text-base font-bold leading-[28px] text-bgray-900 uppercase">
-                        {{ Auth::user()->getRoleNames()->first() }}
+                        {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
                     </h3>
                     <span>
                         <svg class="stroke-bgray-900 " width="24" height="24" viewBox="0 0 24 24" fill="none"
