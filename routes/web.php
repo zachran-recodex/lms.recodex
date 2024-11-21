@@ -35,23 +35,35 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::prefix('dashboard')->name('dashboard.')->group(function () {
-        Route::resource('clients', ClientController::class)->parameters([
-            'clients' => 'username'
-        ])->except(['edit']);
+        // Clients Routes
+        Route::resource('clients', ClientController::class)
+            ->parameters(['clients' => 'username'])
+            ->except(['edit'])
+            ->middleware('can:manage clients');
 
-        Route::get('clients/edit/{username}', [ClientController::class, 'edit'])->name('clients.edit');
+        Route::get('clients/edit/{username}', [ClientController::class, 'edit'])
+            ->name('clients.edit')
+            ->middleware('can:manage clients');
 
-        Route::resource('modules', ModuleController::class)->parameters([
-            'modules' => 'slug'
-        ])->except(['edit']);
+        // Modules Routes
+        Route::resource('modules', ModuleController::class)
+            ->parameters(['modules' => 'slug'])
+            ->except(['edit'])
+            ->middleware('can:manage modules');
 
-        Route::get('modules/edit/{slug}', [ModuleController::class, 'edit'])->name('modules.edit');
+        Route::get('modules/edit/{slug}', [ModuleController::class, 'edit'])
+            ->name('modules.edit')
+            ->middleware('can:manage modules');
 
-        Route::resource('articles', ArticleController::class)->parameters([
-            'articles' => 'slug'
-        ])->except(['edit']);
+        // Articles Routes
+        Route::resource('articles', ArticleController::class)
+            ->parameters(['articles' => 'slug'])
+            ->except(['edit'])
+            ->middleware('can:manage articles');
 
-        Route::get('articles/edit/{slug}', [ArticleController::class, 'edit'])->name('articles.edit');
+        Route::get('articles/edit/{slug}', [ArticleController::class, 'edit'])
+            ->name('articles.edit')
+            ->middleware('can:manage articles');
     });
 });
 

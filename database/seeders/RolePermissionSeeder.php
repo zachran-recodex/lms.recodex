@@ -18,6 +18,7 @@ class RolePermissionSeeder extends Seeder
         $permissions = [
             'manage modules',
             'manage articles',
+            'manage clients',
             'see modules',
             'see articles',
         ];
@@ -56,6 +57,7 @@ class RolePermissionSeeder extends Seeder
         // Daftar permission untuk role 'mentor'
         $mentorPermissions = [
             'manage modules',
+            'manage articles',
         ];
 
         // Mengatur permission untuk role 'mentor'
