@@ -36,7 +36,6 @@
         </div>
 
         <div class="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-
             <!-- Email -->
             <div>
                 <x-input-label for="email" :value="__('Email')" />
@@ -73,10 +72,24 @@
         </div>
 
         <!-- Profile Picture -->
-        <div>
-            <x-input-label for="profile_picture" :value="__('Profile Picture')" />
-            <x-text-input id="profile_picture" name="profile_picture" type="file" class="mt-1 block w-full" />
-            <x-input-error class="mt-2" :messages="$errors->get('profile_picture')" />
+        <div class="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="">
+                <x-input-label for="profile_picture" :value="__('Profile Picture')" />
+                <x-text-input id="profile_picture" name="profile_picture" type="file" class="mt-1 block w-full"
+                    accept="image/*" />
+                <x-input-error class="mt-2" :messages="$errors->get('profile_picture')" />
+            </div>
+
+            <!-- Crop Area -->
+            <div id="crop-area" class="mt-4 hidden">
+                <img id="image-to-crop" src="" alt="Crop Image"
+                    class="max-w-full h-auto rounded-md shadow-md" />
+                <button id="crop-button" type="button"
+                    class="mt-4 bg-blue-500 text-white px-4 py-2 rounded">Crop</button>
+            </div>
+
+            <!-- Input Hidden untuk Hasil Crop -->
+            <input type="hidden" id="cropped_image" name="cropped_image" />
         </div>
 
         <div class="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -141,11 +154,6 @@
             </div>
         </div>
 
-
-
-
-
-
         <!-- Save Button -->
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
@@ -156,4 +164,55 @@
             @endif
         </div>
     </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const profileInput = document.getElementById('profile_picture');
+            const cropArea = document.getElementById('crop-area');
+            const imageToCrop = document.getElementById('image-to-crop');
+            const cropButton = document.getElementById('crop-button');
+            const croppedImageInput = document.getElementById('cropped_image');
+            let cropper;
+
+            profileInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (!file) return;
+
+                // Load gambar ke area crop
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    imageToCrop.src = event.target.result;
+                    cropArea.classList.remove('hidden');
+
+                    // Inisialisasi atau reset Cropper.js
+                    if (cropper) cropper.destroy();
+                    cropper = new Cropper(imageToCrop, {
+                        aspectRatio: 1, // Ratio persegi
+                        viewMode: 1,
+                    });
+                };
+                reader.readAsDataURL(file);
+            });
+
+            cropButton.addEventListener('click', function() {
+                if (!cropper) return;
+
+                // Ambil hasil crop sebagai base64
+                const canvas = cropper.getCroppedCanvas({
+                    width: 52, // Ukuran output gambar
+                    height: 52,
+                });
+
+                // Konversi ke data URL dan simpan di input hidden
+                canvas.toBlob(function(blob) {
+                    const reader = new FileReader();
+                    reader.readAsDataURL(blob);
+                    reader.onloadend = function() {
+                        croppedImageInput.value = reader.result;
+                        alert('Image cropped successfully!');
+                    };
+                });
+            });
+        });
+    </script>
 </section>
