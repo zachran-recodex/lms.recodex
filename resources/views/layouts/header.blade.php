@@ -29,7 +29,7 @@
         <!--Profile-->
         <div onclick="profileAction()" class="flex cursor-pointer space-x-0 lg:space-x-3">
             <div class="h-[52px] w-[52px] overflow-hidden rounded-xl border border-bgray-300">
-                <img class="object-cover"
+                <img class="object-cover object-center"
                     src="{{ Auth::user()->profile_picture ? asset('storage/' . Auth::user()->profile_picture) : asset('images/avatar/profile-52x52.png') }}"
                     alt="profile picture" />
             </div>
